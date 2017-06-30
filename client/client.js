@@ -32,25 +32,16 @@ $(document).ready(function () {
   map.attributionControl.setPrefix('')
 
   // create OpenStreetMap tile layers for streets and aerial imagery
-  var osmLayer = L.tileLayer('//{s}.tiles.mapbox.com/v3/' + window.OTP_config
-      .osmMapKey + '/{z}/{x}/{y}{scale}.png', {
-      subdomains: ['a', 'b', 'c', 'd'],
-      attribution: 'Street Map <a href="//mapbox.com/about/maps">Terms & Feedback</a>',
+  var osmLayer = L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{scale}.jpg', {
+      subdomains: ['a', 'b', 'c'],
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
       scale: L.Browser.retina ? '@2x' : '',
 			detectRetina: true
-    })
-  var aerialLayer = L.tileLayer('//{s}.tiles.mapbox.com/v3/' + window.OTP_config
-      .aerialMapKey + '/{z}/{x}/{y}{scale}.png', {
-      subdomains: ['a', 'b', 'c', 'd'],
-      attribution: 'Satellite Map <a href="//mapbox.com/about/maps">Terms & Feedback</a>',
-      scale: L.Browser.retina ? '@2x' : '',
-			detectRetina: true
-    })
+    });
 
   // create a leaflet layer control and add it to the map
   var baseLayers = {
     'Street Map': osmLayer,
-    'Satellite Map': aerialLayer
   }
   L.control.layers(baseLayers).addTo(map)
 

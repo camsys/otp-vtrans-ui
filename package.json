@@ -13,8 +13,11 @@
   "devDependencies": {
     "component": "*",
     "component-uglifyjs": "*",
+    "generator-supported": "0.0.1",
     "serve": "^1.4.0",
-    "standard": "8.3.0"
+    "standard": "8.3.0",
+    "cogent": "1.0.1",
+    "debug": "2.6.8"
   },
   "scripts": {
     "start": "serve client",

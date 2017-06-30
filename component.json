@@ -7,9 +7,10 @@
     "components/handlebars.js": "*",
     "es-shims/es5-shim": "*",
     "es-shims/es6-shim": "*",
-    "kpwebb/select2": "*",
+    "select2/select2": "3.5.1",
     "trevorgerhardt/haversine": "*",
-    "visionmedia/debug": "*"
+    "visionmedia/debug": "*",
+    "components/jquery": "3.2.1"
   },
   "development": {},
   "local": [
