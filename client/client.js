@@ -33,15 +33,15 @@ $(document).ready(function () {
 
   // create OpenStreetMap tile layers for streets and aerial imagery
   var osmLayer = L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{scale}.jpg', {
-      subdomains: ['a', 'b', 'c'],
-      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-      scale: L.Browser.retina ? '@2x' : '',
-			detectRetina: true
-    });
+    subdomains: ['a', 'b', 'c'],
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+    scale: L.Browser.retina ? '@2x' : '',
+    detectRetina: true
+  })
 
   // create a leaflet layer control and add it to the map
   var baseLayers = {
-    'Street Map': osmLayer,
+    'Street Map': osmLayer
   }
   L.control.layers(baseLayers).addTo(map)
 
