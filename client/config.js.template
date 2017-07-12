@@ -1,5 +1,5 @@
 window.OTP_config = {
-  initLatLng: [45.52, -122.681944],
+  initLatLng: [44.42, -72.01],
 
   osmMapKey: 'your-mapbox-osm-key',
   aerialMapKey: 'your-mapbox-aerial-key',
@@ -8,6 +8,11 @@ window.OTP_config = {
   // geocoderSearchRadius : 25, // search radius in km for mapzen geocoder from initLatLng (defaults to 50 if not specified)
 
   otpApi: 'http://localhost:8001/otp/routers/',
+
+  //Number in meters along the route that will be highlighted by the flagstop iconography
+  flagStopBufferSizeDefault: 4,
+  //The color the flag stop line should be
+  flagStopLineColor: '#ff0000',
 
   // default query parameters to pass to otp router
   routerDefaults: {maxPreTransitTime: 1800},
@@ -23,8 +28,8 @@ window.OTP_config = {
   mapzenApi: 'https://search.mapzen.com/v1/',
 
   // specify modes to be enabled in 'travel by' dropdown as list of OTP modes
-  // defaults to: 'TRANSIT,WALK', 'TRAINISH,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE'
+  // defaults to: 'TRANSIT,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE'
   //
   // e.g. uncomment following line to add drive-to-transit to the default list
-  modes: [ 'TRANSIT,WALK', 'TRAINISH,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE', 'TRANSIT,CAR_PARK' ]
+  modes: [ 'TRANSIT,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE', 'TRANSIT,CAR_PARK' ]
 }

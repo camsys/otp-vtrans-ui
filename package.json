@@ -1,6 +1,6 @@
 {
   "name": "otpjs",
-  "version": "0.13.3",
+  "version": "013.3.0",
   "description": "A lightweight library for modular development of modern OpenTripPlanner front-end interfaces",
   "keywords": [],
   "author": "Conveyal",
@@ -23,5 +23,8 @@
     "start": "serve client",
     "format": "standard --format lib/*.js client.js config.js index.js",
     "lint": "standard --verbose lib/*.js client.js config.js index.js"
+  },
+  "dependencies": {
+    "leaflet-polylinedecorator": "^1.2.0"
   }
 }
