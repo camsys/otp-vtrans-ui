@@ -6,11 +6,15 @@ JS := $(shell find lib -name '*.js' -print)
 
 PORT = 3000
 
-build: components $(JS)
+build: components $(JS) plugin
 	@$(COMPONENT) build --dev --out client/build
 
+plugin: local/leaflet-polylinedecorator
+	mkdir -p client/build/leafletplugins
+	cp -r local/leaflet-polylinedecorator client/build/leafletplugins 
+
 clean:
-	rm -rf build components node_modules
+	rm -rf client/build components node_modules
 
 components: component.json
 	@$(COMPONENT) install --dev
