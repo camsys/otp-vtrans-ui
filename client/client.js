@@ -32,16 +32,25 @@ $(document).ready(function () {
   map.attributionControl.setPrefix('')
 
   // create OpenStreetMap tile layers for streets and aerial imagery
-  var osmLayer = L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{scale}.jpg', {
-    subdomains: ['a', 'b', 'c'],
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-    scale: L.Browser.retina ? '@2x' : '',
-    detectRetina: true
+  var osmLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        token: window.OTP_config.osmMapKey
   })
+  
+  var aerialLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.satellite',
+        token: window.OTP_config.osmMapKey
+  })
+    
 
   // create a leaflet layer control and add it to the map
   var baseLayers = {
-    'Street Map': osmLayer
+    'Street Map': osmLayer,
+    'Satellite Map': aerialLayer
   }
   L.control.layers(baseLayers).addTo(map)
 
