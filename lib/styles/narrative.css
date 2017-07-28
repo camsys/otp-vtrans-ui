@@ -246,9 +246,11 @@
 }
 
 .otp-legMode-icon-CAR {
-	background-position: -139px 0;
-	width: 19px;
-	height: 20px;
+  background: url('otpjs/lib/images/mode/uber.png') no-repeat;
+	display: inline-block;
+	vertical-align:middle;
+  width: 33px;
+  height: 8px;
 }
 
 .otp-legMode-icon-arrow-left {
