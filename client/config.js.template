@@ -17,6 +17,7 @@ window.OTP_config = {
   showDemandResponseOptions: true,
   useDemandResponseDefault: true,
   banDemandResponseDefault: true,
+  demandResponseReluctance: 10,
 
   // default query parameters to pass to otp router
   routerDefaults: {maxPreTransitTime: 1800},
