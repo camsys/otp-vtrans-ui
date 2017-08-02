@@ -14,6 +14,10 @@ window.OTP_config = {
   //The color the flag stop line should be
   flagStopLineColor: '#ff0000',
 
+  showDemandResponseOptions: true,
+  useDemandResponseDefault: true,
+  banDemandResponseDefault: true,
+
   // default query parameters to pass to otp router
   routerDefaults: {maxPreTransitTime: 1800},
 
