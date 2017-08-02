@@ -20,3 +20,10 @@ To get started with otp.js and the sample web client:
 4. Copy the client configuration template from `client/config.js.template` to `client/config.js`; update `client/config.js` to reflect your specific setup including OTP backend, Mapbox keys, geocoder endpoints, etc.
 
 5. Deploy the client to the web by copying the `client` directory to your web server.
+
+
+
+
+
+
+http://localhost:3000/#plan?fromPlace=44.418315290034066%2C-72.01692646543374&toPlace=44.42210071608278%2C-72.03660711904911&date=08%2F02%2F2017&time=3%3A07 PM&optimize=QUICK&mode=TRANSIT%2CWALK&numItineraries=3&wheelchairAccessible=true&flagStopBufferSize=40&maxPreTransitTime=1800
