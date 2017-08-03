@@ -12,7 +12,7 @@ window.OTP_config = {
   //Number in meters along the route that will be highlighted by the flagstop iconography
   flagStopBufferSizeDefault: 4,
   //The color the flag stop line should be
-  flagStopLineColor: '#ff0000',
+  flagStopLineColor: '#0276FD',
 
   // default query parameters to pass to otp router
   routerDefaults: {maxPreTransitTime: 1800},
