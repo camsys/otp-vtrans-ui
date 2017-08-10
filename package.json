@@ -25,6 +25,7 @@
     "lint": "standard --verbose lib/*.js client.js config.js index.js"
   },
   "dependencies": {
+    "leaflet-curve": "^1.0.0",
     "leaflet-polylinedecorator": "^1.2.0"
   }
 }
