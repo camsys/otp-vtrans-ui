@@ -13,12 +13,6 @@
     "components/jquery": "3.2.1"
   },
   "development": {},
-  "local": [
-    "leaflet.label"
-  ],
-  "paths": [
-    "local"
-  ],
   "main": "lib/index.js",
   "scripts": [
     "lib/bike-triangle-control.js",
