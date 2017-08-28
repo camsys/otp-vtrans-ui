@@ -13,7 +13,7 @@ clean:
 node_modules: package.json
 	@npm install
 
-watch:
-	webpack-dev-server --config webpack.config.js --content-base dist/  
+watch: node_modules
+	webpack-dev-server --devtool sourcemap --config webpack.config.js --content-base dist/  
 	
 
