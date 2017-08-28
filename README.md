@@ -1,22 +1,23 @@
+# OTP VTrans UI
 
-# otp.js
+Front-end interface for VTRANS [OpenTripPlanner](http://opentripplanner.org) project. Forked from [otp.js](https://github.com/conveyal/otp.js.git)
 
-A lightweight library for modular development of modern [OpenTripPlanner](http://opentripplanner.org) front-end interfaces.
+The main difference between otp.js and this fork is: additional icons and behaviors for flexible transportation modes (see [GTFS-flex reference](https://github.com/CUTR-at-USF/gtfs-flex/blob/master/spec/reference.md)).
 
-The core of the library is a collection of data models and views (`lib/`), written using backbone.js, that encapsulate OTP API requests and responses (OTP API version 0.10+). Also included is a simple web client (`client/`) that shows how otp.js can be used to create a functional OTP front-end.
-
-otp.js uses [Component](https://github.com/component/component) for dependency and build process management.
+The build management system has been switched to [Webpack](http://webpack.js.org/).
 
 ## Getting Started
 
-To get started with otp.js and the sample web client:
+To get started:
 
-1. Clone the otp.js repo to your local machine using `git clone https://github.com/conveyal/otp.js.git`
+1. Clone the otp.js repo to your local machine using `git clone https://github.com/camsys/otp-vtrans-ui`. Run `git checkout vtrans-dev`.
 
-2. Install [npm](https://www.npmjs.org/) if needed. In the otp.js project directory, run `npm install` to install Component and set up the development environment (this in configured in package.json).
+2. Install [npm](https://www.npmjs.org/) if needed. In the project directory, run `npm install` to install dependencies and set up the development environment (this in configured in package.json).
 
-3. Run `make`, which invokes Component to download any required dependencies and package them together with the local otp.js code (a copy of the packaged code is put in `client/build/`).
+3. Copy the client configuration template from `src/config.js.template` to `src/config.js`; update `src/config.js` to reflect your specific setup including OTP backend, Mapbox keys, geocoder endpoints, etc.
 
-4. Copy the client configuration template from `client/config.js.template` to `client/config.js`; update `client/config.js` to reflect your specific setup including OTP backend, Mapbox keys, geocoder endpoints, etc.
+4. Run `npm run build` to package the project and put it in `dist`.
 
-5. Deploy the client to the web by copying the `client` directory to your web server.
+5. For development: run `npm run serve` to run a Webpack dev server which builds the project, serves it locally, and rebuilds on changes to the source files.
+
+6. Deploy the client to the web by copying the `dist` directory to your web server.

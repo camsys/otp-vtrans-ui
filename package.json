@@ -10,22 +10,23 @@
     "type": "git",
     "url": "git://github.com/conveyal/otp.js.git"
   },
-  "devDependencies": {
-    "component": "*",
-    "component-uglifyjs": "*",
-    "generator-supported": "0.0.1",
-    "serve": "^1.4.0",
-    "standard": "8.3.0",
-    "cogent": "1.0.1",
-    "debug": "2.6.8"
-  },
   "scripts": {
-    "start": "serve client",
-    "format": "standard --format lib/*.js client.js config.js index.js",
-    "lint": "standard --verbose lib/*.js client.js config.js index.js"
+    "serve": "webpack-dev-server --devtool sourcemap --config webpack.config.js --content-base dist/",
+    "build": "webpack --config webpack.config.js",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
+    "backbone": "^1.2.1",
+    "css-loader": "^0.28.5",
+    "file-loader": "^0.11.2",
+    "handlebars": "^4.0.10",
+    "handlebars-loader": "^1.5.0",
+    "haversine": "^1.0.2",
+    "leaflet": "^1.0.0",
     "leaflet-curve": "^1.0.0",
-    "leaflet-polylinedecorator": "^1.2.0"
+    "leaflet-polylinedecorator": "^1.2.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "url-loader": "^0.5.9"
   }
 }
