@@ -30,8 +30,12 @@
   },
   "dependencies": {
     "backbone": "^1.2.1",
+    "css-loader": "^0.28.5",
+    "file-loader": "^0.11.2",
     "leaflet": "^1.0.0",
     "leaflet-curve": "^1.0.0",
-    "leaflet-polylinedecorator": "^1.2.0"
+    "leaflet-polylinedecorator": "^1.2.0",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9"
   }
 }

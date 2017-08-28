@@ -3,7 +3,7 @@ var webpack = require('webpack')
 
 module.exports =
   {
-    entry: './client/client.js',
+    entry: './lib/client.js',
     output: {
       filename: 'build.js',
       path: path.resolve(__dirname, 'client/build'),
@@ -19,6 +19,14 @@ module.exports =
          query: {
           knownHelpersOnly: false
           },
+        },
+        { 
+          test: /\.css$/, 
+          loader: "style-loader!css-loader"
+        },
+        {
+          test: /\.(jpg|png|svg)$/,
+          loader: 'url-loader'
         },
      ]
    },

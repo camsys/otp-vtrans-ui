@@ -80,66 +80,7 @@
     margin-top: 16px;
 }
 
-
-.otp-legBubble-arrow-right {
-    background: url('../images/mode/arrow_right.png');
-    width: 8px;
-    height: 16px;
-}
-
-.otp-legBubble-arrow-left {
-    background: url('../images/mode/arrow_left.png');
-    width: 8px;
-    height: 16px;
-}
-
-.otp-modeIcon-BICYCLE {
-    background: url('../images/mode/bicycle.png');
-    width: 16px; height: 16px;
-}
-
-.otp-modeIcon-WALK {
-    background: url('../images/mode/walk.png');
-    width: 10px; height: 16px;
-}
-
-.otp-modeIcon-BUS {
-    background: url('../images/mode/bus.png');
-    width: 11px; height: 16px;
-}
-
-.otp-modeIcon-RAIL {
-    background: url('../images/mode/rail.png');
-    width: 12px; height: 16px;
-}
-
-.otp-modeIcon-TRAM {
-    background: url('../images/mode/tram.png');
-    width: 11px; height: 16px;
-}
-
-.otp-modeIcon-SUBWAY {
-    background: url('../images/mode/subway.png');
-    width: 14px; height: 16px;
-}
-
-.otp-modeIcon-FERRY {
-    background: url('../images/mode/ferry.png');
-    width: 16px; height: 16px;
-}
-
-.otp-modeIcon-GONDOLA {
-    background: url('../images/mode/gondola.png');
-    width: 15px; height: 16px;
-}
-
-.otp-modeIcon-CAR {
-    background: url('../images/mode/car.png');
-    width: 15px; height: 16px;
-}
-
 .otp-routeShortName {
-
     margin-top: -1px;
 }
 

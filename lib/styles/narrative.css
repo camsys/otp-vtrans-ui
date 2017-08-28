@@ -120,6 +120,9 @@
 		background-size: 100%;
 }
 
+.otp-flagStop {
+	background-image: url('../images/waving_person.png');
+}
 
 .otp-legStep-icon-LEFT {
     background-image: url('../images/directions/left.png')
