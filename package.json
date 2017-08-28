@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "backbone": "^1.2.1",
+    "leaflet": "^1.0.0",
     "leaflet-curve": "^1.0.0",
     "leaflet-polylinedecorator": "^1.2.0"
   }

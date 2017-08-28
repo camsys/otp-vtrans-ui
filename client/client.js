@@ -1,6 +1,6 @@
 var $ = window.$
 var Backbone = require("backbone")
-var L = window.L
+var L = require("leaflet")
 var OTP = require("../lib/index.js");
 
 // full: http://stackoverflow.com/questions/13029904/twitter-bootstrap-add-class-to-body-referring-to-its-mode
