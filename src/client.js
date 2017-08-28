@@ -1,15 +1,19 @@
 // styles
-import "./styles/map.css";
-import "./styles/narrative.css";
-import "./styles/request-form.css";
-import "./styles/tabs.css";
-import "./styles/topo.css";
-import "./styles/client.css";
+import "./lib/styles/map.css";
+import "./lib/styles/narrative.css";
+import "./lib/styles/request-form.css";
+import "./lib/styles/tabs.css";
+import "./lib/styles/topo.css";
+import "./client.css";
+
+// html
+import "./index.html"
+import "./config.js"
 
 var $ = window.$
 var Backbone = require("backbone")
 var L = require("leaflet")
-var OTP = require("./index.js");
+var OTP = require("./lib/index.js");
 
 // full: http://stackoverflow.com/questions/13029904/twitter-bootstrap-add-class-to-body-referring-to-its-mode
 // Assigns class to body based on the width of screen

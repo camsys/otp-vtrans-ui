@@ -3,10 +3,10 @@ var webpack = require('webpack')
 
 module.exports =
   {
-    entry: './lib/client.js',
+    entry: './src/client.js',
     output: {
       filename: 'build.js',
-      path: path.resolve(__dirname, 'client/build'),
+      path: path.resolve(__dirname, 'dist/'),
     },
     node: {
       fs: 'empty'
@@ -17,8 +17,8 @@ module.exports =
          test: /\.handlebars$/, 
          loader: "handlebars-loader",
          query: {
-          knownHelpersOnly: false
-          },
+           knownHelpersOnly: false
+         },
         },
         { 
           test: /\.css$/, 
@@ -28,6 +28,10 @@ module.exports =
           test: /\.(jpg|png|svg)$/,
           loader: 'url-loader'
         },
+        {
+          test: /\.html/,
+          loader: 'file-loader?name=[name].[ext]'
+        }
      ]
    },
    externals: {

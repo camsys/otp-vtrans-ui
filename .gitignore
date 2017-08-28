@@ -1,7 +1,3 @@
-build
-client/build
-client/config.js
-components
+src/config.js
 node_modules
-npm-debug.log
-/client/config.js
+dist

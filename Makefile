@@ -1,34 +1,19 @@
-
-COMPONENT = node_modules/.bin/component
 SERVE = serve
 
-JS := $(shell find lib -name '*.js' -print)
+JS := $(shell find src -name '*.js' -print)
 
 PORT = 3000
 
-build: components $(JS) plugin
-	@$(COMPONENT) build --dev --out client/build
-
-plugin: local/leaflet-polylinedecorator
-	mkdir -p client/build/leafletplugins
-	cp -r local/leaflet-polylinedecorator client/build/leafletplugins 
+build: $(JS) node_modules
+	 webpack --config webpack.config.js
 
 clean:
-	rm -rf client/build components node_modules
-
-components: component.json
-	@$(COMPONENT) install --dev
-
-install: node_modules
-	@npm install -g component myth serve
+	rm -rf dist node_modules
 
 node_modules: package.json
 	@npm install
 
-server:
-	@$(SERVE) client --port $(PORT)
-
 watch:
-	watch $(MAKE) build
+	webpack-dev-server --config webpack.config.js --content-base dist/  
+	
 
-.PHONY: build clean install server watch
