@@ -240,7 +240,7 @@ var ItineraryMapView = Backbone.View.extend({
           })
           // var toArrow = L.polylineDecorator(toStopLine).addTo(this.options.map);
           var toPathPattern = L.polylineDecorator(
-            [ toStopLine ],
+            toStopLine,
             {
               patterns: [
                 dashPattern,
