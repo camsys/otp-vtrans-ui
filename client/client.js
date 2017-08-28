@@ -1,7 +1,7 @@
 var $ = window.$
 var Backbone = window.Backbone
 var L = window.L
-var OTP = window.OTP
+var OTP = require("../lib/index.js");
 
 // full: http://stackoverflow.com/questions/13029904/twitter-bootstrap-add-class-to-body-referring-to-its-mode
 // Assigns class to body based on the width of screen

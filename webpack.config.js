@@ -3,12 +3,10 @@ var webpack = require('webpack')
 
 module.exports =
   {
-    entry: './lib/index.js',
+    entry: './client/client.js',
     output: {
       filename: 'build.js',
       path: path.resolve(__dirname, 'client/build'),
-      library: "OTP"
-      //libraryTarget: "commonjs2"
     },
     node: {
       fs: 'empty'
