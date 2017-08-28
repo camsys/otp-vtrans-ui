@@ -11,13 +11,17 @@
     "url": "git://github.com/conveyal/otp.js.git"
   },
   "devDependencies": {
+    "cogent": "1.0.1",
     "component": "*",
     "component-uglifyjs": "*",
+    "debug": "2.6.8",
     "generator-supported": "0.0.1",
+    "handlebars": "^4.0.10",
+    "handlebars-loader": "^1.5.0",
+    "haversine": "^1.0.2",
     "serve": "^1.4.0",
     "standard": "8.3.0",
-    "cogent": "1.0.1",
-    "debug": "2.6.8"
+    "webpack": "^3.5.5"
   },
   "scripts": {
     "start": "serve client",

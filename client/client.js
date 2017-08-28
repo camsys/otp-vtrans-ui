@@ -1,6 +1,7 @@
 var $ = window.$
 var Backbone = window.Backbone
 var L = window.L
+var OTP = window.OTP
 
 // full: http://stackoverflow.com/questions/13029904/twitter-bootstrap-add-class-to-body-referring-to-its-mode
 // Assigns class to body based on the width of screen
@@ -24,7 +25,6 @@ function assign_bootstrap_mode () {
 }
 
 $(document).ready(function () {
-  var OTP = require('otpjs')
   var log = OTP.log('client')
 
   // set up the leafet map object
