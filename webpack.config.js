@@ -13,7 +13,6 @@ module.exports =
     },
     module: {
      rules: [
-      
        { 
          test: /\.handlebars$/, 
          loader: "handlebars-loader",
@@ -21,8 +20,6 @@ module.exports =
           knownHelpersOnly: false
           },
         },
-      
-      
      ]
    },
    externals: {
