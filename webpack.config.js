@@ -13,10 +13,7 @@ module.exports =
     },
     module: {
      rules: [
-       {
-         test: /\.html$/,
-         use: [ "html-loader" ]
-       },
+      
        { 
          test: /\.handlebars$/, 
          loader: "handlebars-loader",
@@ -28,15 +25,7 @@ module.exports =
       
      ]
    },
+   externals: {
+     jquery: 'jQuery'
+   }
   }
-
-/*
-{
-  test: /\.css$/,
-  use: [ 'style-loader', 'css-loader' ]
-},
-{
-  test: /\.(woff*|svg|ttf)$/,
-  loader: 'url-loader',
-}
-*/

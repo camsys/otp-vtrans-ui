@@ -29,6 +29,7 @@
     "lint": "standard --verbose lib/*.js client.js config.js index.js"
   },
   "dependencies": {
+    "backbone": "^1.2.1",
     "leaflet-curve": "^1.0.0",
     "leaflet-polylinedecorator": "^1.2.0"
   }

@@ -1,5 +1,5 @@
 var $ = window.$
-var Backbone = window.Backbone
+var Backbone = require("backbone")
 var L = window.L
 var OTP = require("../lib/index.js");
 
