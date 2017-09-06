@@ -11,6 +11,33 @@ Handlebars.registerHelper('formatTime', function (time, offset, options) {
   }
 })
 
+Handlebars.registerHelper('formatTimeWithMaxStartTime', function (time, maxStartTime, offset, options) {
+  if (time) {
+    var timeFormatted = utils.formatTime(time, options.hash.format, offset)
+    var maxStartTimeFormatted = utils.formatTime(maxStartTime, options.hash.format, offset)
+
+    maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
+    maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
+    return timeFormatted + ' - ' + maxStartTimeFormatted
+  } else {
+    return ''
+  }
+})
+
+Handlebars.registerHelper('formatTimeWithMinEndTime', function (time, minEndTime, offset, options) {
+  if (time) {
+    var timeFormatted = utils.formatTime(time, options.hash.format, offset)
+    timeFormatted = timeFormatted.substring(timeFormatted.indexOf(' ') + 1)
+    timeFormatted = timeFormatted.substring(timeFormatted.indexOf(' ') + 1)
+
+    var minEndTimeFormatted = utils.formatTime(minEndTime, options.hash.format, offset)
+
+    return minEndTimeFormatted + ' - ' + timeFormatted
+  } else {
+    return ''
+  }
+})
+
 Handlebars.registerHelper('formatDuration', function (duration) {
   if (duration) {
     return utils.secToHrMin(duration)
@@ -61,6 +88,37 @@ Handlebars.registerHelper('modeString', function (mode) {
 Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
   if (boardAlightType === 'FLAG_STOP') {
     return 'FLAG_STOP'
+  }
+  return ''
+})
+
+Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
+  if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') {
+    return 'TRUE'
+  }
+  return ''
+})
+Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
+  if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') {
+    return 'TRUE'
+  }
+  return ''
+})
+Handlebars.registerHelper('hasDrtAdvanceBookMin', function (leg) {
+  if (leg.data.root.drtAdvanceBookMin !== null && leg.data.root.drtAdvanceBookMin !== '') {
+    return 'TRUE'
+  }
+  return ''
+})
+Handlebars.registerHelper('hasMaxStartTime', function (leg) {
+  if (leg.data.root.maxStartTime !== null && leg.data.root.maxStartTime !== '' && leg.data.root.maxStartTime !== 'undefined') {
+    return 'TRUE'
+  }
+  return ''
+})
+Handlebars.registerHelper('hasMinEndTime', function (leg) {
+  if (leg.data.root.minEndTime !== null && leg.data.root.minEndTime !== '' && leg.data.root.minEndTime !== undefined) {
+    return 'TRUE'
   }
   return ''
 })

@@ -44,6 +44,12 @@ var ItineraryLeg = Backbone.Model.extend({
 
     intermediateStops: [],
 
+    drtPickupMessage: null,
+    drtDropOffMessage: null,
+    drtAdvanceBookMin: null,
+    maxStartTime: null,
+    minEndTime: null,
+
     steps: [],
 
     notes: [],
@@ -183,6 +189,41 @@ var ItineraryLeg = Backbone.Model.extend({
     var serviceDate = this.get('serviceDate')
     var qs = OTPURL + '/index/stops/' + from.stopId + '/stoptimes/' + serviceDate
     $.get(qs, callback)
+  },
+
+  hasDrtPickupMessage: function () {
+    if (this.drtPickupMessage !== null && this.drtPickupMessage !== '') {
+      return true
+    }
+    return false
+  },
+
+  hasDrtDropOffMessage: function () {
+    if (this.drtDropOffMessage !== null && this.drtDropOffMessage !== '') {
+      return true
+    }
+    return false
+  },
+
+  hasDrtAdvanceBookMin: function () {
+    if (this.drtAdvanceBookMin !== null && this.drtAdvanceBookMin !== '') {
+      return true
+    }
+    return false
+  },
+
+  hasMaxStartTime: function () {
+    if (this.maxStartTime !== null && this.maxStartTime !== '') {
+      return true
+    }
+    return false
+  },
+
+  hasMinEndTime: function () {
+    if (this.minEndTime !== null && this.minEndTime !== '') {
+      return true
+    }
+    return false
   }
 })
 

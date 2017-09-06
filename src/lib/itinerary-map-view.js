@@ -254,9 +254,12 @@ var ItineraryMapView = Backbone.View.extend({
         }
       }
       if (leg.isDeviatedRouteLeg()) {
-        var deviatedRouteContent = popupContent + '<h5>Deviated Route</h5> <br/> Call TRANSIT AUTHORITY.'
+        popupContent += '<h5>Deviated Route</h5> <br/>'
 
         if (leg.isFromDeviatedRoute() === true) {
+          if (leg.hasDrtPickupMessage()) {
+            popupContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
+          }
           var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
           var fromDestinationLatLong = [leg.getDeviatedRouteFromEndLat(), leg.getDeviatedRouteFromEndLon()]
 
@@ -273,10 +276,13 @@ var ItineraryMapView = Backbone.View.extend({
             offset: 100
           })
 
-          fromCurvedPath.bindTooltip(deviatedRouteContent)
+          fromCurvedPath.bindTooltip(popupContent)
           this.stopLayer.addLayer(fromCurvedPath)
         }
         if (leg.isToDeviatedRoute() === true) {
+          if (leg.hasDrtDropOffMessage()) {
+            popupContent += 'Drop Off Notice: ' + leg.get('drtDropOffMessage') + '<br/>'
+          }
           var toOriginLatLong = [leg.getDeviatedRouteToStartLat(), leg.getDeviatedRouteToStartLon()]
           var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
 
@@ -293,7 +299,7 @@ var ItineraryMapView = Backbone.View.extend({
             offset: 100
           })
 
-          toCurvedPath.bindTooltip(deviatedRouteContent)
+          toCurvedPath.bindTooltip(popupContent)
           this.stopLayer.addLayer(toCurvedPath)
         }
       }
@@ -305,10 +311,22 @@ var ItineraryMapView = Backbone.View.extend({
   },
 
   renderCallAndRideLeg: function (leg) {
-
     // draw the arc a
-    var popupContent = '<div class="otp-legMode-icon otp-legMode-icon-' + leg.get('mode') + '"></div> '
-    var deviatedRouteContent = popupContent + '<h5>Deviated Route</h5> <br/> Call TRANSIT AUTHORITY.'
+    var popupContent = '<div class="otp-legMode-icon otp-legMode-icon-' + leg.get('mode') + '"></div> <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
+
+    popupContent += '<br/>'
+
+    var minutes = leg.get('duration') / 60
+    popupContent += Math.round(minutes) + ' mins '
+
+    var deviatedRouteContent = popupContent + '<h5>Deviated Route</h5> <br/>'
+
+    if (leg.hasDrtPickupMessage()) {
+      deviatedRouteContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
+    }
+    if (leg.hasDrtDropOffMessage()) {
+      deviatedRouteContent += 'Drop Off Notice: ' + leg.get('drtDropOffMessage') + '<br/>'
+    }
 
     var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
     var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]

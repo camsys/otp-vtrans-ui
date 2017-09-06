@@ -8,7 +8,13 @@
     <div class="alert alert-warning">{{alertDescriptionText.someTranslation}}</div>
   {{/each}}
   <div class="otp-legBody">
-    <div class="otp-transitLeg-leftCol">{{formatTime startTime timeOffset}}
+    <div class="otp-transitLeg-leftCol">
+      {{#if (hasMaxStartTime )}}
+        {{formatTimeWithMaxStartTime startTime maxStartTime timeOffset}}
+      {{else}}
+        {{formatTime startTime timeOffset}}
+      {{/if}}
+
       <div class="OTPLeg-showTimes hidden">
         <a href="#" class="showTimes">times...</a>
         <div class="OTPLeg-times"></div>
@@ -17,11 +23,18 @@
     <div class="otp-transitLeg-endpointDesc otp-from"><b>Depart</b>: {{from.name}}</div>
     {{#if (isFlagStop from.boardAlightType)}} <div class="otp-transitLeg-endpointDescSub"><h5>Flag Stop</h5> Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding</div> {{/if}}
     {{#if from.stopId.id}}<div class="otp-transitLeg-endpointDescSub">Stop #{{from.stopId.id}}</div>{{/if}}
+    {{#if (hasDrtPickupMessage ) }} <div class="otp-transitLeg-endpointDescSub"><h5>Deviated Route</h5> {{drtPickupMessage}} </div> {{/if}}
     <div class="otp-transitLeg-buffer"></div>
     <div class="otp-transitLeg-elapsedDesc clearfix"><i>Time in transit: {{formatDuration duration}}</i></div>
     <div class="otp-transitLeg-buffer"></div>
-    <div class="otp-transitLeg-leftCol">{{formatTime endTime timeOffset}}</div>
+    {{#if (hasMinEndTime )}}
+        <div class="otp-transitLeg-leftCol">{{formatTimeWithMinEndTime endTime minEndTime timeOffset}}</div>
+    {{else}}
+        <div class="otp-transitLeg-leftCol">{{formatTime endTime timeOffset}}</div>
+    {{/if}}
+    <div class="otp-transitLeg-buffer"></div>
     <div class="otp-transitLeg-endpointDesc otp-to"><b>Arrive</b>: {{to.name}}</div>
     {{#if (isFlagStop to.boardAlightType)}} <div class="otp-transitLeg-endpointDescSub"><h5>Flag Stop</h5> Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding</div> {{/if}}
+    {{#if (hasDrtDropOffMessage ) }} <div class="otp-transitLeg-endpointDescSub"><h5>Deviated Route</h5> {{drtDropOffMessage}} </div> {{/if}}
   </div>
 </div>
