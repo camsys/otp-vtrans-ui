@@ -94,13 +94,21 @@ var RequestView = Backbone.View.extend({
       }
       this.skipReverseGeocode = false
 
-      if (data.attributes.arriveBy !== undefined) {
+      if (data.attributes.arriveBy !== null) {
         view.$('#arriveBy').val(data.attributes.arriveBy + '')
       }
 
-      if (data.attributes.mode) view.$('#mode').val(data.attributes.mode)
-      if (data.attributes.maxWalkDistance) view.$('#maxWalkDistance').val(data.attributes.maxWalkDistance)
-      if (data.attributes.optimize) view.$('#optimize').val(data.attributes.optimize)
+      if (data.attributes.mode !== null) {
+        view.$('#mode').val(data.attributes.mode)
+      }
+      
+      if (data.attributes.maxWalkDistance !== null) {
+        view.$('#maxWalkDistance').val(data.attributes.maxWalkDistance)
+      } 
+      
+      if (data.attributes.optimize !== null) {
+        view.$('#optimize').val(data.attributes.optimize)
+      }
 
       if (data.attributes.date) {
         var date = moment(data.attributes.date, 'MM-DD-YYYY').toDate()
@@ -212,8 +220,7 @@ var RequestView = Backbone.View.extend({
 
     var data = {
       date: this.$('#date input').val(),
-      time: this.$('#time input').val(),
-      maxWalkDistance: 8046
+      time: this.$('#time input').val()
     }
 
     this.model.set(data)
@@ -299,9 +306,6 @@ var RequestView = Backbone.View.extend({
       this.$('#mode').val('TRANSIT,WALK')
       mode = 'TRANSIT,WALK'
     }
-
-    // disabling maxWalkControl as we switch to soft walk dist limiting
-    this.$el.find('.maxWalkControl').hide()
 
     if (mode.indexOf('BICYCLE') !== -1 && mode.indexOf('TRANSIT') !== -1) {
       this.$el.find('.maxBikeControl').show()

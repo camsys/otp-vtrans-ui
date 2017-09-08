@@ -32,7 +32,7 @@ var PlanRequest = Backbone.Model.extend({
     routerId: null,
     arriveBy: null,
     wheelchair: null,
-    maxWalkDistance: 8046,
+    maxWalkDistance: null,
     walkSpeed: null,
     bikeSpeed: null,
     triangleSafetyFactor: null,

@@ -26,9 +26,9 @@
   <div id="hidableSettings">
     <div class="form-group arriveByControl">
       <div class="col-sm-12">
-        <select id="arriveBy" class="apiParam form-control" placeholder="Arrive">
+        <select id="arriveBy" class="apiParam form-control">
           <option value="true">Arrive at</option>
-          <option value="false" selected>Depart by</option>
+          <option value="false" selected="true">Depart by</option>
         </select>
       </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="form-group travelByControl">
       <label for="mode" class="col-sm-4 control-label">Travel by</label>
       <div class="col-sm-8">
-        <select id="mode" class="apiParam form-control" placeholder="Arrive">
+        <select id="mode" class="apiParam form-control">
           {{#each modes}}
             <option value="{{this}}" {{#if @first}}selected{{/if}}>{{modeString this}}</option>
           {{/each}}
@@ -69,8 +69,8 @@
     <div class="form-group optimizeControl">
       <label for="type" class="col-sm-4 control-label">Find</label>
       <div class="col-sm-8">
-        <select id="optimize" class="apiParam form-control" placeholder="Arrive">
-          <option value="QUICK" selected>Quickest trip</option>
+        <select id="optimize" class="apiParam form-control">
+          <option value="QUICK" default>Quickest trip</option>
           <option value="TRANSFERS">Fewest transfers</option>
         </select>
       </div>
@@ -87,10 +87,10 @@
     </div>
 
     <div class="form-group maxWalkControl">
-      <label for="maxWalkDist" class="col-sm-4 control-label">Max walk</label>
+      <label for="maxWalkDistance" class="col-sm-4 control-label">Max walk</label>
       {{#metric}}
       <div class="col-sm-8">
-        <select id="maxWalkDistance" class="apiParam form-control" placeholder="Arrive">
+        <select id="maxWalkDistance" class="apiParam form-control">
           <option value="250">1/4 km</option>
           <option value="500">1/2 km</option>
           <option value="1000" selected>1 km</option>
@@ -102,14 +102,14 @@
 
       {{^metric}}
       <div class="col-sm-8">
-        <select id="maxWalkDistance" class="apiParam form-control" placeholder="Arrive">
+        <select id="maxWalkDistance" class="apiParam form-control">
           <option value="402">1/4 mile</option>
-          <option value="804">1/2 mile</option>
+          <option value="804" selected="true">1/2 mile</option>
           <option value="1223">3/4 mile</option>
           <option value="1609">1 mile</option>
           <option value="3218">2 miles</option>
           <option value="4828">3 miles</option>
-          <option value="8047" selected>5 miles</option>
+          <option value="8046">5 miles</option>
         </select>
       </div>
       {{/metric}}
@@ -120,7 +120,7 @@
 
       {{#metric}}
       <div class="col-sm-8">
-        <select id="maxBikeDistance" class="apiParam form-control" placeholder="Arrive">
+        <select id="maxBikeDistance" class="apiParam form-control">
           <option value="1000">1 km</option>
           <option value="2500">2.5 km</option>
           <option value="5000" selected>5 km</option>
@@ -132,7 +132,7 @@
 
       {{^metric}}
       <div class="col-sm-8">
-        <select id="maxBikeDistance" class="apiParam form-control" placeholder="Arrive">
+        <select id="maxBikeDistance" class="apiParam form-control">
           <option value="804">1/2 mile</option>
           <option value="1609">1 mile</option>
           <option value="4026" selected>2.5 miles</option>
