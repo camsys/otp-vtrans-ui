@@ -47,7 +47,11 @@ var RequestMapView = Backbone.View.extend({
     }, this))
 
     $(document).bind('click', _.bind(function (event) {
-      if (this.contextMenu) this.contextMenu.hide()
+      if (this.contextMenu) {
+        this.contextMenu.hide()
+        this.contextMenu.find('.setStartLocation').off('click');
+        this.contextMenu.find('.setEndLocation').off('click');
+      }
     }, this))
 
     this.attachedToMap = false
