@@ -124,6 +124,14 @@ var RequestView = Backbone.View.extend({
         view.$('#wheelchairAccessible').prop('checked', true)
       }
 
+      if (data.attributes.useReservationServices) {
+        view.$('#useReservationServices').prop('checked', true)
+      }
+
+      if (data.attributes.useEligibilityServices) {
+        view.$('#useEligibilityServices').prop('checked', true)
+      }
+
       view.updateModeControls()
     })
 
@@ -255,7 +263,9 @@ var RequestView = Backbone.View.extend({
       maxWalkDistance: maxDistance,
       optimize: this.$('#optimize').val(),
       mode: this.$('#mode').val(),
-      wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked')
+      wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked'),
+      useReservationServices: this.$('#useReservationServices').prop('checked'),
+      useEligibilityServices: this.$('#useEligibilityServices').prop('checked')
     }
 
     // skip if either to/from fields are unset
