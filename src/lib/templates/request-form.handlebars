@@ -55,17 +55,6 @@
       </div>
     </div>
 
-    <div class="form-group travelByControl">
-      <label for="mode" class="col-sm-4 control-label">Travel by</label>
-      <div class="col-sm-8">
-        <select id="mode" class="apiParam form-control">
-          {{#each modes}}
-            <option value="{{this}}" {{#if @first}}selected{{/if}}>{{modeString this}}</option>
-          {{/each}}
-        </select>
-      </div>
-    </div>
-
     <div class="form-group optimizeControl">
       <label for="type" class="col-sm-4 control-label">Find</label>
       <div class="col-sm-8">
