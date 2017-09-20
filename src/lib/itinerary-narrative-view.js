@@ -10,15 +10,15 @@ var ItineraryNarrativeView = Backbone.View.extend({
 
   events: {
     'click .otp-itinHeader': 'headerClicked',
-    'mouseenter .otp-itinHeader': 'headerMouseenter',
-    'mouseleave .otp-itinHeader': 'headerMouseleave',
+    // 'mouseenter .otp-itinHeader': 'headerMouseenter',
+    // 'mouseleave .otp-itinHeader': 'headerMouseleave',
     'click .print': 'print'
   },
 
   initialize: function (options) {
     this.options = options || {}
 
-    _.bindAll(this, 'headerClicked', 'headerMouseenter', 'headerMouseleave')
+    _.bindAll(this, 'headerClicked')
 
     this.listenTo(this.model, 'activate', this.expand)
     this.listenTo(this.model, 'deactivate', this.collapse)
@@ -88,26 +88,6 @@ var ItineraryNarrativeView = Backbone.View.extend({
   headerClicked: function (e) {
     if (!this.isActive()) {
       this.model.trigger('activate')
-    }
-  },
-
-  headerMouseenter: function (e) {
-    if (!this.isActive()) {
-      this.model.trigger('mouseenter')
-
-      // clear the active itinerary while this one is being previewed
-      var active = this.options.planView.model.get('itineraries').activeItinerary
-      if (active) active.trigger('mouseleave')
-    }
-  },
-
-  headerMouseleave: function (e) {
-    if (!this.isActive()) {
-      this.model.trigger('mouseleave')
-
-      // restore the active itinerary
-      var active = this.options.planView.model.get('itineraries').activeItinerary
-      if (active) active.trigger('mouseenter')
     }
   },
 
