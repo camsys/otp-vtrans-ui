@@ -224,6 +224,26 @@ var ItineraryLeg = Backbone.Model.extend({
       return true
     }
     return false
+  },
+
+  getShortestLegDuration: function(){
+    var legDurationShortest = -1
+
+    if (this.hasMinEndTime()) {
+      if(this.hasMaxStartTime()) {
+        legDurationShortest = (leg.minEndTime - leg.maxStartTime) / 1000
+      } else {
+        legDurationShortest = (leg.minEndTime - leg.startTime) / 1000
+      }
+    } else {
+      if(this.hasMaxStartTime()) {
+        legDurationShortest = (leg.endTime - leg.maxStartTime) / 1000
+      } else {
+        legDurationShortest = leg.duration
+      }
+    }
+
+    return legDurationShortest
   }
 })
 

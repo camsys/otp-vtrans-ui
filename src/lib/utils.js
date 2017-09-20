@@ -76,6 +76,12 @@ module.exports.formatTime = formatTime
 var secToHrMin = function (sec) {
   var hrs = Math.floor(sec / 3600)
   var mins = Math.floor(sec / 60) % 60
+  var remainingSeconds = sec - ((hrs * 3600) + (mins * 60))
+
+  if(remainingSeconds >= 30)
+  {
+    mins += 1
+  }
 
   var str
 
