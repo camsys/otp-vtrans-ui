@@ -23,11 +23,12 @@
     "handlebars": "^4.0.10",
     "handlebars-loader": "^1.5.0",
     "haversine": "^1.0.2",
-    "leaflet": "^1.0.0",
+    "leaflet": "^1.0.3",
     "leaflet-curve": "^1.0.0",
     "leaflet-polylinedecorator": "^1.2.0",
+    "leaflet.gridlayer.googlemutant": "^0.6.4",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5",
-    "url-loader": "^0.5.9"
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.5"
   }
 }
