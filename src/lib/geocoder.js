@@ -319,13 +319,12 @@ var MapzenGeocoder = {
         api_key: window.OTP_config.mapzenApiKey,
         text: query,
         size: maxSuggestResults,
-        'boundary.circle.lat': window.OTP_config.initLatLng[0],
-        'boundary.circle.lon': window.OTP_config.initLatLng[1],
-        'boundary.circle.radius': window.OTP_config.geocoderSearchRadius || 50
+        'focus.point.lat': window.OTP_config.initLatLng[0],
+        'focus.point.lon': window.OTP_config.initLatLng[1],
       }
 
       $.ajax({
-        url: window.OTP_config.mapzenApi + 'search',
+        url: window.OTP_config.mapzenApi + 'autocomplete',
         type: 'GET',
         data: params,
         dataType: 'json',
