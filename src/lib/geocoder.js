@@ -244,7 +244,8 @@ var MapzenGeocoder = {
     var params = {
       api_key: window.OTP_config.mapzenApiKey,
       'point.lat': latlon[0],
-      'point.lon': latlon[1]
+      'point.lon': latlon[1],
+      size: 1
     }
 
     $.ajax({
@@ -265,7 +266,7 @@ var MapzenGeocoder = {
           address: res.features[0].properties.name,
           city: res.features[0].properties.locality,
           state: res.features[0].properties.region,
-          place: lonlat[1] + ',' + lonlat[0]
+          place: place
         })
       }
     })
