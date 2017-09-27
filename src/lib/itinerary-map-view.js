@@ -319,7 +319,7 @@ var ItineraryMapView = Backbone.View.extend({
     var minutes = leg.get('duration') / 60
     popupContent += Math.round(minutes) + ' mins '
 
-    var deviatedRouteContent = popupContent + '<h5>Deviated Route</h5> <br/>'
+    var deviatedRouteContent = popupContent + '<h5>Call And Ride</h5> <br/>'
 
     if (leg.hasDrtPickupMessage()) {
       deviatedRouteContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
