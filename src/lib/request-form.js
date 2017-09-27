@@ -252,9 +252,8 @@ var RequestView = Backbone.View.extend({
 
     this.updatingForm = true
 
-    var maxDistance = $('#mode').val().indexOf('WALK') !== -1
-      ? $('#maxWalkDistance').val()
-      : $('#maxBikeDistance').val()
+    var maxDistance = $('#maxWalkDistance').val()
+
 
     var data = {
       date: this.$('#date input').val(),
@@ -276,21 +275,22 @@ var RequestView = Backbone.View.extend({
     data.toPlace = _.has(toData, 'place') ? toData.place : false
 
     var mode = $('#mode').val()
-    if (mode.indexOf('BICYCLE') !== -1) {
-      data.triangleSafetyFactor = $('#').val()
-      data.triangleSlopeFactor = $('#').val()
-      data.triangleTimeFactor = $('#').val()
-    } else {
-      this.model.unset('triangleSafetyFactor', {
-        silent: true
-      })
-      this.model.unset('triangleSlopeFactor', {
-        silent: true
-      })
-      this.model.unset('triangleTimeFactor', {
-        silent: true
-      })
-    }
+    console.log(mode)
+    // if (mode.indexOf('BICYCLE') !== -1) {
+    //   data.triangleSafetyFactor = $('#').val()
+    //   data.triangleSlopeFactor = $('#').val()
+    //   data.triangleTimeFactor = $('#').val()
+    // } else {
+    //   this.model.unset('triangleSafetyFactor', {
+    //     silent: true
+    //   })
+    //   this.model.unset('triangleSlopeFactor', {
+    //     silent: true
+    //   })
+    //   this.model.unset('triangleTimeFactor', {
+    //     silent: true
+    //   })
+    // }
 
     this.model.set(data)
     this.updatingForm = false
