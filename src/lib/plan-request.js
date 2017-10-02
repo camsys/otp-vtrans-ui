@@ -53,7 +53,9 @@ var PlanRequest = Backbone.Model.extend({
     maxTransfers: null,
     numItineraries: 3,
     wheelchairAccessible: false,
-    flagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault
+    flagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault,
+    fromPlaces: [],
+    toPlaces: []
   },
 
   request: function () {
@@ -69,7 +71,8 @@ var PlanRequest = Backbone.Model.extend({
 
       $.ajax(this.urlRoot, {
         dataType: 'json',
-        data: utils.filterParams(this.attributes)
+        data: utils.filterParams(this.attributes),
+        traditional: true
       })
         .done(function (data) {
           log('processing results')
