@@ -6,8 +6,10 @@ var moment = window.moment
 module.exports.filterParams = function filterParams (data) {
   var filtered = {}
   for (var k in data) {
-    var val = data[k]
-    if (val !== null && val !== undefined) filtered[k] = val
+    if (data.hasOwnProperty(k) && k.length > 0) {
+      var val = data[k]
+      if (val !== null && val !== undefined) filtered[k] = val
+    }
   }
   return filtered
 }
