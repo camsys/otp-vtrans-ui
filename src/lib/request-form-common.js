@@ -54,23 +54,28 @@ module.exports.initializeSelectFor = function (term, element, parent) {
   select.on('select2-selecting', function (evt) {
     evt.preventDefault()
 
-    // if 'place' attribute is defined in 'suggest' query results, we can update form now
+    var opts = getLocationOptions(map);
+    
+    // if 'place' attribute is defined in 'suggest' query results, we can update form now  
     if (_.has(evt.object, 'place')) {
       select.select2('close')
       select.select2('data', evt.object)
       if (typeof parent.changeForm === 'function') parent.changeForm()
+      return;
     } else if (evt.object.source === 'esri') { // otherwise (i.e. in case of Esri geocoder), a subsequent 'lookup' call is needed
-      var opts = getLocationOptions(map)
+      opts = getLocationOptions(map)
       opts.magicKey = evt.object.magicKey
-
-      geocoder.EsriGeocoder.lookup(evt.object.text, function (results) {
-        if (results && results.length > 0) {
-          select.select2('close')
-          select.select2('data', results[0])
-          if (typeof parent.changeForm === 'function') parent.changeForm()
-        }
-      }, opts)
+    } else if (evt.object.source == 'google') {
+      var opts = getLocationOptions(map);
+      opts.placeId = evt.object.placeId;
     }
+    geocoder.lookup(evt.object.text, function (results) {
+      if (results && results.length > 0) {
+        select.select2('close')
+        select.select2('data', results[0])
+        if (typeof parent.changeForm === 'function') parent.changeForm()
+      }
+    }, opts)
   })
   return select
 }
