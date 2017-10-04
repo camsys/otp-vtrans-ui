@@ -65,12 +65,15 @@ Handlebars.registerHelper('modeString', function (mode) {
     case 'TRANSIT':
     case 'TRANSIT,WALK':
       return 'Transit'
-    case 'TRAINISH':
-    case 'TRAINISH,WALK':
+    case 'TRAIN':
+    case 'TRAIN,WALK':
       return 'Train only'
     case 'BUS':
     case 'BUS,WALK':
       return 'Bus only'
+    case 'SUBWAY':
+    case 'SUBWAY,WALK':
+      return 'Subway only'
     case 'BICYCLE':
       return 'Bicycle only'
     case 'WALK':
