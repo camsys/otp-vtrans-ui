@@ -25,5 +25,9 @@
       <span>{{formatTime startTime timeOffset}} to {{formatTime endTime timeOffset}}</span>
     </div>
   </div>
-  <div class="otp-itinBody"></div>
+  <div class="otp-itinBody">
+    {{#if walkLimitExceeded}}
+        <div class="alert alert-warning">This itinerary exceeds your maximum walk distance.</div>
+    {{/if}}
+  </div>
 </div>
