@@ -5,6 +5,7 @@ var Backbone = require("backbone");
 var L = require("leaflet");
 require("leaflet-polylinedecorator");
 require("leaflet-curve");
+require("./leaflet-shifted-polyline.js")
 
 var dashPattern;
 var flagStopIconPattern;
@@ -212,7 +213,7 @@ var ItineraryMapView = Backbone.View.extend({
         var flagStopContent = popupContent + '<h5>Flag Stop</h5> <br/> Wait in a safe area along the route. <br/> Wave to the driver as bus approaches <br/> and wait for the vehicle to stop <br/> before boarding'
 
         if (leg.isFromFlagStop() === true) {
-          var fromStopLine = new L.Polyline(utils.decodePolyline(leg.getFromFlagStopArea()))
+          var fromStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getFromFlagStopArea()))
           fromStopLine.setStyle({
             color: window.OTP_config.flagStopLineColor,
             weight: 0,
@@ -232,14 +233,14 @@ var ItineraryMapView = Backbone.View.extend({
           this.stopLayer.addLayer(fromPathPattern)
         }
         if (leg.isToFlagStop() === true) {
-          var toStopLine = new L.Polyline(utils.decodePolyline(leg.getToFlagStopArea()))
-          toStopLine.setStyle({
+          var toStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getToFlagStopArea()), {dashArray: "10 10"});
+          /*toStopLine.setStyle({
             color: window.OTP_config.flagStopLineColor,
             weight: 0,
             opacity: this.preview ? 0.75 : 0.75
-          })
+          })*/
           // var toArrow = L.polylineDecorator(toStopLine).addTo(this.options.map);
-          var toPathPattern = L.polylineDecorator(
+          /*var toPathPattern = L.polylineDecorator(
             toStopLine,
             {
               patterns: [
@@ -247,10 +248,10 @@ var ItineraryMapView = Backbone.View.extend({
                 flagStopIconPattern
               ]
             }
-          )
+          )*/
           toStopLine.bindTooltip(flagStopContent)
           this.stopLayer.addLayer(toStopLine)
-          this.stopLayer.addLayer(toPathPattern)
+          //this.stopLayer.addLayer(toPathPattern)
         }
       }
       if (leg.isDeviatedRouteLeg()) {
