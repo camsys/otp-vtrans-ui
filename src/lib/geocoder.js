@@ -541,6 +541,26 @@ function array2latlng(arr) {
   return new google.maps.LatLng({lat: parseFloat(arr[0]), lng: parseFloat(arr[1])});
 }
 
+var LandmarksGeocoder = {
+  suggest: function(query, callback, opts) {
+    if (!LandmarksGeocoder.landmarks) {
+      $.get(window.OTP_config.otpApi + "default/index/landmarks", function(landmarks) {
+        LandmarksGeocoder.landmarks = landmarks;
+        LandmarksGeocoder.suggest(query, callback, opts);
+      }).fail(function() {
+        callback("Error");
+      })
+      return;
+    }
+    var data = LandmarksGeocoder.landmarks.filter(function(landmark) {
+      return landmark.toUpperCase().startsWith(query.toUpperCase());
+    }).map(function(landmark, i) {
+      return {"text": landmark, "place": landmark, "id": i, "source": "landmark"}
+    });
+    callback(data);
+  }
+}
+
 /* Geocoding function that splits suggest query between multiple other geocoders */
 
 // Array of geocoder ids to lookup. Defaults to 'esri' only, can be overriddin in config
@@ -553,7 +573,8 @@ var geocoderLookup = {
   nominatim : NominatimGeocoder,
   mapzen : MapzenGeocoder,
   mapbox : MapboxGeocoder,
-  google : GoogleGeocoder
+  google : GoogleGeocoder,
+  landmark : LandmarksGeocoder
 }
 
 var MultiGeocoder = {
