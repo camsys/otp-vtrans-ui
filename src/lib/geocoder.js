@@ -614,7 +614,7 @@ var MultiGeocoder = {
   },
   
   lookup: function (query, callback, opts, places) {
-    geocoderLookup[geocoders[0]].lookup(query, callback, opts, places);
+    GoogleGeocoder.lookup(query, callback, opts, places);
   }
 }
 
