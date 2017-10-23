@@ -261,7 +261,6 @@ var RequestView = Backbone.View.extend({
       arriveBy: this.$('#arriveBy').val(),
       maxWalkDistance: maxDistance,
       optimize: this.$('#optimize').val(),
-      mode: this.$('#mode').val(),
       wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked'),
       useReservationServices: this.$('#useReservationServices').prop('checked'),
       useEligibilityServices: this.$('#useEligibilityServices').prop('checked')
@@ -273,24 +272,6 @@ var RequestView = Backbone.View.extend({
 
     var toData = this.$('#toPlace').select2('data')
     data.toPlace = _.has(toData, 'place') ? toData.place : false
-
-    var mode = $('#mode').val()
-    console.log(mode)
-    // if (mode.indexOf('BICYCLE') !== -1) {
-    //   data.triangleSafetyFactor = $('#').val()
-    //   data.triangleSlopeFactor = $('#').val()
-    //   data.triangleTimeFactor = $('#').val()
-    // } else {
-    //   this.model.unset('triangleSafetyFactor', {
-    //     silent: true
-    //   })
-    //   this.model.unset('triangleSlopeFactor', {
-    //     silent: true
-    //   })
-    //   this.model.unset('triangleTimeFactor', {
-    //     silent: true
-    //   })
-    // }
 
     this.model.set(data)
     this.updatingForm = false
