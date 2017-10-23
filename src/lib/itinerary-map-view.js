@@ -7,32 +7,22 @@ require("leaflet-polylinedecorator");
 require("leaflet-curve");
 require("./leaflet-shifted-polyline.js")
 
-var dashPattern;
-var flagStopIconPattern;
+var flagStopIcon;
+var flagStopLineStyle
 
 var ItineraryMapView = Backbone.View.extend({
   initialize: function (options) {
     var self = this
 
-    flagStopIconPattern = { offset: '50%',
-      repeat: '0%',
-      symbol: L.Symbol.marker({
-        rotate: false,
-        pixelSize: 1,
-        markerOptions: {
-          icon: L.divIcon({
-            className: 'otp-flagStop',
-            iconAnchor: [10, 15],
-            iconSize: [28, 28],
-          })
-        }
-      })
-    }
+    flagStopIcon = L.divIcon({
+      className: 'otp-flagStop',
+      iconAnchor: [10, 15],
+      iconSize: [28, 28],
+    })
 
-    dashPattern = {
-      offset: 0,
-      repeat: 25,
-      symbol: L.Symbol.dash({pixelSize: 10})
+    flagStopLineStyle = {
+      color: window.OTP_config.flagStopLineColor,
+      weight: window.OTP_config.flagStopLineWeight
     }
 
     this.options = options || {}
@@ -213,45 +203,23 @@ var ItineraryMapView = Backbone.View.extend({
         var flagStopContent = popupContent + '<h5>Flag Stop</h5> <br/> Wait in a safe area along the route. <br/> Wave to the driver as bus approaches <br/> and wait for the vehicle to stop <br/> before boarding'
 
         if (leg.isFromFlagStop() === true) {
-          var fromStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getFromFlagStopArea()))
-          fromStopLine.setStyle({
-            color: window.OTP_config.flagStopLineColor,
-            weight: 0,
-            opacity: this.preview ? 0.75 : 0.75
-          })
-          var fromPathPattern = L.polylineDecorator(
-            fromStopLine,
-            {
-              patterns: [
-                dashPattern,
-                flagStopIconPattern
-              ]
-            }
-          )
+          var fromFlagStopMarker = L.marker([leg.get('from').lat, leg.get('from').lon], {icon: flagStopIcon});
+          var fromStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getFromFlagStopArea()), {dashArray: "10 10"});
+          fromStopLine.setStyle(flagStopLineStyle)
+
           fromStopLine.bindTooltip(flagStopContent)
           this.stopLayer.addLayer(fromStopLine)
-          this.stopLayer.addLayer(fromPathPattern)
+          this.stopLayer.addLayer(fromFlagStopMarker)
         }
         if (leg.isToFlagStop() === true) {
+          var toFlagStopMarker = L.marker([leg.get('to').lat, leg.get('to').lon], {icon: flagStopIcon});
           var toStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getToFlagStopArea()), {dashArray: "10 10"});
-          /*toStopLine.setStyle({
-            color: window.OTP_config.flagStopLineColor,
-            weight: 0,
-            opacity: this.preview ? 0.75 : 0.75
-          })*/
-          // var toArrow = L.polylineDecorator(toStopLine).addTo(this.options.map);
-          /*var toPathPattern = L.polylineDecorator(
-            toStopLine,
-            {
-              patterns: [
-                dashPattern,
-                flagStopIconPattern
-              ]
-            }
-          )*/
+          toStopLine.setStyle(flagStopLineStyle)
+
           toStopLine.bindTooltip(flagStopContent)
           this.stopLayer.addLayer(toStopLine)
-          //this.stopLayer.addLayer(toPathPattern)
+          this.stopLayer.addLayer(toFlagStopMarker)
+          console.log(toStopLine)
         }
       }
       if (leg.isDeviatedRouteLeg()) {

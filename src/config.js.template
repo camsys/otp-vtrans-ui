@@ -13,6 +13,7 @@ window.OTP_config = {
   flagStopBufferSizeDefault: 4,
   //The color the flag stop line should be
   flagStopLineColor: '#0276FD',
+  flagStopLineWeight: 7,
 
   // default query parameters to pass to otp router
   routerDefaults: {maxPreTransitTime: 1800},
