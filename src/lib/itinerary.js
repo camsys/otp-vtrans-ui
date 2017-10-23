@@ -20,7 +20,8 @@ var Itinerary = Backbone.Model.extend({
     elevationGained: null,
     transfers: null,
     fare: [],
-    legs: []
+    legs: [],
+    walkLimitExceeded: false
   },
 
   processLegs: function () {
