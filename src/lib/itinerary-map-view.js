@@ -219,7 +219,6 @@ var ItineraryMapView = Backbone.View.extend({
           toStopLine.bindTooltip(flagStopContent)
           this.stopLayer.addLayer(toStopLine)
           this.stopLayer.addLayer(toFlagStopMarker)
-          console.log(toStopLine)
         }
       }
       if (leg.isDeviatedRouteLeg()) {

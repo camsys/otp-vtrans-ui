@@ -38,10 +38,22 @@
 	background: #ddd;
 	cursor: pointer;
 	line-height: 1.6em;
+	border-top: 3px solid #000;;
 }
 
 .otp-legBody {
-	padding-top: .3em;
+	/*float: left;*/
+	/*background: #ccc*/
+}
+
+.otp-legBody-from {
+	background: #bbb;
+	float: left;
+	width: 100%;
+}
+.otp-legBody-to {
+	background: #ccc;
+	float: left;
 }
 
 .otp-transitLeg-leftCol {
@@ -279,6 +291,7 @@
 .otp-legMode-title {
 	display: none;
 }
+
 
 @media print {
 	.messageWell {

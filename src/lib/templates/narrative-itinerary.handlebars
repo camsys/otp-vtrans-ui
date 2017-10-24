@@ -4,8 +4,15 @@
       <span class="pull-right">
         <a href="#" class="print" title="Print Itinerary"><span class="glyphicon glyphicon-print"></span></a>
       </span>
-      <strong>Option {{index}}</strong>:
-        {{formatDuration duration}}
+        <span>
+            <strong>Option {{index}}</strong>:
+        </span>
+        <span>
+            departs at {{formatTime startTime timeOffset}}
+        </span>
+        <span class='pull-right'>
+            {{formatDuration duration}}
+        </span>
     </div>
     <div class="otp-itinHeader-preview">
       {{#each legs}}

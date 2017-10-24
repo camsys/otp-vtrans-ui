@@ -92,6 +92,28 @@ Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
   return ''
 })
 
+Handlebars.registerHelper('hasToTransitMessage', function(leg) {
+  if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') {
+    return 'TRUE'
+  }
+  console.log(leg.data.root.to.boardAlightType);
+  if (leg.data.root.to.boardAlightType === 'FLAG_STOP') {
+    return 'FLAG_STOP'
+  }
+  return ''
+})
+Handlebars.registerHelper('hasFromTransitMessage', function(leg) {
+  if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') {
+    return 'TRUE'
+  }
+  if (leg.data.root.from.boardAlightType === 'FLAG_STOP') {
+    return 'FLAG_STOP'
+  }
+
+  console.log(leg.data.root.from.boardAlightType)
+  return ''
+})
+
 Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
   if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') {
     return 'TRUE'

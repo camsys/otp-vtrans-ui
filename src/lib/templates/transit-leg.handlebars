@@ -1,5 +1,5 @@
 <div class="otp-leg">
-  <div class="otp-legHeader" {{#if routeColor }}style="border-top:3px solid #{{routeColor}};"{{/if}}>
+  <div class="otp-legHeader" {{#if routeColor }}style="border-top:3px solid #{{routeColor}};" {{else}} style="border-top:3px solid #000;" {{/if}}>
     <div class="agencyBranding" style="background-image: url({{agencyLogoUrl}});"></div>
     <span><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
     <b><div class="otp-legMode-icon otp-legMode-icon-{{ mode }}"></div> {{routeShortName}}</b> {{routeLongName}} {{#if headsign}}to {{headsign}}{{/if}}
@@ -7,34 +7,111 @@
   {{#each alerts}}
     <div class="alert alert-warning">{{alertDescriptionText}}</div>
   {{/each}}
-  <div class="otp-legBody">
-    <div class="otp-transitLeg-leftCol">
-      {{#if (hasMaxStartTime )}}
-        {{formatTimeWithMaxStartTime startTime maxStartTime timeOffset}}
-      {{else}}
-        {{formatTime startTime timeOffset}}
-      {{/if}}
-
-      <div class="OTPLeg-showTimes hidden">
-        <a href="#" class="showTimes">times...</a>
-        <div class="OTPLeg-times"></div>
-      </div>
+    <div class="otp-legBody">
+        <div class="otp-legBody-from">
+            {{#if (hasFromTransitMessage) }}
+                <span class="col-sm-2 col-md-2" id="from_leg_narrative_depart">
+            {{else}}
+                <span class="col-sm-4 col-md-4" id="from_leg_narrative_depart">
+            {{/if}}
+                <div>
+                    <h5>Depart</h5>
+                    <div>
+                        {{#if (hasMaxStartTime )}}
+                            {{formatTimeWithMaxStartTime startTime maxStartTime timeOffset}}
+                        {{else}}
+                            {{formatTime startTime timeOffset}}
+                        {{/if}}
+                    </div>
+                </div>
+            </span>
+            {{#if (hasFromTransitMessage) }}
+                <span class="col-sm-4 col-md-4" id="from_leg_narrative_from">
+            {{else}}
+                <span class="col-sm-8 col-md-8" id="from_leg_narrative_depart">
+            {{/if}}
+                <div>
+                    <h5> From </h5>
+                    <div>
+                        {{from.name}}
+                    </div>
+                    {{#if from.stopId.id}}
+                        <div>
+                            Stop #{{from.stopId.id}}
+                        </div>
+                    {{/if}}
+                </div>
+            </span>
+            {{#if (isFlagStop from.boardAlightType)}}
+                <span class="col-sm-6 col-md-6" id="from_leg_narrative_flag_stop">
+                    <div>
+                        <h5> Flag Stop </h5>
+                        Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding
+                    </div>
+                </span>
+            {{/if}}
+            {{#if (hasDrtPickupMessage ) }}
+            <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+                <div>
+                    <h5> Deviated Route </h5>
+                    {{drtPickupMessage}}
+                </div>
+            </span>
+        {{/if}}
+        </div>
+        <br style="clear: both;">
+        <div class="otp-legBody-to">
+            {{#if (hasToTransitMessage) }}
+                <span class="col-sm-2 col-md-2" id="from_leg_narrative_depart">
+            {{else}}
+                <span class="col-sm-4 col-md-4" id="from_leg_narrative_depart">
+            {{/if}}
+                <div>
+                    <h5>Arrive</h5>
+                    <div>
+                        {{#if (hasMinEndTime) }}
+                            {{formatTimeWithMinEndTime endTime minEndTime timeOffset}}
+                        {{else}}
+                            {{formatTime endTime timeOffset}}
+                        {{/if}}
+                    </div>
+                </div>
+            </span>
+            {{#if (hasToTransitMessage)}}
+                <span class="col-sm-4 col-md-4" id="from_leg_narrative_from">
+            {{else}}
+                <span class="col-sm-8 col-md-8" id="from_leg_narrative_depart">
+            {{/if}}
+                <div>
+                    <h5> To </h5>
+                    <div>
+                        {{to.name}}
+                    </div>
+                    {{#if to.stopId.id}}
+                        <div>
+                            Stop #{{to.stopId.id}}
+                        </div>
+                    {{/if}}
+                </div>
+            </span>
+            {{#if (isFlagStop to.boardAlightType)}}
+                <span class="col-sm-6 col-md-6" id="from_leg_narrative_flag_stop">
+                    <div>
+                        <h5> Flag Stop </h5>
+                        Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding
+                    </div>
+                </span>
+            {{/if}}
+            {{#if (hasDrtDropOffMessage ) }}
+                <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+                <div>
+                    <h5> Deviated Route </h5>
+                    {{drtDropOffMessage}}
+                </div>
+            </span>
+            {{/if}}
+        </div>
     </div>
-    <div class="otp-transitLeg-endpointDesc otp-from"><b>Depart</b>: {{from.name}}</div>
-    {{#if (isFlagStop from.boardAlightType)}} <div class="otp-transitLeg-endpointDescSub"><h5>Flag Stop</h5> Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding</div> {{/if}}
-    {{#if from.stopId.id}}<div class="otp-transitLeg-endpointDescSub">Stop #{{from.stopId.id}}</div>{{/if}}
-    {{#if (hasDrtPickupMessage ) }} <div class="otp-transitLeg-endpointDescSub"><h5>Deviated Route</h5> {{drtPickupMessage}} </div> {{/if}}
-    <div class="otp-transitLeg-buffer"></div>
-    <div class="otp-transitLeg-elapsedDesc clearfix"><i>Time in transit: {{formatDuration duration}}</i></div>
-    <div class="otp-transitLeg-buffer"></div>
-    {{#if (hasMinEndTime )}}
-        <div class="otp-transitLeg-leftCol">{{formatTimeWithMinEndTime endTime minEndTime timeOffset}}</div>
-    {{else}}
-        <div class="otp-transitLeg-leftCol">{{formatTime endTime timeOffset}}</div>
-    {{/if}}
-    <div class="otp-transitLeg-buffer"></div>
-    <div class="otp-transitLeg-endpointDesc otp-to"><b>Arrive</b>: {{to.name}}</div>
-    {{#if (isFlagStop to.boardAlightType)}} <div class="otp-transitLeg-endpointDescSub"><h5>Flag Stop</h5> Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding</div> {{/if}}
-    {{#if (hasDrtDropOffMessage ) }} <div class="otp-transitLeg-endpointDescSub"><h5>Deviated Route</h5> {{drtDropOffMessage}} </div> {{/if}}
-  </div>
 </div>
+<br style="clear: both;">
+<div></div>

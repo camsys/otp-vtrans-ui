@@ -54,6 +54,7 @@ var Itinerary = Backbone.Model.extend({
     return new ItineraryLegs(processedLegs)
   },
 
+
   /* returns [[south, west], [north, east]] */
 
   getBoundsArray: function () {
@@ -86,6 +87,13 @@ var Itinerary = Backbone.Model.extend({
       return queryDateTime - startTime
     }
     return endTime - queryDateTime
+  },
+
+  hasMaxStartTime: function (leg_id) {
+    console.log('In Itinerary Has Max Start Time: ')
+    console.log(leg.hasMaxStartTime())
+
+    return leg.hasMaxStartTime();
   }
 
 })
