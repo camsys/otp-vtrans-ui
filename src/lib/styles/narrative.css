@@ -54,6 +54,7 @@
 .otp-legBody-to {
 	background: #cccccc;
 	float: left;
+	width: 100%;
 }
 
 .otp-transitLeg-leftCol {
