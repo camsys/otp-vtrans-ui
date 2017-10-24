@@ -22,7 +22,8 @@ var ItineraryMapView = Backbone.View.extend({
 
     flagStopLineStyle = {
       color: window.OTP_config.flagStopLineColor,
-      weight: window.OTP_config.flagStopLineWeight
+      weight: 7
+      // weight: window.OTP_config.flagStopLineWeight
     }
 
     this.options = options || {}
