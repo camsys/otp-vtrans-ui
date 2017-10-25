@@ -18,7 +18,7 @@ Handlebars.registerHelper('formatTimeWithMaxStartTime', function (time, maxStart
 
     maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
     maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
-    return timeFormatted + ' - ' + maxStartTimeFormatted
+    return timeFormatted + ' to ' + maxStartTimeFormatted
   } else {
     return ''
   }
@@ -32,10 +32,32 @@ Handlebars.registerHelper('formatTimeWithMinEndTime', function (time, minEndTime
 
     var minEndTimeFormatted = utils.formatTime(minEndTime, options.hash.format, offset)
 
-    return minEndTimeFormatted + ' - ' + timeFormatted
+    return minEndTimeFormatted + ' to ' + timeFormatted
   } else {
     return ''
   }
+})
+
+Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, options){
+  var time = options.data.root.legs[0].attributes.startTime
+  var maxStartTime = options.data.root.legs[0].attributes.maxStartTime
+
+  console.log('time')
+  console.log('maxstarttime')
+
+  var timeFormatted = utils.formatTime(time, options.hash.format, offset)
+  var maxStartTimeFormatted = utils.formatTime(maxStartTime, options.hash.format, offset)
+
+  maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
+  maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
+
+  if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
+    return timeFormatted + ' to ' + maxStartTimeFormatted
+  }
+  else{
+    return timeFormatted
+  }
+
 })
 
 Handlebars.registerHelper('formatDuration', function (duration) {
@@ -96,7 +118,6 @@ Handlebars.registerHelper('hasToTransitMessage', function(leg) {
   if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') {
     return 'TRUE'
   }
-  console.log(leg.data.root.to.boardAlightType);
   if (leg.data.root.to.boardAlightType === 'FLAG_STOP') {
     return 'FLAG_STOP'
   }
@@ -111,6 +132,13 @@ Handlebars.registerHelper('hasFromTransitMessage', function(leg) {
   }
 
   console.log(leg.data.root.from.boardAlightType)
+  return ''
+})
+
+Handlebars.registerHelper('itineraryFirstLegHasMaxStartTime', function(itinerary) {
+  if (itinerary.data.root.legs[0].attributes.drtPickupMessage !== null) {
+    return 'TRUE'
+  }
   return ''
 })
 

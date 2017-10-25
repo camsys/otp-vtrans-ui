@@ -8,10 +8,10 @@
             <strong>Option {{index}}</strong>:
         </span>
         <span>
-            departs at {{formatTime startTime timeOffset}}
+            departs at {{formatItineraryWithMaxStartTime timeOffset}}
         </span>
         <span class='pull-right'>
-            {{formatDuration duration}}
+            {{formatDuration duration}} &nbsp;&nbsp;&nbsp;
         </span>
     </div>
     <div class="otp-itinHeader-preview">
@@ -29,7 +29,7 @@
       {{#fare}}
         <span class='pull-right'>{{fareString fare}}</span>
       {{/fare}}
-      <span>{{formatTime startTime timeOffset}} to {{formatTime endTime timeOffset}}</span>
+      <span>{{formatTime startTime timeOffset}} - {{formatTime endTime timeOffset}}</span>
     </div>
   </div>
   <div class="otp-itinBody">

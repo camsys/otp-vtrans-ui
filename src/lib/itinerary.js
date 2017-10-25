@@ -87,15 +87,7 @@ var Itinerary = Backbone.Model.extend({
       return queryDateTime - startTime
     }
     return endTime - queryDateTime
-  },
-
-  hasMaxStartTime: function (leg_id) {
-    console.log('In Itinerary Has Max Start Time: ')
-    console.log(leg.hasMaxStartTime())
-
-    return leg.hasMaxStartTime();
   }
-
 })
 
 module.exports = Itinerary
