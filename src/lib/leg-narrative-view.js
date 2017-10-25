@@ -10,8 +10,8 @@ var genericLegTemplate = require('./templates/generic-leg.handlebars')
 var LegNarrativeView = Backbone.View.extend({
   events: {
     'click .otp-legHeader': 'headerClicked',
-    'mouseenter .otp-legHeader': 'headerMouseenter',
-    'mouseleave .otp-legHeader': 'headerMouseleave',
+    // 'mouseenter .otp-legHeader': 'headerMouseenter',
+    // 'mouseleave .otp-legHeader': 'headerMouseleave',
     'click .otp-from': 'fromClicked',
     'click .otp-to': 'toClicked',
     'click .showTimes': 'showTimes'
