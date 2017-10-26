@@ -123,14 +123,6 @@ var RequestView = Backbone.View.extend({
       if (data.attributes.wheelchairAccessible) {
         view.$('#wheelchairAccessible').prop('checked', true)
       }
-      
-      if (data.attributes.fromPlaces.length > 0) {
-        view.$('#fromPlaces').val(data.attributes.fromPlaces.join('\n'))
-      }
-      
-      if (data.attributes.toPlaces.length > 0) {
-        view.$('#toPlaces').val(data.attributes.toPlaces.join('\n'))
-      }
 
       view.updateModeControls()
     })
@@ -263,9 +255,7 @@ var RequestView = Backbone.View.extend({
       maxWalkDistance: maxDistance,
       optimize: this.$('#optimize').val(),
       mode: this.$('#mode').val(),
-      wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked'),
-      fromPlaces: this.$('#fromPlaces').val().split('\n'),
-      toPlaces: this.$('#toPlaces').val().split('\n')
+      wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked')
     }
 
     // skip if either to/from fields are unset
