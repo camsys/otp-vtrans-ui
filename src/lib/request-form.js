@@ -84,7 +84,6 @@ var RequestView = Backbone.View.extend({
     this.selectedGeocodeItem = require('./templates/selected-geocode-item.handlebars')
 
     this.listenTo(this.model, 'change', function (data) {
-      log('updating form with model changes')
 
       if (_.has(data.changed, 'fromPlace') && data.attributes.fromPlace && view.selectFrom && !this.skipReverseGeocode) {
         view.updateReverseGeocoder('From', data.attributes.fromPlace, view.selectFrom)
@@ -120,16 +119,22 @@ var RequestView = Backbone.View.extend({
         view.timepicker.setDate(time)
       }
 
-      if (data.attributes.wheelchairAccessible) {
+      if (data.attributes.wheelchairAccessible !== 'false') {
         view.$('#wheelchairAccessible').prop('checked', true)
+      } else {
+        view.$('#wheelchairAccessible').prop('checked', false)
       }
 
-      if (data.attributes.useReservationServices) {
+      if (data.attributes.useReservationServices !== 'false') {
         view.$('#useReservationServices').prop('checked', true)
+      } else {
+        view.$('#useReservationServices').prop('checked', false)
       }
 
       if (data.attributes.useEligibilityServices) {
         view.$('#useEligibilityServices').prop('checked', true)
+      } else {
+        view.$('#useEligibilityServices').prop('checked', false)
       }
 
       view.updateModeControls()
@@ -248,13 +253,17 @@ var RequestView = Backbone.View.extend({
 
   changeForm: function (evt) {
     // skip duplicate change events caused by selectize form inputs
-    if (this.updatingForm) return
+    if (this.updatingForm) {
+      return
+    }
 
     this.updatingForm = true
 
     var maxDistance = $('#maxWalkDistance').val()
 
-
+    console.log('CHANGE FORM METHOD seems correct')
+    console.log("this.$('#useReservationServices').prop('checked') ===")
+    console.log(this.$('#useReservationServices').prop('checked'))
     var data = {
       date: this.$('#date input').val(),
       time: this.$('#time input').val(),

@@ -42,9 +42,6 @@ Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, o
   var time = options.data.root.legs[0].attributes.startTime
   var maxStartTime = options.data.root.legs[0].attributes.maxStartTime
 
-  console.log('time')
-  console.log('maxstarttime')
-
   var timeFormatted = utils.formatTime(time, options.hash.format, offset)
   var maxStartTimeFormatted = utils.formatTime(maxStartTime, options.hash.format, offset)
 
@@ -130,8 +127,7 @@ Handlebars.registerHelper('hasFromTransitMessage', function(leg) {
   if (leg.data.root.from.boardAlightType === 'FLAG_STOP') {
     return 'FLAG_STOP'
   }
-
-  console.log(leg.data.root.from.boardAlightType)
+  
   return ''
 })
 
