@@ -52,7 +52,6 @@ var PlanRequest = Backbone.Model.extend({
     transferPenalty: null,
     maxTransfers: null,
     numItineraries: 3,
-    wheelchairAccessible: false,
     flagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault
   },
 

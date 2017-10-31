@@ -120,8 +120,8 @@ var RequestView = Backbone.View.extend({
         view.timepicker.setDate(time)
       }
 
-      if (data.attributes.wheelchairAccessible) {
-        view.$('#wheelchairAccessible').prop('checked', true)
+      if (data.attributes.wheelchair != "false") {
+        view.$('#wheelchairAccessible').prop('checked', data.attributes.wheelchair)
       }
 
       view.updateModeControls()
@@ -255,7 +255,7 @@ var RequestView = Backbone.View.extend({
       maxWalkDistance: maxDistance,
       optimize: this.$('#optimize').val(),
       mode: this.$('#mode').val(),
-      wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked')
+      wheelchair: this.$('#wheelchairAccessible').prop('checked')
     }
 
     // skip if either to/from fields are unset
