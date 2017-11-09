@@ -139,13 +139,15 @@ Handlebars.registerHelper('itineraryFirstLegHasMaxStartTime', function(itinerary
 })
 
 Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
-  if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') {
+  console.log(leg.data.root.from.boardAlightType)
+  if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '' && leg.data.root.from.boardAlightType != 'FLAG_STOP') {
     return 'TRUE'
   }
   return ''
 })
 Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
-  if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') {
+  console.log(leg.data.root.to.boardAlightType)
+  if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '' && leg.data.root.to.boardAlightType != 'FLAG_STOP') {
     return 'TRUE'
   }
   return ''
