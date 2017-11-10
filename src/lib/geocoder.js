@@ -439,6 +439,108 @@ var MapboxGeocoder = {
   }
 }
 
+var GoogleGeocoder = {
+  _getGeocoder: function() {
+    if (!GoogleGeocoder._geocoder) {
+      GoogleGeocoder._geocoder = new google.maps.Geocoder();
+    }
+    return GoogleGeocoder._geocoder; 
+  },
+  
+  _getAutocomplete: function() {
+    if (!GoogleGeocoder._autocomplete) {
+      GoogleGeocoder._autocomplete = new google.maps.places.AutocompleteService();
+    };
+    return GoogleGeocoder._autocomplete;
+  },
+  
+  _getPlaces: function() {
+    if (!GoogleGeocoder._places) {
+      // TODO need to pass map
+      GoogleGeocoder._places = new google.maps.places.PlacesService(document.createElement('div'));
+    }
+    return GoogleGeocoder._places;
+  },
+  
+  reverse: function (place, callback) {
+    var geocoder = GoogleGeocoder._getGeocoder();
+    var latlng = array2latlng(place.split(','));
+    geocoder.geocode( { 'location': latlng }, function(results, status) {
+      if (status == 'OK') {
+        var data = []
+        for (var i in results.slice(0, maxSuggestResults)) {
+          var latlng = results[i].geometry.location;
+          var item = {
+            id: parseInt(i) + 1,
+            address: results[i].formatted_address,
+            place: latlng.lat() + "," + latlng.lng(),
+            source: 'google'
+          }
+          data.push(item)
+        }
+        callback(null, data[0])
+      } else {
+        console.log('Geocode was not successful for the following reason: ' + status);
+        callback(status);
+      }
+    });
+  },
+  
+  suggest: function (query, callback, opts) {
+    if (!query.length)
+      return callback();
+    var autocomplete = GoogleGeocoder._getAutocomplete();  
+    var request = {
+      input: query,
+      types: ["geocode"],
+      location: array2latlng(window.OTP_config.initLatLng),
+      radius: 100000
+    }
+    autocomplete.getPlacePredictions(request, function(results, status) {
+      if (status == 'OK') {
+        var data = []
+        for (var i in results.slice(0, maxSuggestResults)) {
+          var item = {
+            text: results[i].description,
+            placeId: results[i].place_id,
+            id: i + 1,
+            source: 'google'
+          }
+          data.push(item)
+        }
+        callback(data)
+      } else {
+        console.log('Autocomplete was not successful for the following reason: ' + status)
+        callback(status);
+      }
+    });
+  },
+  
+  lookup: function (query, callback, opts) {
+    if (!query.length)
+      return callback();  
+    var places = GoogleGeocoder._getPlaces();
+    places.getDetails(opts, function(place, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        var latlng = place.geometry.location;
+        var item = {
+          id: 1,
+          text: place.name,
+          place: latlng.lat() + "," + latlng.lng(),
+          source: 'google'
+        }
+        callback([item]);
+      } else {
+        callback(status);
+      }
+    });
+  }
+}
+
+function array2latlng(arr) {
+  return new google.maps.LatLng({lat: parseFloat(arr[0]), lng: parseFloat(arr[1])});
+}
+
 /* Geocoding function that splits suggest query between multiple other geocoders */
 
 // Array of geocoder ids to lookup. Defaults to 'esri' only, can be overriddin in config
@@ -451,6 +553,7 @@ var geocoderLookup = {
   nominatim : NominatimGeocoder,
   mapzen : MapzenGeocoder,
   mapbox : MapboxGeocoder,
+  google : GoogleGeocoder
 }
 
 var MultiGeocoder = {
@@ -487,12 +590,15 @@ var MultiGeocoder = {
         geocoder: geocoder
       }), opts)
     }
+  },
+  
+  lookup: function (query, callback, opts, places) {
+    geocoderLookup[geocoders[0]].lookup(query, callback, opts, places);
   }
 }
 
 module.exports = {
-  EsriGeocoder: EsriGeocoder,
-  lookup: EsriGeocoder.lookup,
+  lookup: MultiGeocoder.lookup,
   reverse: MultiGeocoder.reverse,
   suggest: MultiGeocoder.suggest
 }

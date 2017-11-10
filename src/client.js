@@ -15,6 +15,11 @@ var Backbone = require("backbone")
 var L = require("leaflet")
 var OTP = require("./lib/index.js");
 
+// potentially: Google
+if (window.OTP_config.useGoogleMaps) {
+  require('leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js')
+}
+
 // full: http://stackoverflow.com/questions/13029904/twitter-bootstrap-add-class-to-body-referring-to-its-mode
 // Assigns class to body based on the width of screen
 // This is used to move narrative from sidebar to own tab in small screens
@@ -43,31 +48,50 @@ $(document).ready(function () {
   var map = L.map('map').setView(window.OTP_config.initLatLng, (window.OTP_config.initZoom || 13))
   map.attributionControl.setPrefix('')
 
-  // create OpenStreetMap tile layers for streets and aerial imagery
-  var osmLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        token: window.OTP_config.osmMapKey
-  })
+  var streetLayer, aerialLayer;
   
-  var aerialLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.satellite',
-        token: window.OTP_config.osmMapKey
-  })
+  if (window.OTP_config.useGoogleMaps) {
     
+    streetLayer = L.gridLayer.googleMutant({
+      type: 'roadmap' // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
+    });
+    
+    aerialLayer = L.gridLayer.googleMutant({
+      type: 'satellite'
+    });
+    
+    // Wait for Google API to load before adding the default layer (streets).
+    streetLayer._GAPIPromise.then(function() {
+      streetLayer.addTo(map);
+    })
 
+  } else {
+    // create OpenStreetMap tile layers for streets and aerial imagery
+    streetLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox.streets',
+          token: window.OTP_config.osmMapKey
+    })
+    
+    aerialLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={token}', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox.satellite',
+          token: window.OTP_config.osmMapKey
+    })
+    
+    // display the OSM street layer by default
+    streetLayer.addTo(map)
+  }
+    
   // create a leaflet layer control and add it to the map
   var baseLayers = {
-    'Street Map': osmLayer,
+    'Street Map': streetLayer,
     'Satellite Map': aerialLayer
   }
+  
   L.control.layers(baseLayers).addTo(map)
-
-  // display the OSM street layer by default
-  osmLayer.addTo(map)
 
   // create a data model for the currently visible stops, and point it
   // to the corresponding API method
