@@ -284,6 +284,7 @@ var RequestView = Backbone.View.extend({
 
     this.model.set(data)
     this.updatingForm = false
+    $('.nav-tabs a[href="#plan"]').tab('show');
   },
 
   deactivateSearchButton: function () {
