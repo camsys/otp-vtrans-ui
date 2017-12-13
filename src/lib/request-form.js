@@ -131,7 +131,7 @@ var RequestView = Backbone.View.extend({
         view.$('#useReservationServices').prop('checked', false)
       }
 
-      if (data.attributes.useEligibilityServices) {
+      if (data.attributes.useEligibilityServices !== 'false') {
         view.$('#useEligibilityServices').prop('checked', true)
       } else {
         view.$('#useEligibilityServices').prop('checked', false)
@@ -284,6 +284,7 @@ var RequestView = Backbone.View.extend({
 
     this.model.set(data)
     this.updatingForm = false
+
     $('.nav-tabs a[href="#plan"]').tab('show');
   },
 
