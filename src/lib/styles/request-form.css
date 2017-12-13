@@ -35,6 +35,16 @@
   }
 }
 
+.timeControl {
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+.dateControl {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
 @media print {
   .form-control .select2-choice .select2-arrow {
     border: none;
