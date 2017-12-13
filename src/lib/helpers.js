@@ -49,10 +49,10 @@ Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, o
   maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
 
   if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
-    return timeFormatted + ' to ' + maxStartTimeFormatted
+    return 'between ' + timeFormatted + ' and ' + maxStartTimeFormatted
   }
   else{
-    return timeFormatted
+    return 'at ' + timeFormatted
   }
 
 })
