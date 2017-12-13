@@ -35,8 +35,6 @@ module.exports = Backbone.View.extend({
 
       if (_.size(itins) > 0) {
         _.each(itins.models, this.processItinerary, this)
-
-        itins.at(0).trigger('activate')
       }
     }
   },
