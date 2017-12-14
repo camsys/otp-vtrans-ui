@@ -11,7 +11,7 @@
             departs {{formatItineraryWithMaxStartTime timeOffset}}
         </span>
         <span class='pull-right'>
-            {{formatDuration duration}} &nbsp;&nbsp;&nbsp;
+            {{formatDuration duration}} &nbsp;&nbsp;&nbsp; {{includePlusForVariableDurationTrips timeOffset}}
         </span>
     </div>
     <div class="otp-itinHeader-preview">
@@ -24,11 +24,15 @@
         {{/unless}}
       </nobr>
       {{/each}}
+
+        <span class="otp-itinFare-preview">
+            {{#fare}}
+                <span class='pull-right'>{{fareString fare}}</span>
+            {{/fare}}
+            <span class='pull-right'>$2.22</span>
+        </span>
     </div>
     <div class="otp-itinHeader-details">
-      {{#fare}}
-        <span class='pull-right'>{{fareString fare}}</span>
-      {{/fare}}
       <span>{{formatTime startTime timeOffset}} - {{formatTime endTime timeOffset}}</span>
     </div>
   </div>

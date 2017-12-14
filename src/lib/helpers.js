@@ -42,20 +42,32 @@ Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, o
   var time = options.data.root.legs[0].attributes.startTime
   var maxStartTime = options.data.root.legs[0].attributes.maxStartTime
 
-  var timeFormatted = utils.formatTime(time, options.hash.format, offset)
-  var maxStartTimeFormatted = utils.formatTime(maxStartTime, options.hash.format, offset)
-
-  maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
-  maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
-
   if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
-    return 'between ' + timeFormatted + ' and ' + maxStartTimeFormatted
+
+    averageTime = (time+maxStartTime)/2
+    var averageTimeFormatted = utils.formatTime(averageTime, options.hash.format, offset)
+
+    return 'approximately ' + averageTimeFormatted
   }
   else{
+    var timeFormatted = utils.formatTime(time, options.hash.format, offset)
     return 'at ' + timeFormatted
   }
 
 })
+
+Handlebars.registerHelper('includePlusForVariableDurationTrips', function (offset, options){
+  var maxStartTime = options.data.root.legs[0].attributes.maxStartTime
+
+  if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
+    return '+'
+  }
+  else{
+    return ''
+  }
+
+})
+
 
 Handlebars.registerHelper('formatDuration', function (duration) {
   if (duration) {
