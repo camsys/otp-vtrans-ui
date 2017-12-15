@@ -151,6 +151,12 @@ var ItineraryMapView = Backbone.View.extend({
 
     // draw the polyline
     var polyline = new L.Polyline(points)
+
+    // console.log(this.options.legColor)
+    // console.log(leg.getMapColor())
+    console.log(this.options.legColor || leg.getMapColor())
+
+
     polyline.setStyle({
       color: this.options.legColor || leg.getMapColor(),
       weight: weight,

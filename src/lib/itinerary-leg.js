@@ -86,13 +86,35 @@ var ItineraryLeg = Backbone.Model.extend({
     mode = mode || this.get('mode')
     if (mode === 'WALK') return '#444'
     if (mode === 'BICYCLE') return '#0073e5'
-    if (mode === 'SUBWAY') return '#f00'
-    if (mode === 'RAIL') return '#b00'
-    if (mode === 'BUS') return '#080'
-    if (mode === 'TRAM') return '#800'
-    if (mode === 'FERRY') return '#008'
+    if (mode === 'SUBWAY') {
+      return this.useSpecificOrDefaultColor('#f00')
+    }
+    if (mode === 'RAIL') {
+      return this.useSpecificOrDefaultColor('#b00')
+    }
+    if (mode === 'BUS') {
+      return this.useSpecificOrDefaultColor('#080')
+    }
+    if (mode === 'TRAM') {
+      return this.useSpecificOrDefaultColor('#800')
+    }
+    if (mode === 'FERRY') {
+      return this.useSpecificOrDefaultColor('#008')
+    }
     if (mode === 'CAR') return '#444'
     return '#aaa'
+  },
+
+  useSpecificOrDefaultColor: function(color){
+    rc = this.get('routeColor')
+
+    if(rc != null && rc != '')
+    {
+      console.log(rc)
+      return '#'+rc
+    }else{
+      return color
+    }
   },
 
   isFlagStopLeg: function () {
