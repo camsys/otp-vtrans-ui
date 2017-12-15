@@ -120,6 +120,9 @@ Handlebars.registerHelper('modeString', function (mode) {
 Handlebars.registerHelper('flagStopDropOffText', function(leg) {
   return window.OTP_config.flagStopDropOffText
 })
+Handlebars.registerHelper('flagStopPickupText', function(leg) {
+  return window.OTP_config.flagStopPickupText
+})
 
 
 Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
@@ -169,8 +172,25 @@ Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
   return ''
 })
 
+Handlebars.registerHelper('hasContinuousPickupMessage', function (leg) {
+
+  console.log(leg.data.root.continuousPickupMessage)
+
+  if (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '') {
+    return 'TRUE'
+  }
+  return ''
+})
+Handlebars.registerHelper('hasContinuousDropOffMessage', function (leg) {
+  if (leg.data.root.continuousDropOffMessage !== null && leg.data.root.continuousDropOffMessage !== '') {
+    return 'TRUE'
+  }
+  return ''
+})
+
+
+
 Handlebars.registerHelper('isCallAndRide', function (leg) {
-  console.log(leg.data.root.callAndRide)
   if (leg.data.root.callAndRide !== null && leg.data.root.callAndRide == 'true') {
     return 'TRUE'
   }

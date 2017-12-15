@@ -47,6 +47,9 @@ var ItineraryLeg = Backbone.Model.extend({
     drtPickupMessage: null,
     drtDropOffMessage: null,
     drtAdvanceBookMin: null,
+    continuousPickupMessage: null,
+    continuousDropOffMessage: null,
+
     maxStartTime: null,
     minEndTime: null,
 
@@ -207,6 +210,20 @@ var ItineraryLeg = Backbone.Model.extend({
 
   hasDrtAdvanceBookMin: function () {
     if (this.drtAdvanceBookMin !== null && this.drtAdvanceBookMin !== '') {
+      return true
+    }
+    return false
+  },
+
+  hasContinuousPickupMessage: function () {
+    if (this.continuousPickupMessage !== null && this.continuousPickupMessage !== '') {
+      return true
+    }
+    return false
+  },
+
+  hasContinuousDropOffMessage: function () {
+    if (this.continuousDropOffMessage !== null && this.continuousDropOffMessage !== '') {
       return true
     }
     return false
