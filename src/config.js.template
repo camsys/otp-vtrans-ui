@@ -21,6 +21,9 @@ window.OTP_config = {
   // default no transit trips found within 5 miles of your search message
   noTripsFoundMessage: 'Try adjusting your trip settings, or call 800-685-RIDE',
 
+  //Default Flag Stop Dropoff text
+  flagStopDropOffText: 'Please communicate with the driver about your desired drop off. Ensure road is safe when debarking the bus.',
+
   // geocoders to use:
   geocoders: [ 'esri' ], // possible choices: esri, otp, nominatim, mapzen, mapbox
   reverseGeocoder: 'esri', // possible choices: esri, nominatim, mapzen, mapbox

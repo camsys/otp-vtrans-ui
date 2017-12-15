@@ -116,6 +116,12 @@ Handlebars.registerHelper('modeString', function (mode) {
   return mode
 })
 
+
+Handlebars.registerHelper('flagStopDropOffText', function(leg) {
+  return window.OTP_config.flagStopDropOffText
+})
+
+
 Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
   if (boardAlightType === 'FLAG_STOP') {
     return 'FLAG_STOP'
