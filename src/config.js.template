@@ -18,6 +18,9 @@ window.OTP_config = {
   // default query parameters to pass to otp router
   routerDefaults: {maxPreTransitTime: 1800},
 
+  // default no transit trips found within 5 miles of your search message
+  noTripsFoundMessage: 'Try adjusting your trip settings, or call 800-685-RIDE',
+
   // geocoders to use:
   geocoders: [ 'esri' ], // possible choices: esri, otp, nominatim, mapzen, mapbox
   reverseGeocoder: 'esri', // possible choices: esri, nominatim, mapzen, mapbox

@@ -77,7 +77,7 @@ var PlanRequest = Backbone.Model.extend({
           log('processing results')
           if (data.error) {
             m.trigger('failure',
-              'No transit trips found within 5 miles of your search, try adjusting your start or end locations. Only major metropolitan areas are currently covered. Please check back for expanded data coverage.'
+              window.OTP_config.noTripsFoundMessage
             )
           } else if (data && data.plan) {
             if (data.plan.from && data.plan.to) {
@@ -85,7 +85,7 @@ var PlanRequest = Backbone.Model.extend({
                 m.trigger('success', m.processRequest(data.plan))
               } else {
                 m.trigger('failure',
-                  'No transit trips found within 5 miles of your search, try adjusting your start or end locations. Only major metropolitan areas are currently covered. Please check back for expanded data coverage.'
+                  window.OTP_config.noTripsFoundMessage
                 )
               }
             } else {
