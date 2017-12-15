@@ -44,7 +44,7 @@ Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, o
 
   if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
 
-    averageTime = (time+maxStartTime)/2
+    var averageTime = (time+maxStartTime)/2
     var averageTimeFormatted = utils.formatTime(averageTime, options.hash.format, offset)
 
     return 'approximately ' + averageTimeFormatted
