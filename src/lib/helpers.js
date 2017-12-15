@@ -151,19 +151,26 @@ Handlebars.registerHelper('itineraryFirstLegHasMaxStartTime', function(itinerary
 })
 
 Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
-  console.log(leg.data.root.from.boardAlightType)
   if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '' && leg.data.root.from.boardAlightType != 'FLAG_STOP') {
     return 'TRUE'
   }
   return ''
 })
 Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
-  console.log(leg.data.root.to.boardAlightType)
   if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '' && leg.data.root.to.boardAlightType != 'FLAG_STOP') {
     return 'TRUE'
   }
   return ''
 })
+
+Handlebars.registerHelper('isCallAndRide', function (leg) {
+  console.log(leg.data.root.callAndRide)
+  if (leg.data.root.callAndRide !== null && leg.data.root.callAndRide == 'true') {
+    return 'TRUE'
+  }
+  return ''
+})
+
 Handlebars.registerHelper('hasDrtAdvanceBookMin', function (leg) {
   if (leg.data.root.drtAdvanceBookMin !== null && leg.data.root.drtAdvanceBookMin !== '') {
     return 'TRUE'

@@ -58,14 +58,17 @@
                     </div>
                 </span>
             {{/if}}
-            {{#if (hasDrtPickupMessage) }}
-            <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
-                <div>
-                    <h5> Deviated Route </h5>
-                    {{drtPickupMessage}}
-                </div>
-            </span>
-        {{/if}}
+            {{#if (isCallAndRide) }}
+                {{#if (hasDrtPickupMessage) }}
+                    <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+                        <div>
+                            <h5> Deviated Route </h5>
+                            {{drtPickupMessage}}
+                        </div>
+                     </span>
+                {{/if}}
+            {{/if}}
+
         </div>
         <br style="clear: both;">
         <div class="otp-legBody-to">
@@ -110,13 +113,15 @@
                     </div>
                 </span>
             {{/if}}
-            {{#if (hasDrtDropOffMessage) }}
-                <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
-                <div>
-                    <h5> Deviated Route </h5>
-                    {{drtDropOffMessage}}
-                </div>
-            </span>
+            {{#if (isCallAndRide) }}
+                {{#if (hasDrtDropOffMessage) }}
+                    <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+                        <div>
+                            <h5> Deviated Route </h5>
+                            {{drtDropOffMessage}}
+                        </div>
+                    </span>
+                {{/if}}
             {{/if}}
         </div>
     </div>
