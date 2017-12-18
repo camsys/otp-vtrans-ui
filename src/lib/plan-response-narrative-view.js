@@ -1,5 +1,6 @@
 var log = require('./log')('plan-response-narrative-view')
 var ItineraryNarrativeView = require('./itinerary-narrative-view')
+var PlanAlertView = require('./plan-alert-view')
 
 var Backbone = require("backbone")
 var _ = require("underscore")
@@ -24,6 +25,11 @@ var PlanResponseNarrativeView = Backbone.View.extend({
 
     if (this.model) {
       if (!this.error) this.$el.html(narrativeAdjustTemplate())
+      
+      var planAlerts = this.model.get('alerts')
+      if (planAlerts) {
+        _.each(planAlerts.models, this.processPlanAlert, this)
+      }
 
       var itins = this.model.get('itineraries')
       _.each(itins.models, this.processItinerary, this)
@@ -32,6 +38,16 @@ var PlanResponseNarrativeView = Backbone.View.extend({
     }
   },
 
+  processPlanAlert: function (planAlert, index) {
+     var planAlertView = new PlanAlertView({
+       model: planAlert,
+       planView: this,
+       index: index
+     })
+     planAlertView.render()
+     this.$el.find('.itineraries').append(planAlertView.el)
+   },
+ 
   processItinerary: function (itin, index) {
     var itinView = new ItineraryNarrativeView({
       model: itin,

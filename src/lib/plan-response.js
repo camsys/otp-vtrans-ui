@@ -7,7 +7,8 @@ var PlanResponse = Backbone.Model.extend({
     to: null,
     from: null,
     date: null,
-    itineraries: []
+    itineraries: [],
+    alerts: []
   },
 
   getTimeOffset: function () {

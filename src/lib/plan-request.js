@@ -2,6 +2,7 @@ var qs = require('querystring')
 
 var Itineraries = require('./itineraries')
 var ItineraryStop = require('./itinerary-stop')
+var PlanAlerts = require('./plan-alerts')
 var log = require('./log')('plan-request')
 var PlanResponse = require('./plan-response')
 var utils = require('./utils')
@@ -112,12 +113,14 @@ var PlanRequest = Backbone.Model.extend({
       itins.handleActivate(itin)
     })
 
+    var planAlerts = new PlanAlerts(plan.alerts)
     return new PlanResponse({
       request: this,
       from: new ItineraryStop(plan.from),
       to: new ItineraryStop(plan.to),
       date: plan.date,
-      itineraries: itins
+      itineraries: itins,
+      alerts: planAlerts
     })
   },
 
