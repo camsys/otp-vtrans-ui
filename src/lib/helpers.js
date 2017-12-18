@@ -133,19 +133,19 @@ Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
 })
 
 Handlebars.registerHelper('hasToTransitMessage', function(leg) {
-  if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') {
+  if ((leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') || (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '')) {
     return 'TRUE'
   }
-  if (leg.data.root.to.boardAlightType === 'FLAG_STOP') {
+  if (leg.data.root.from.boardAlightType === 'FLAG_STOP' || leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') {
     return 'FLAG_STOP'
   }
   return ''
 })
 Handlebars.registerHelper('hasFromTransitMessage', function(leg) {
-  if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') {
+  if ( (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') || (leg.data.root.continuousDropOffMessage !== null && leg.data.root.continuousDropOffMessage !== '')){
     return 'TRUE'
   }
-  if (leg.data.root.from.boardAlightType === 'FLAG_STOP') {
+  if (leg.data.root.from.boardAlightType === 'FLAG_STOP' || leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') {
     return 'FLAG_STOP'
   }
   
@@ -187,8 +187,13 @@ Handlebars.registerHelper('hasContinuousDropOffMessage', function (leg) {
 
 
 
-Handlebars.registerHelper('isCallAndRide', function (leg) {
-  if (leg.data.root.callAndRide !== null && leg.data.root.callAndRide == 'true') {
+Handlebars.registerHelper('isCallAndRide', function (boardAlightType) {
+  console.log('IN IS CALL AND RIDE')
+  console.log(boardAlightType)
+  console.log(boardAlightType !== null && boardAlightType == 'DEVIATED')
+
+
+  if ((boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')) {
     return 'TRUE'
   }
   return ''
