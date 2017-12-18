@@ -86,10 +86,12 @@ var ItineraryNarrativeView = Backbone.View.extend({
   },
 
   headerClicked: function (e) {
-    if (!this.isActive()) {
+    if (!this.isActive() || !this.active) {
+      this.active = true
       this.model.trigger('activate')
     } else {
       this.model.trigger('deactivate')
+      this.active = false
     }
   },
 

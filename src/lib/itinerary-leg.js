@@ -110,7 +110,6 @@ var ItineraryLeg = Backbone.Model.extend({
 
     if(rc != null && rc != '')
     {
-      console.log(rc)
       return '#'+rc
     }else{
       return color

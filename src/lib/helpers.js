@@ -173,9 +173,6 @@ Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
 })
 
 Handlebars.registerHelper('hasContinuousPickupMessage', function (leg) {
-
-  console.log(leg.data.root.continuousPickupMessage)
-
   if (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '') {
     return 'TRUE'
   }
