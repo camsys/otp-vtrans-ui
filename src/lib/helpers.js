@@ -123,6 +123,10 @@ Handlebars.registerHelper('flagStopDropOffText', function(leg) {
 Handlebars.registerHelper('flagStopPickupText', function(leg) {
   return window.OTP_config.flagStopPickupText
 })
+Handlebars.registerHelper('deviatedRouteText', function(leg) {
+  return window.OTP_config.deviatedRouteText
+})
+
 
 
 Handlebars.registerHelper('isFlagStop', function (boardAlightType) {

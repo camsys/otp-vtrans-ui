@@ -68,6 +68,8 @@
                         <h5> Deviated Route </h5>
                         {{#if (hasDrtPickupMessage) }}
                             {{drtPickupMessage}}
+                        {{else}}
+                            {{deviatedRouteText}}
                         {{/if}}
                     </div>
                 </span>
@@ -126,6 +128,8 @@
                     <h5> Deviated Route </h5>
                     {{#if (hasDrtDropOffMessage) }}
                         {{drtDropOffMessage}}
+                    {{else}}
+                        {{deviatedRouteText}}
                     {{/if}}
                 </div>
             </span>
