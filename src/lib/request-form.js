@@ -125,13 +125,16 @@ var RequestView = Backbone.View.extend({
         view.$('#wheelchairAccessible').prop('checked', false)
       }
 
-      if (data.attributes.useReservationServices !== 'false') {
+      var reservationService = data.attributes.useReservationServices+''
+      var eligibilityService = data.attributes.useEligibilityServices+''
+
+      if (reservationService == 'true' || reservationService == '' ) {
         view.$('#useReservationServices').prop('checked', true)
       } else {
         view.$('#useReservationServices').prop('checked', false)
       }
 
-      if (data.attributes.useEligibilityServices !== 'false') {
+      if ( eligibilityService == 'true' || eligibilityService == '' ) {
         view.$('#useEligibilityServices').prop('checked', true)
       } else {
         view.$('#useEligibilityServices').prop('checked', false)
