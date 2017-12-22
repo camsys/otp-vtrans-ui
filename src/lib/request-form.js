@@ -150,6 +150,7 @@ var RequestView = Backbone.View.extend({
       view.setNextPreviousLastHidden(false)
       view.timeOffset = response.getTimeOffset()
       view.itineraries = response.get('itineraries')
+      $('.nav-tabs a[href="#plan"]').tab('show');
     })
 
     this.listenTo(this.model, 'failure', function () {
@@ -281,10 +282,6 @@ var RequestView = Backbone.View.extend({
 
     this.model.set(data)
     this.updatingForm = false
-
-    if(data.fromPlace !== false && data.toPlace !== false){
-      $('.nav-tabs a[href="#plan"]').tab('show');
-    }
   },
 
   deactivateSearchButton: function () {
