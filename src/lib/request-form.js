@@ -261,9 +261,6 @@ var RequestView = Backbone.View.extend({
 
     var maxDistance = $('#maxWalkDistance').val()
 
-    console.log('CHANGE FORM METHOD seems correct')
-    console.log("this.$('#useReservationServices').prop('checked') ===")
-    console.log(this.$('#useReservationServices').prop('checked'))
     var data = {
       date: this.$('#date input').val(),
       time: this.$('#time input').val(),
@@ -285,7 +282,9 @@ var RequestView = Backbone.View.extend({
     this.model.set(data)
     this.updatingForm = false
 
-    $('.nav-tabs a[href="#plan"]').tab('show');
+    if(data.fromPlace !== false && data.toPlace !== false){
+      $('.nav-tabs a[href="#plan"]').tab('show');
+    }
   },
 
   deactivateSearchButton: function () {

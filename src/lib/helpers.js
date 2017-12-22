@@ -192,11 +192,6 @@ Handlebars.registerHelper('hasContinuousDropOffMessage', function (leg) {
 
 
 Handlebars.registerHelper('isCallAndRide', function (boardAlightType) {
-  console.log('IN IS CALL AND RIDE')
-  console.log(boardAlightType)
-  console.log(boardAlightType !== null && boardAlightType == 'DEVIATED')
-
-
   if ((boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')) {
     return 'TRUE'
   }
