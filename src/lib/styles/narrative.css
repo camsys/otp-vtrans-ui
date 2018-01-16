@@ -293,6 +293,11 @@
 	display: none;
 }
 
+.agency-descriptor-span{
+	white-space: nowrap;
+	display: inline-block;
+}
+
 .transit-line-well{
 	text-align: center;
 	padding-right: 5px;
