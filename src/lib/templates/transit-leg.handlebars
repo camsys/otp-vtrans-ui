@@ -3,10 +3,19 @@
     <div class="agencyBranding" style="background-image: url({{agencyLogoUrl}});"></div>
     <span><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
     <div class="otp-legMode-icon otp-legMode-icon-{{ mode }}"></div>
-    <span class="transit-line-well">
-        <b>  {{routeShortName}}  </b>
-        {{routeLongName}}
-    </span>
+      <span class="transit-line-well"
+          {{#if routeColor }}
+            {{#if routeTextColor }}
+                style="background-color: #{{routeColor}}; color: #{{routeTextColor}};"
+            {{/if}}
+          {{/if}}
+      >
+          {{#if routeShortName}}
+              <b>{{routeShortName}}</b>
+          {{else}}
+              <b>{{routeLongName}}</b>
+          {{/if}}
+      </span>
       {{#if headsign}}
           <br /> to {{headsign}}
       {{/if}}
@@ -18,9 +27,9 @@
     <div class="otp-legBody">
         <div class="otp-legBody-from">
             {{#if (hasFromTransitMessage) }}
-                <span class="col-sm-2 col-md-2" id="from_leg_narrative_depart">
+                <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
             {{else}}
-                <span class="col-sm-4 col-md-4" id="from_leg_narrative_depart">
+                <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
                     <h5>Depart</h5>
@@ -34,9 +43,9 @@
                 </div>
             </span>
             {{#if (hasFromTransitMessage) }}
-                <span class="col-sm-4 col-md-4" id="from_leg_narrative_from">
+                <span class="col-xs-4 col-md-4" id="from_leg_narrative_from">
             {{else}}
-                <span class="col-sm-8 col-md-8" id="from_leg_narrative_depart">
+                <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
                     <h5> From </h5>
@@ -51,7 +60,7 @@
                 </div>
             </span>
             {{#if (isFlagStop from.boardAlightType)}}
-                <span class="col-sm-6 col-md-6" id="from_leg_narrative_flag_stop">
+                <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
                         <h5> Flag Stop </h5>
                         {{#if (hasContinuousPickupMessage)}}
@@ -63,7 +72,7 @@
                 </span>
             {{/if}}
             {{#if (isCallAndRide from.boardAlightType) }}
-                <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+                <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                     <div>
                         <h5> Deviated Route </h5>
                         {{#if (hasDrtPickupMessage) }}
@@ -78,9 +87,9 @@
         <br style="clear: both;">
         <div class="otp-legBody-to">
             {{#if (hasToTransitMessage) }}
-                <span class="col-sm-2 col-md-2" id="from_leg_narrative_depart">
+                <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
             {{else}}
-                <span class="col-sm-4 col-md-4" id="from_leg_narrative_depart">
+                <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
                     <h5>Arrive</h5>
@@ -94,9 +103,9 @@
                 </div>
             </span>
             {{#if (hasToTransitMessage)}}
-                <span class="col-sm-4 col-md-4" id="from_leg_narrative_from">
+                <span class="col-xs-4 col-md-4" id="from_leg_narrative_from">
             {{else}}
-                <span class="col-sm-8 col-md-8" id="from_leg_narrative_depart">
+                <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
                     <h5> To </h5>
@@ -111,7 +120,7 @@
                 </div>
             </span>
             {{#if (isFlagStop to.boardAlightType)}}
-                <span class="col-sm-6 col-md-6" id="from_leg_narrative_flag_stop">
+                <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
                         <h5> Flag Stop </h5>
                         {{#if (hasContinuousDropOffMessage)}}
@@ -123,7 +132,7 @@
                 </span>
             {{/if}}
             {{#if (isCallAndRide to.boardAlightType) }}
-            <span class="col-sm-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+            <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                 <div>
                     <h5> Deviated Route </h5>
                     {{#if (hasDrtDropOffMessage) }}

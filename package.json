@@ -17,20 +17,20 @@
   },
   "dependencies": {
     "backbone": "^1.2.1",
-    "css-loader": "^0.28.5",
+    "css-loader": "^0.28.8",
     "debug": "^3.0.1",
     "file-loader": "^0.11.2",
     "handlebars": "^4.0.10",
     "handlebars-loader": "^1.5.0",
-    "haversine": "^1.0.2",
+    "haversine": "^1.1.0",
     "leaflet": "^1.0.3",
     "leaflet-curve": "^1.0.0",
     "leaflet-polylinedecorator": "^1.2.0",
     "leaflet.gridlayer.googlemutant": "^0.6.4",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.8.2"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1"
   },
   "devDependencies": {
     "ava": "^0.23.0"

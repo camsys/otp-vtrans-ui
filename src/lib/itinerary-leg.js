@@ -105,6 +105,42 @@ var ItineraryLeg = Backbone.Model.extend({
     return '#aaa'
   },
 
+  getTextColor: function (mode) {
+    mode = mode || this.get('mode')
+    if (mode === 'WALK') return '#aaa'
+    if (mode === 'BICYCLE') return '#444'
+    if (mode === 'SUBWAY') {
+      return this.useSpecificOrDefaultTextColor('#444')
+    }
+    if (mode === 'RAIL') {
+      return this.useSpecificOrDefaultTextColor('#aaa')
+    }
+    if (mode === 'BUS') {
+      return this.useSpecificOrDefaultTextColor('#aaa')
+    }
+    if (mode === 'TRAM') {
+      return this.useSpecificOrDefaultTextColor('#aaa')
+    }
+    if (mode === 'FERRY') {
+      return this.useSpecificOrDefaultTextColor('#aaa')
+    }
+    if (mode === 'CAR') return '#aaa'
+    return '#444'
+  },
+
+  useSpecificOrDefaultTextColor: function(color){
+    rtc = this.get('routeTextColor')
+
+    console.log(rtc)
+
+    if(rtc != null && rtc != '')
+    {
+      return '#'+rtc
+    }else{
+      return color
+    }
+  },
+
   useSpecificOrDefaultColor: function(color){
     rc = this.get('routeColor')
 

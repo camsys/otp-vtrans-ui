@@ -32,7 +32,7 @@ function assign_bootstrap_mode () {
     nar.appendTo('#plan')
   } else if (width < 992) {
     mode = 'mode-sm'
-    nar.appendTo('#sidebar')
+    nar.appendTo('#plan')
   } else {
     mode = 'mode-md'
     nar.appendTo('#sidebar')

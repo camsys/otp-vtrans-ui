@@ -294,11 +294,15 @@
 }
 
 .transit-line-well{
-	background-color: #fff;
+	text-align: center;
 	padding-right: 5px;
 	padding-left: 5px;
 	padding-bottom: 5px;
 	padding-top: 5px;
+	background-color: white;
+	color: black;
+	white-space: nowrap;
+	display: inline-block;
 }
 
 @media print {
