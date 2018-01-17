@@ -30,9 +30,11 @@ function assign_bootstrap_mode () {
   if (width < 768) {
     mode = 'mode-xs'
     nar.appendTo('#plan')
+    $('body').css( 'overflow-y', 'scroll' )
   } else if (width < 992) {
     mode = 'mode-sm'
     nar.appendTo('#plan')
+    $('body').css( 'overflow-y', 'scroll' )
   } else {
     mode = 'mode-md'
     nar.appendTo('#sidebar')
