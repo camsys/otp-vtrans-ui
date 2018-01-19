@@ -298,6 +298,10 @@
 	display: inline-block;
 }
 
+.transit-line-container{
+	white-space: nowrap;
+}
+
 .transit-line-well{
 	text-align: center;
 	padding-right: 5px;
