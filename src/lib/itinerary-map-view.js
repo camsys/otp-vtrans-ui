@@ -202,10 +202,9 @@ var ItineraryMapView = Backbone.View.extend({
       popupContent += ' (' + Math.round(minutes) + ' mins)'
 
       if (leg.isFlagStopLeg() === true) {
-        var flagStopContent = popupContent + '<h5>Flag Stop</h5> <br/>'
+        var flagStopContent = popupContent
 
         if (leg.isFromFlagStop() === true) {
-          var flagStopContent = flagStopContent + leg.get('continuousPickupMessage')
           var fromFlagStopMarker = L.marker([leg.get('from').lat, leg.get('from').lon], {icon: flagStopIcon});
           var fromStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getFromFlagStopArea()), {dashArray: "10 10"});
           fromStopLine.setStyle(flagStopLineStyle)
@@ -215,7 +214,6 @@ var ItineraryMapView = Backbone.View.extend({
           this.stopLayer.addLayer(fromFlagStopMarker)
         }
         if (leg.isToFlagStop() === true) {
-          var flagStopContent = flagStopContent + leg.get('continuousDropOffMessage')
           var toFlagStopMarker = L.marker([leg.get('to').lat, leg.get('to').lon], {icon: flagStopIcon});
           var toStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getToFlagStopArea()), {dashArray: "10 10"});
           toStopLine.setStyle(flagStopLineStyle)
