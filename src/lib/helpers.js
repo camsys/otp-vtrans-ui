@@ -137,16 +137,17 @@ Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
 })
 
 Handlebars.registerHelper('hasToTransitMessage', function(leg) {
-  if ((leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') || (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '')) {
+  if ( (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') || (leg.data.root.continuousDropOffMessage !== null && leg.data.root.continuousDropOffMessage !== '')){
     return 'TRUE'
   }
-  if (leg.data.root.from.boardAlightType === 'FLAG_STOP' || leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') {
+
+  if (leg.data.root.to.boardAlightType === 'FLAG_STOP' || leg.data.root.to.boardAlightType === 'DEVIATED' || leg.data.root.to.boardAlightType === 'CALLANDRIDE') {
     return 'FLAG_STOP'
   }
   return ''
 })
 Handlebars.registerHelper('hasFromTransitMessage', function(leg) {
-  if ( (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') || (leg.data.root.continuousDropOffMessage !== null && leg.data.root.continuousDropOffMessage !== '')){
+  if ((leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') || (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '')) {
     return 'TRUE'
   }
   if (leg.data.root.from.boardAlightType === 'FLAG_STOP' || leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') {
@@ -189,7 +190,18 @@ Handlebars.registerHelper('hasContinuousDropOffMessage', function (leg) {
   return ''
 })
 
+Handlebars.registerHelper('isAnyCallAndRide', function(leg)
+{
+  console.log(leg.data.root.from.boardAlightType)
+  console.log(leg.data.root.to.boardAlightType)
 
+  if( (leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') ||
+      (leg.data.root.to.boardAlightType === 'DEVIATED' || leg.data.root.to.boardAlightType === 'CALLANDRIDE')
+  ){
+    return 'TRUE'
+  }
+  return ''
+})
 
 Handlebars.registerHelper('isCallAndRide', function (boardAlightType) {
   if ((boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')) {

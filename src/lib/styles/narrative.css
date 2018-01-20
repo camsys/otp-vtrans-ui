@@ -205,6 +205,11 @@
     background-image: url('../images/directions/circle_counterclockwise.png')
 }
 
+.otp-legMode-glyphicon {
+    font-size: 18px;
+    display: inline-block;
+    vertical-align:middle;
+}
 
 .otp-legMode-icon {
 	background: url('../images/mode/modes_hires.png') no-repeat;

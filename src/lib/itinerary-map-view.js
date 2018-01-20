@@ -181,8 +181,12 @@ var ItineraryMapView = Backbone.View.extend({
           'steps').models[step]))
       }
     } else if (leg.isTransit()) {
-      popupContent = '<div class="otp-legMode-icon otp-legMode-icon-' + leg
-          .get('mode') + '"></div> '
+      if(leg.isDeviatedRouteLeg()){
+        popupContent = '<div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>'
+      }else{
+        popupContent = '<div class="otp-legMode-icon otp-legMode-icon-' + leg.get('mode') + '"></div> '
+      }
+
 
       if (leg.get('routeShortName')) {
         popupContent += leg.get('routeShortName')
