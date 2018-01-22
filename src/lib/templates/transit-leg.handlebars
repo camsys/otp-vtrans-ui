@@ -42,7 +42,7 @@
                     <h5>Depart</h5>
                     <div>
                         {{#if (hasMaxStartTime )}}
-                            <span class="timing_text"> <i>approximately</i> </span> {{formatTimeWithMaxStartTime startTime maxStartTime timeOffset}}
+                            <span class="timing_text"> approximately </span> {{formatTimeWithMaxStartTime startTime maxStartTime timeOffset}}
                         {{else}}
                             {{formatTime startTime timeOffset}}
                         {{/if}}
@@ -71,7 +71,7 @@
                     <div>
                         <h5> Flag Stop </h5>
                         {{#if (hasContinuousPickupMessage)}}
-                            <span class="timing_text"> <i>approximately</i> </span> {{continuousPickupMessage}}
+                            <span class="timing_text"> approximately </span> {{continuousPickupMessage}}
                         {{else}}
                             {{flagStopPickupText}}
                         {{/if}}
