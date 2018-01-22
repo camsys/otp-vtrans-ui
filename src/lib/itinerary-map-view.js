@@ -286,7 +286,7 @@ var ItineraryMapView = Backbone.View.extend({
 
   renderCallAndRideLeg: function (leg) {
     // draw the arc a
-    var popupContent = '<div class="otp-legMode-icon otp-legMode-icon-' + leg.get('mode') + '"></div> <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
+    var popupContent = '<div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div> <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
 
     popupContent += '<br/>'
 
