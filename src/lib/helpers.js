@@ -245,9 +245,10 @@ Handlebars.registerHelper('hasMinEndTime', function (leg) {
 Handlebars.registerHelper('fareString', function (fare) {
   if (fare && fare.regular) {
     var cents = parseInt(fare.regular.cents)
-    if (cents === 0) return ''
+    if (cents <= 0 ) return ''
     var f = cents / Math.pow(10, fare.regular.currency.defaultFractionDigits)
     return fare.regular.currency.symbol + f.toFixed(fare.regular.currency.defaultFractionDigits)
   }
   return ''
 })
+
