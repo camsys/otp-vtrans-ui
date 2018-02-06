@@ -190,18 +190,31 @@ Handlebars.registerHelper('hasContinuousDropOffMessage', function (leg) {
   return ''
 })
 
+Handlebars.registerHelper('isAnyCallAndRideFromAttributes', function(attributes)
+{
+  var fromBAT = attributes.from.boardAlightType
+  var toBAT = attributes.to.boardAlightType
+
+  return determineCallAndRideStatus(fromBAT, toBAT)
+})
+
 Handlebars.registerHelper('isAnyCallAndRide', function(leg)
 {
-  console.log(leg.data.root.from.boardAlightType)
-  console.log(leg.data.root.to.boardAlightType)
+  var fromBAT = leg.data.root.from.boardAlightType
+  var toBAT = leg.data.root.to.boardAlightType
 
-  if( (leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') ||
-      (leg.data.root.to.boardAlightType === 'DEVIATED' || leg.data.root.to.boardAlightType === 'CALLANDRIDE')
+  return determineCallAndRideStatus(fromBAT, toBAT)
+})
+
+function determineCallAndRideStatus(fromBAT, toBAT)
+{
+  if( (fromBAT === 'DEVIATED' || fromBAT === 'CALLANDRIDE') ||
+    (toBAT === 'DEVIATED'   || toBAT === 'CALLANDRIDE')
   ){
     return 'TRUE'
   }
   return ''
-})
+}
 
 Handlebars.registerHelper('isCallAndRide', function (boardAlightType) {
   if ((boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')) {

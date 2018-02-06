@@ -17,7 +17,13 @@
     <div class="otp-itinHeader-preview">
       {{#each legs}}
       <nobr>
-        <div class="otp-legMode-icon otp-legMode-icon-{{ attributes.mode }}"></div>
+          {{#if (isAnyCallAndRideFromAttributes attributes) }}
+              <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
+          {{else}}
+              <div class="otp-legMode-icon otp-legMode-icon-{{ attributes.mode }}"></div>
+          {{/if}}
+
+
         <span {{#if attributes.routeColor }}style="border-bottom:2px solid #{{attributes.routeColor}};"{{/if}}>{{#if attributes.routeShortName }}{{attributes.routeShortName}}{{/if}}</span>
         {{#unless @last}}
           <div class="otp-legMode-icon otp-legMode-icon-arrow-right" style="margin-left: 4px;"></div>
