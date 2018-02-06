@@ -22,7 +22,7 @@ window.OTP_config = {
   noTripsFoundMessage: 'Try adjusting your trip settings, or call 800-685-RIDE',
 
   //Default Flag Stop Dropoff text
-  flagStopDropOffText: 'Please communicate with the driver about your desired drop off. Ensure road is safe when debarking the bus.',
+  flagStopDropOffText: 'Please communicate with the driver about your desired drop off. Ensure road is safe when disembarking the bus.',
   //Default Flag Stop Pickup text
   flagStopPickupText: 'Wait in a safe area along the route. Wave to the driver as bus approaches and wait for the vehicle to stop before boarding.',
   //Default Deviate Route text
