@@ -17,6 +17,7 @@ var OTP = require("./lib/index.js");
 
 // potentially: Google
 if (window.OTP_config.useGoogleMaps) {
+  $.getScript("https://maps.googleapis.com/maps/api/js?v=3&libraries=places&" + window.OTP_config.googleAuth);
   require('leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js')
 }
 
