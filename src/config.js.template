@@ -43,5 +43,8 @@ window.OTP_config = {
   // defaults to: 'TRANSIT,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE'
   //
   // e.g. uncomment following line to add drive-to-transit to the default list
-  modes: [ 'TRANSIT,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE', 'TRANSIT,CAR_PARK' ]
+  modes: [ 'TRANSIT,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE', 'TRANSIT,CAR_PARK' ],
+
+  useGoogleMaps: true,
+  googleAuth: "my-google-credentials"
 }
