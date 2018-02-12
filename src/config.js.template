@@ -46,5 +46,5 @@ window.OTP_config = {
   modes: [ 'TRANSIT,WALK', 'BUS,WALK', 'WALK', 'BICYCLE', 'TRANSIT,BICYCLE', 'TRANSIT,CAR_PARK' ],
 
   useGoogleMaps: true,
-  googleAuth: "my-google-credentials"
+  googleAuth: "client=gme-cambridgesystematics&channel=vtrans-dev"
 }
