@@ -15,9 +15,11 @@ var Backbone = require("backbone")
 var L = require("leaflet")
 var OTP = require("./lib/index.js");
 
+var ready = $(document).ready
+
 // potentially: Google
 if (window.OTP_config.useGoogleMaps) {
-  $.getScript("https://maps.googleapis.com/maps/api/js?v=3&libraries=places&" + window.OTP_config.googleAuth);
+  ready = function(cb) { $(document).ready(function() { $.getScript("https://maps.googleapis.com/maps/api/js?v=3&libraries=places&" + window.OTP_config.googleAuth, cb); }) }
   require('leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js')
 }
 
@@ -44,7 +46,7 @@ function assign_bootstrap_mode () {
   $('body').removeClass('mode-md').removeClass('mode-sm').removeClass('mode-xs').addClass(mode)
 }
 
-$(document).ready(function () {
+ready(function () {
   var log = OTP.log('client')
 
   // set up the leafet map object
