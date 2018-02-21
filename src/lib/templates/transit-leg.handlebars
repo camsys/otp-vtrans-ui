@@ -71,7 +71,7 @@
                     <div>
                         <h5> Flag Stop </h5>
                         {{#if (hasContinuousPickupMessage)}}
-                            <span class="timing_text"> approximately </span> {{continuousPickupMessage}}
+                            {{continuousPickupMessage}}
                         {{else}}
                             {{flagStopPickupText}}
                         {{/if}}
@@ -102,7 +102,7 @@
                     <h5>Arrive</h5>
                     <div>
                         {{#if (hasMinEndTime) }}
-                            {{formatTimeWithMinEndTime endTime minEndTime timeOffset}}
+                            <span class="timing_text"> approximately </span> {{formatTimeWithMinEndTime endTime minEndTime timeOffset}}
                         {{else}}
                             {{formatTime endTime timeOffset}}
                         {{/if}}
