@@ -81,7 +81,7 @@
             {{#if (isCallAndRide from.boardAlightType) }}
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                     <div>
-                        <h5> Deviated Route </h5>
+                        <h5> Service note: </h5>
                         {{#if (hasDrtPickupMessage) }}
                             {{drtPickupMessage}}
                         {{else}}
@@ -141,7 +141,7 @@
             {{#if (isCallAndRide to.boardAlightType) }}
             <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                 <div>
-                    <h5> Deviated Route </h5>
+                    <h5> Service note: </h5>
                     {{#if (hasDrtDropOffMessage) }}
                         {{drtDropOffMessage}}
                     {{else}}
