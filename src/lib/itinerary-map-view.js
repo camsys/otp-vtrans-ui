@@ -228,7 +228,7 @@ var ItineraryMapView = Backbone.View.extend({
         }
       }
       if (leg.isDeviatedRouteLeg()) {
-        popupContent += '<h5>Deviated Route</h5> <br/>'
+        popupContent += '<h5>Service note:</h5> <br/>'
 
         if (leg.isFromDeviatedRoute() === true) {
           if (leg.hasDrtPickupMessage()) {

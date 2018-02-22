@@ -1,6 +1,8 @@
 window.OTP_config = {
   initLatLng: [44.42, -72.01],
 
+  mergeInterlinedRouteLegs: 'true',
+
   osmMapKey: 'your-mapbox-osm-key',
   aerialMapKey: 'your-mapbox-aerial-key',
 
