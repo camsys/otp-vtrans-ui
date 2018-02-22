@@ -110,7 +110,12 @@
                 </div>
             </span>
             {{#if (hasToTransitMessage)}}
-                <span class="col-xs-4 col-md-4" id="from_leg_narrative_from">
+                {{#if (hideDropoffDeviatedMessage) }}
+                    <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
+                {{else}}
+                    <span class="col-xs-4 col-md-4" id="from_leg_narrative_from">
+                {{/if}}
+
             {{else}}
                 <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
@@ -139,16 +144,19 @@
                 </span>
             {{/if}}
             {{#if (isCallAndRide to.boardAlightType) }}
-            <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
-                <div>
-                    <h5> Service note: </h5>
-                    {{#if (hasDrtDropOffMessage) }}
-                        {{drtDropOffMessage}}
-                    {{else}}
-                        {{deviatedRouteText}}
-                    {{/if}}
-                </div>
-            </span>
+                {{#if (hideDropoffDeviatedMessage) }}
+                {{else}}
+                    <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
+                        <div>
+                            <h5> Service note: </h5>
+                            {{#if (hasDrtDropOffMessage) }}
+                                {{drtDropOffMessage}}
+                            {{else}}
+                                {{deviatedRouteText}}
+                            {{/if}}
+                        </div>
+                    </span>
+                {{/if}}
             {{/if}}
         </div>
     </div>

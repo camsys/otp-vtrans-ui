@@ -171,9 +171,7 @@ Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
   return ''
 })
 Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
-  if(drtPickupMessage(leg)){
-    return ''
-  }
+
   if (drtDropOffMessage(leg)) {
     return 'TRUE'
   }
@@ -233,12 +231,23 @@ Handlebars.registerHelper('isCallAndRide', function (boardAlightType) {
   return ''
 })
 
+Handlebars.registerHelper('hideDropoffDeviatedMessage', function (leg) {
+  console.log('in hideDropoffDeviatedMessage and callAndRide=='+leg.data.root.callAndRide=='true'+'===');
+  console.log(leg.data.root.callAndRide);
+  if (leg.data.root.callAndRide) {
+      console.log('IN TRUE')
+     return 'TRUE'
+  }
+  return ''
+})
+
 Handlebars.registerHelper('hasDrtAdvanceBookMin', function (leg) {
   if (leg.data.root.drtAdvanceBookMin !== null && leg.data.root.drtAdvanceBookMin !== '') {
     return 'TRUE'
   }
   return ''
 })
+
 Handlebars.registerHelper('hasMaxStartTime', function (leg) {
   if (leg.data.root.maxStartTime !== null && leg.data.root.maxStartTime !== '' && leg.data.root.maxStartTime !== 'undefined') {
     return 'TRUE'
