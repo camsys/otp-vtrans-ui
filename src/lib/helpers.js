@@ -130,7 +130,7 @@ Handlebars.registerHelper('deviatedRouteText', function(leg) {
 
 
 Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
-  if (boardAlightType === 'FLAG_STOP') {
+  if (isFlagStopHelper(boardAlightType)) {
     return 'FLAG_STOP'
   }
   return ''
@@ -147,15 +147,21 @@ Handlebars.registerHelper('hasToTransitMessage', function(leg) {
   return ''
 })
 Handlebars.registerHelper('hasFromTransitMessage', function(leg) {
-  if ((leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '') || (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '')) {
+  if(isFlagStopHelper(leg.data.root.from.boardAlightType) || isCallAndRideHelper(leg.data.root.from.boardAlightType))
+  {
     return 'TRUE'
   }
-  if (leg.data.root.from.boardAlightType === 'FLAG_STOP' || leg.data.root.from.boardAlightType === 'DEVIATED' || leg.data.root.from.boardAlightType === 'CALLANDRIDE') {
-    return 'FLAG_STOP'
-  }
-  
+
   return ''
 })
+
+function isFlagStopHelper(boardAlightType) {
+  return (boardAlightType === 'FLAG_STOP')
+}
+function isCallAndRideHelper(boardAlightType)
+{
+  return (boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')
+}
 
 Handlebars.registerHelper('itineraryFirstLegHasMaxStartTime', function(itinerary) {
   if (itinerary.data.root.legs[0].attributes.drtPickupMessage !== null) {
@@ -225,17 +231,14 @@ function determineCallAndRideStatus(fromBAT, toBAT)
 }
 
 Handlebars.registerHelper('isCallAndRide', function (boardAlightType) {
-  if ((boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')) {
+  if (isCallAndRideHelper(boardAlightType)) {
     return 'TRUE'
   }
   return ''
 })
 
 Handlebars.registerHelper('hideDropoffDeviatedMessage', function (leg) {
-  console.log('in hideDropoffDeviatedMessage and callAndRide=='+leg.data.root.callAndRide=='true'+'===');
-  console.log(leg.data.root.callAndRide);
   if (leg.data.root.callAndRide) {
-      console.log('IN TRUE')
      return 'TRUE'
   }
   return ''
