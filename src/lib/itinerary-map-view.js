@@ -302,8 +302,6 @@ var ItineraryMapView = Backbone.View.extend({
 
     popupContent += ' <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
 
-    popupContent += '<br/>'
-
     var minutes = leg.get('duration') / 60
     popupContent += '(' + Math.round(minutes) + ' mins)'
 
