@@ -165,17 +165,27 @@ Handlebars.registerHelper('itineraryFirstLegHasMaxStartTime', function(itinerary
 })
 
 Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
-  if (leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '' && leg.data.root.from.boardAlightType != 'FLAG_STOP') {
+  if (drtPickupMessage(leg)) {
     return 'TRUE'
   }
   return ''
 })
 Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
-  if (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '' && leg.data.root.to.boardAlightType != 'FLAG_STOP') {
+  if(drtPickupMessage(leg)){
+    return ''
+  }
+  if (drtDropOffMessage(leg)) {
     return 'TRUE'
   }
   return ''
 })
+
+function drtPickupMessage(leg){
+  return leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '' && leg.data.root.from.boardAlightType != 'FLAG_STOP';
+}
+function drtDropOffMessage(leg){
+  return leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '' && leg.data.root.to.boardAlightType != 'FLAG_STOP';
+}
 
 Handlebars.registerHelper('hasContinuousPickupMessage', function (leg) {
   if (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '') {
