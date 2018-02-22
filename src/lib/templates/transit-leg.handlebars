@@ -94,7 +94,12 @@
         <br style="clear: both;">
         <div class="otp-legBody-to">
             {{#if (hasToTransitMessage) }}
-                <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
+                {{#if (hideDropoffDeviatedMessage) }}
+                    <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
+                {{else}}
+                    <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
+                {{/if}}
+
             {{else}}
                 <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
