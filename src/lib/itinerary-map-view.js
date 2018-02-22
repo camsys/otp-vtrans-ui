@@ -197,7 +197,7 @@ var ItineraryMapView = Backbone.View.extend({
           popupContent += ' '
         }
 
-        popupContent += leg.get('routeLongName') + '<br/> '
+        popupContent += leg.get('routeLongName')
       }
 
       popupContent += ' <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
@@ -228,7 +228,7 @@ var ItineraryMapView = Backbone.View.extend({
         }
       }
       if (leg.isDeviatedRouteLeg()) {
-        popupContent += '<h5>Service note:</h5> <br/>'
+        popupContent += '<h5>Service note:</h5>'
 
         if (leg.isFromDeviatedRoute() === true) {
           if (leg.hasDrtPickupMessage()) {
@@ -286,20 +286,34 @@ var ItineraryMapView = Backbone.View.extend({
 
   renderCallAndRideLeg: function (leg) {
     // draw the arc a
-    var popupContent = '<div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div> <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
+    popupContent = '<div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>'
+
+    if (leg.get('routeShortName')) {
+      popupContent += leg.get('routeShortName')
+    }
+
+    if (leg.get('routeLongName')) {
+      if (popupContent !== '') {
+        popupContent += ' '
+      }
+
+      popupContent += leg.get('routeLongName')
+    }
+
+    popupContent += ' <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
 
     popupContent += '<br/>'
 
     var minutes = leg.get('duration') / 60
-    popupContent += Math.round(minutes) + ' mins '
+    popupContent += '(' + Math.round(minutes) + ' mins)'
 
-    var deviatedRouteContent = popupContent + '<h5>Call And Ride</h5> <br/>'
+    popupContent += '<h5>Service note:</h5>'
 
     if (leg.hasDrtPickupMessage()) {
-      deviatedRouteContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
+      popupContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
     }
     if (leg.hasDrtDropOffMessage()) {
-      deviatedRouteContent += 'Drop Off Notice: ' + leg.get('drtDropOffMessage') + '<br/>'
+      popupContent += 'Drop Off Notice: ' + leg.get('drtDropOffMessage') + '<br/>'
     }
 
     var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
@@ -318,7 +332,7 @@ var ItineraryMapView = Backbone.View.extend({
       offset: 100
     })
 
-    fromCurvedPath.bindTooltip(deviatedRouteContent)
+    fromCurvedPath.bindTooltip(popupContent)
     this.stopLayer.addLayer(fromCurvedPath)
     var marker = this.getLegFromBubbleMarker(leg, this.highlightLeg === leg)
     this.pathMarkerLayer.addLayer(marker)
