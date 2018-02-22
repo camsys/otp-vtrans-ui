@@ -310,9 +310,6 @@ var ItineraryMapView = Backbone.View.extend({
     if (leg.hasDrtPickupMessage()) {
       popupContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
     }
-    if (leg.hasDrtDropOffMessage()) {
-      popupContent += 'Drop Off Notice: ' + leg.get('drtDropOffMessage') + '<br/>'
-    }
 
     var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
     var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
