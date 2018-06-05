@@ -189,7 +189,7 @@ ready(function () {
 
   log('starting router')
 
-  Backbone.history.start()
+  Backbone.history.start({pushState: true})
 
   // make the UI responsive to resizing of the containing window
   function resize () {
