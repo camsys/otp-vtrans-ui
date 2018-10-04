@@ -210,7 +210,7 @@ var ItineraryMapView = Backbone.View.extend({
 
         if (leg.isFromFlagStop() === true) {
           var fromFlagStopMarker = L.marker([leg.get('from').lat, leg.get('from').lon], {icon: flagStopIcon});
-          var fromStopLine = new L.Polyline(utils.decodePolyline(leg.getFromFlagStopArea()), {dashArray: "10 10"});
+          var fromStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getFromFlagStopArea()), {dashArray: "10 10"});
           fromStopLine.setStyle(flagStopLineStyle)
 
           fromStopLine.bindTooltip(flagStopContent)
@@ -219,7 +219,7 @@ var ItineraryMapView = Backbone.View.extend({
         }
         if (leg.isToFlagStop() === true) {
           var toFlagStopMarker = L.marker([leg.get('to').lat, leg.get('to').lon], {icon: flagStopIcon});
-          var toStopLine = new L.Polyline(utils.decodePolyline(leg.getToFlagStopArea()), {dashArray: "10 10"});
+          var toStopLine = new L.ShiftedPolyline(utils.decodePolyline(leg.getToFlagStopArea()), {dashArray: "10 10"});
           toStopLine.setStyle(flagStopLineStyle)
 
           toStopLine.bindTooltip(flagStopContent)
