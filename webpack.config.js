@@ -29,8 +29,12 @@ module.exports =
           loader: 'url-loader'
         },
         {
-          test: /\.html/,
+          test: /\.html$/,
           loader: 'file-loader?name=[name].[ext]'
+        },
+        {
+          test: /\.(json|geojson)$/,
+          loader: 'json-loader'
         }
      ]
    },

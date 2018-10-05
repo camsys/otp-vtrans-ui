@@ -113,7 +113,21 @@ var PlanRequest = Backbone.Model.extend({
       itins.handleActivate(itin)
     })
 
-    var planAlerts = new PlanAlerts(plan.alerts)
+    // Add alerts: migrated from a branch of OTP
+
+    var alerts = [];
+    var maxStartTime = Math.max.apply(null, plan.itineraries.map(function(d) { return d.startTime }));
+    if (maxStartTime < new Date()) {
+      alerts.push({ alertHeaderText: window.OTP_config.tripPlanInPastMessage })
+    }
+    if (window.OTP_config.outOfAreaPolygon) {
+      if (!utils.isPointInPolygon(window.OTP_config.outOfAreaPolygon, plan.from.lat, plan.from.lon)
+        || !utils.isPointInPolygon(window.OTP_config.outOfAreaPolygon, plan.to.lat, plan.to.lon)) {
+        alerts.push( { alertHeaderText: window.OTP_config.outOfAreaMessage });
+      }
+    }
+
+    var planAlerts = new PlanAlerts(alerts)
     return new PlanResponse({
       request: this,
       from: new ItineraryStop(plan.from),

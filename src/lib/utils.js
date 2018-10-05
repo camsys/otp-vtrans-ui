@@ -143,3 +143,21 @@ var distanceString = function (m, metric) {
 }
 
 module.exports.distanceString = distanceString
+
+function isPointInPolygon(poly, x, y) {
+    var inside = false;
+    for (var k = 0; k < poly.coordinates.length; k++) {
+      var ring = poly.coordinates[k];
+      for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        var xi = ring[i][1], yi = ring[i][0];
+        var xj = ring[j][1], yj = ring[j][0];
+        var intersect = ((yi > y) != (yj > y))
+          && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+        if (intersect) inside = !inside;
+      }
+    }
+
+    return inside;
+}
+
+module.exports.isPointInPolygon = isPointInPolygon;
