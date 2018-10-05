@@ -36,6 +36,9 @@ L.ShiftedPolyline = L.Polyline.extend({
             // use +pi/2 for left-shift
             var theta = Math.atan2(q.y - p.y, q.x - p.x);
             var theta_p = theta + (Math.PI / 2);
+            while(theta_p < 0) {
+                theta_p += 2 * Math.PI;
+            }
             angles[i] = theta_p;
         }
         for (var i = 0; i < points.length; i++) {
