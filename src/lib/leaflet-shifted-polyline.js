@@ -27,19 +27,23 @@ L.ShiftedPolyline = L.Polyline.extend({
         }
     },
 
-    _shift: function (points, delta) {
-        var new_points = [];
+    _shift: function (origPoints, delta) {
+        // remove duplicate points
+        var points = origPoints.filter(function(p, i) {
+            return i == 0 || p.x != origPoints[i - 1].x || p.y != origPoints[i - 1].y;
+        });
+
+        var newPoints = [];
         var angles = [];
         for (var i = 0; i < points.length - 1; i++) {
             var p = points[i];
             var q = points[i + 1];
             // use +pi/2 for left-shift
             var theta = Math.atan2(q.y - p.y, q.x - p.x);
-            var theta_p = theta + (Math.PI / 2);
-            while(theta_p < 0) {
-                theta_p += 2 * Math.PI;
+            while (theta < 0) {
+                theta += 2 * Math.PI;
             }
-            angles[i] = theta_p;
+            angles[i] = theta + (Math.PI / 2);
         }
         for (var i = 0; i < points.length; i++) {
             var theta;
@@ -53,10 +57,15 @@ L.ShiftedPolyline = L.Polyline.extend({
             var p = points[i];
             var x = p.x + delta * Math.cos(theta);
             var y = p.y + delta * Math.sin(theta);
-
-            new_points.push(L.point(x, y));
+            newPoints.push(L.point(x, y));
         }
-        return new_points;
+
+        // Ensure line length is the same even if we filtered out points.
+        for (var i = newPoints.length; i < origPoints.length; i++) {
+            newPoints[i] = newPoints[i - 1];
+        }
+
+        return newPoints;
     }
 });
 
