@@ -10,9 +10,7 @@ var ItineraryStop = Backbone.Model.extend({
     lon: null,
     arrival: null,
     departure: null,
-    flagStopArea: null,
-    deviatedRouteLon: null,
-    deviatedRouteLat: null
+    flagStopArea: null
   }
 })
 

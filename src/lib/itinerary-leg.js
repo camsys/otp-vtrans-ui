@@ -218,23 +218,25 @@ var ItineraryLeg = Backbone.Model.extend({
     return this.get('from').lat
   },
   getDeviatedRouteFromEndLat: function () {
-    return this.get('from').deviatedRouteLat
+    return this.get('geomPoints')[0].lat
   },
   getDeviatedRouteFromStartLon: function () {
     return this.get('from').lon
   },
   getDeviatedRouteFromEndLon: function () {
-    return this.get('from').deviatedRouteLon
+    return this.get('geomPoints')[0].lng
   },
 
   getDeviatedRouteToStartLat: function () {
-    return this.get('to').deviatedRouteLat
+    var points = this.get('geomPoints');
+    return points[points.length - 1].lat;
   },
   getDeviatedRouteToEndLat: function () {
     return this.get('to').lat
   },
   getDeviatedRouteToStartLon: function () {
-    return this.get('to').deviatedRouteLon
+    var points = this.get('geomPoints');
+    return points[points.length - 1].lng;
   },
   getDeviatedRouteToEndLon: function () {
     return this.get('to').lon
