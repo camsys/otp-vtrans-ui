@@ -41,8 +41,8 @@
                 <div>
                     <h5>Depart</h5>
                     <div>
-                        {{#if (hasMaxStartTime )}}
-                            <span class="timing_text"> approximately </span> {{formatTimeWithMaxStartTime startTime maxStartTime timeOffset}}
+                        {{#if (hasflexCallAndRideMaxStartTime )}}
+                            <span class="timing_text"> approximately </span> {{formatTimeWithflexCallAndRideMaxStartTime startTime flexCallAndRideMaxStartTime timeOffset}}
                         {{else}}
                             {{formatTime startTime timeOffset}}
                         {{/if}}
@@ -70,8 +70,8 @@
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
                         <h5> Flag Stop </h5>
-                        {{#if (hasContinuousPickupMessage)}}
-                            {{continuousPickupMessage}}
+                        {{#if (hasflexFlagStopPickupMessage)}}
+                            {{flexFlagStopPickupMessage}}
                         {{else}}
                             {{flagStopPickupText}}
                         {{/if}}
@@ -82,8 +82,8 @@
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                     <div>
                         <h5> Service note: </h5>
-                        {{#if (hasDrtPickupMessage) }}
-                            {{drtPickupMessage}}
+                        {{#if (hasflexDrtPickupMessage) }}
+                            {{flexDrtPickupMessage}}
                         {{else}}
                             {{deviatedRouteText}}
                         {{/if}}
@@ -106,8 +106,8 @@
                 <div>
                     <h5>Arrive</h5>
                     <div>
-                        {{#if (hasMinEndTime) }}
-                            <span class="timing_text"> approximately </span> {{formatTimeWithMinEndTime endTime minEndTime timeOffset}}
+                        {{#if (hasflexCallAndRideMinEndTime) }}
+                            <span class="timing_text"> approximately </span> {{formatTimeWithflexCallAndRideMinEndTime endTime flexCallAndRideMinEndTime timeOffset}}
                         {{else}}
                             {{formatTime endTime timeOffset}}
                         {{/if}}
@@ -140,8 +140,8 @@
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
                         <h5> Flag Stop </h5>
-                        {{#if (hasContinuousDropOffMessage)}}
-                            {{continuousDropOffMessage}}
+                        {{#if (hasflexFlagStopDropOffMessage)}}
+                            {{flexFlagStopDropOffMessage}}
                         {{else}}
                             {{flagStopDropOffText}}
                         {{/if}}
@@ -154,8 +154,8 @@
                     <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                         <div>
                             <h5> Service note: </h5>
-                            {{#if (hasDrtDropOffMessage) }}
-                                {{drtDropOffMessage}}
+                            {{#if (hasflexDrtDropOffMessage) }}
+                                {{flexDrtDropOffMessage}}
                             {{else}}
                                 {{deviatedRouteText}}
                             {{/if}}

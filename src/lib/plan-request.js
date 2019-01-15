@@ -54,9 +54,9 @@ var PlanRequest = Backbone.Model.extend({
     maxTransfers: null,
     numItineraries: 3,
     wheelchairAccessible: false,
-    flagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault,
-    useReservationServices: true,
-    useEligibilityServices: true
+    flexFlagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault,
+    flexUseReservationServices: true,
+    flexUseEligibilityServices: true
   },
 
   request: function () {
@@ -69,6 +69,9 @@ var PlanRequest = Backbone.Model.extend({
       this.trigger('requesting', this)
 
       var m = this
+
+      console.log("attributes: ")
+      console.log(this.attributes)
 
       $.ajax(this.urlRoot, {
         dataType: 'json',
@@ -116,8 +119,8 @@ var PlanRequest = Backbone.Model.extend({
     // Add alerts: migrated from a branch of OTP
 
     var alerts = [];
-    var maxStartTime = Math.max.apply(null, plan.itineraries.map(function(d) { return d.startTime }));
-    if (maxStartTime < new Date()) {
+    var flexCallAndRideMaxStartTime = Math.max.apply(null, plan.itineraries.map(function(d) { return d.startTime }));
+    if (flexCallAndRideMaxStartTime < new Date()) {
       alerts.push({ alertHeaderText: window.OTP_config.tripPlanInPastMessage })
     }
     if (window.OTP_config.outOfAreaPolygon) {

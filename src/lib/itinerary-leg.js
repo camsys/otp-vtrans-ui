@@ -44,14 +44,14 @@ var ItineraryLeg = Backbone.Model.extend({
 
     intermediateStops: [],
 
-    drtPickupMessage: null,
-    drtDropOffMessage: null,
-    drtAdvanceBookMin: null,
-    continuousPickupMessage: null,
-    continuousDropOffMessage: null,
+    flexDrtPickupMessage: null,
+    flexDrtDropOffMessage: null,
+    flexDrtAdvanceBookMin: null,
+    flexFlagStopPickupMessage: null,
+    flexFlagStopDropOffMessage: null,
 
-    maxStartTime: null,
-    minEndTime: null,
+    flexCallAndRideMaxStartTime: null,
+    flexCallAndRideMinEndTime: null,
 
     steps: [],
 
@@ -253,50 +253,50 @@ var ItineraryLeg = Backbone.Model.extend({
     $.get(qs, callback)
   },
 
-  hasDrtPickupMessage: function () {
-    if (this.drtPickupMessage !== null && this.drtPickupMessage !== '') {
+  hasflexDrtPickupMessage: function () {
+    if (this.flexDrtPickupMessage !== null && this.flexDrtPickupMessage !== '') {
       return true
     }
     return false
   },
 
-  hasDrtDropOffMessage: function () {
-    if (this.drtDropOffMessage !== null && this.drtDropOffMessage !== '') {
+  hasflexDrtDropOffMessage: function () {
+    if (this.flexDrtDropOffMessage !== null && this.flexDrtDropOffMessage !== '') {
       return true
     }
     return false
   },
 
-  hasDrtAdvanceBookMin: function () {
-    if (this.drtAdvanceBookMin !== null && this.drtAdvanceBookMin !== '') {
+  hasflexDrtAdvanceBookMin: function () {
+    if (this.flexDrtAdvanceBookMin !== null && this.flexDrtAdvanceBookMin !== '') {
       return true
     }
     return false
   },
 
-  hasContinuousPickupMessage: function () {
-    if (this.continuousPickupMessage !== null && this.continuousPickupMessage !== '') {
+  hasflexFlagStopPickupMessage: function () {
+    if (this.flexFlagStopPickupMessage !== null && this.flexFlagStopPickupMessage !== '') {
       return true
     }
     return false
   },
 
-  hasContinuousDropOffMessage: function () {
-    if (this.continuousDropOffMessage !== null && this.continuousDropOffMessage !== '') {
+  hasflexFlagStopDropOffMessage: function () {
+    if (this.flexFlagStopDropOffMessage !== null && this.flexFlagStopDropOffMessage !== '') {
       return true
     }
     return false
   },
 
-  hasMaxStartTime: function () {
-    if (this.maxStartTime !== null && this.maxStartTime !== '') {
+  hasflexCallAndRideMaxStartTime: function () {
+    if (this.flexCallAndRideMaxStartTime !== null && this.flexCallAndRideMaxStartTime !== '') {
       return true
     }
     return false
   },
 
-  hasMinEndTime: function () {
-    if (this.minEndTime !== null && this.minEndTime !== '') {
+  hasflexCallAndRideMinEndTime: function () {
+    if (this.flexCallAndRideMinEndTime !== null && this.flexCallAndRideMinEndTime !== '') {
       return true
     }
     return false
@@ -305,15 +305,15 @@ var ItineraryLeg = Backbone.Model.extend({
   getShortestLegDuration: function(){
     var legDurationShortest = -1
 
-    if (this.hasMinEndTime()) {
-      if(this.hasMaxStartTime()) {
-        legDurationShortest = (leg.minEndTime - leg.maxStartTime) / 1000
+    if (this.hasflexCallAndRideMinEndTime()) {
+      if(this.hasflexCallAndRideMaxStartTime()) {
+        legDurationShortest = (leg.flexCallAndRideMinEndTime - leg.flexCallAndRideMaxStartTime) / 1000
       } else {
-        legDurationShortest = (leg.minEndTime - leg.startTime) / 1000
+        legDurationShortest = (leg.flexCallAndRideMinEndTime - leg.startTime) / 1000
       }
     } else {
-      if(this.hasMaxStartTime()) {
-        legDurationShortest = (leg.endTime - leg.maxStartTime) / 1000
+      if(this.hasflexCallAndRideMaxStartTime()) {
+        legDurationShortest = (leg.endTime - leg.flexCallAndRideMaxStartTime) / 1000
       } else {
         legDurationShortest = leg.duration
       }

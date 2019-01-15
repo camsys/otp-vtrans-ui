@@ -11,40 +11,40 @@ Handlebars.registerHelper('formatTime', function (time, offset, options) {
   }
 })
 
-Handlebars.registerHelper('formatTimeWithMaxStartTime', function (time, maxStartTime, offset, options) {
+Handlebars.registerHelper('formatTimeWithflexCallAndRideMaxStartTime', function (time, flexCallAndRideMaxStartTime, offset, options) {
   if (time) {
     var timeFormatted = utils.formatTime(time, options.hash.format, offset)
-    var maxStartTimeFormatted = utils.formatTime(maxStartTime, options.hash.format, offset)
+    var flexCallAndRideMaxStartTimeFormatted = utils.formatTime(flexCallAndRideMaxStartTime, options.hash.format, offset)
 
-    maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
-    maxStartTimeFormatted = maxStartTimeFormatted.substring(maxStartTimeFormatted.indexOf(' ') + 1)
-    return timeFormatted + ' to ' + maxStartTimeFormatted
+    flexCallAndRideMaxStartTimeFormatted = flexCallAndRideMaxStartTimeFormatted.substring(flexCallAndRideMaxStartTimeFormatted.indexOf(' ') + 1)
+    flexCallAndRideMaxStartTimeFormatted = flexCallAndRideMaxStartTimeFormatted.substring(flexCallAndRideMaxStartTimeFormatted.indexOf(' ') + 1)
+    return timeFormatted + ' to ' + flexCallAndRideMaxStartTimeFormatted
   } else {
     return ''
   }
 })
 
-Handlebars.registerHelper('formatTimeWithMinEndTime', function (time, minEndTime, offset, options) {
+Handlebars.registerHelper('formatTimeWithflexCallAndRideMinEndTime', function (time, flexCallAndRideMinEndTime, offset, options) {
   if (time) {
     var timeFormatted = utils.formatTime(time, options.hash.format, offset)
     timeFormatted = timeFormatted.substring(timeFormatted.indexOf(' ') + 1)
     timeFormatted = timeFormatted.substring(timeFormatted.indexOf(' ') + 1)
 
-    var minEndTimeFormatted = utils.formatTime(minEndTime, options.hash.format, offset)
+    var flexCallAndRideMinEndTimeFormatted = utils.formatTime(flexCallAndRideMinEndTime, options.hash.format, offset)
 
-    return minEndTimeFormatted + ' to ' + timeFormatted
+    return flexCallAndRideMinEndTimeFormatted + ' to ' + timeFormatted
   } else {
     return ''
   }
 })
 
-Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, options){
+Handlebars.registerHelper('formatItineraryWithflexCallAndRideMaxStartTime', function (offset, options){
   var time = options.data.root.legs[0].attributes.startTime
-  var maxStartTime = options.data.root.legs[0].attributes.maxStartTime
+  var flexCallAndRideMaxStartTime = options.data.root.legs[0].attributes.flexCallAndRideMaxStartTime
 
-  if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
+  if(flexCallAndRideMaxStartTime !== null && flexCallAndRideMaxStartTime != 'Invalid Date') {
 
-    var averageTime = (time+maxStartTime)/2
+    var averageTime = (time+flexCallAndRideMaxStartTime)/2
     var averageTimeFormatted = utils.formatTime(averageTime, options.hash.format, offset)
 
     return 'approximately ' + averageTimeFormatted
@@ -57,9 +57,9 @@ Handlebars.registerHelper('formatItineraryWithMaxStartTime', function (offset, o
 })
 
 Handlebars.registerHelper('includePlusForVariableDurationTrips', function (offset, options){
-  var maxStartTime = options.data.root.legs[0].attributes.maxStartTime
+  var flexCallAndRideMaxStartTime = options.data.root.legs[0].attributes.flexCallAndRideMaxStartTime
 
-  if(maxStartTime !== null && maxStartTime != 'Invalid Date') {
+  if(flexCallAndRideMaxStartTime !== null && flexCallAndRideMaxStartTime != 'Invalid Date') {
     return '+'
   }
   else{
@@ -137,7 +137,7 @@ Handlebars.registerHelper('isFlagStop', function (boardAlightType) {
 })
 
 Handlebars.registerHelper('hasToTransitMessage', function(leg) {
-  if ( (leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '') || (leg.data.root.continuousDropOffMessage !== null && leg.data.root.continuousDropOffMessage !== '')){
+  if ( (leg.data.root.flexDrtDropOffMessage !== null && leg.data.root.flexDrtDropOffMessage !== '') || (leg.data.root.flexFlagStopDropOffMessage !== null && leg.data.root.flexFlagStopDropOffMessage !== '')){
     return 'TRUE'
   }
 
@@ -163,42 +163,42 @@ function isCallAndRideHelper(boardAlightType)
   return (boardAlightType !== null && boardAlightType == 'DEVIATED') || (boardAlightType !== null && boardAlightType == 'CALLANDRIDE')
 }
 
-Handlebars.registerHelper('itineraryFirstLegHasMaxStartTime', function(itinerary) {
-  if (itinerary.data.root.legs[0].attributes.drtPickupMessage !== null) {
+Handlebars.registerHelper('itineraryFirstLegHasflexCallAndRideMaxStartTime', function(itinerary) {
+  if (itinerary.data.root.legs[0].attributes.flexDrtPickupMessage !== null) {
     return 'TRUE'
   }
   return ''
 })
 
-Handlebars.registerHelper('hasDrtPickupMessage', function (leg) {
-  if (drtPickupMessage(leg)) {
+Handlebars.registerHelper('hasflexDrtPickupMessage', function (leg) {
+  if (flexDrtPickupMessage(leg)) {
     return 'TRUE'
   }
   return ''
 })
-Handlebars.registerHelper('hasDrtDropOffMessage', function (leg) {
+Handlebars.registerHelper('hasflexDrtDropOffMessage', function (leg) {
 
-  if (drtDropOffMessage(leg)) {
+  if (flexDrtDropOffMessage(leg)) {
     return 'TRUE'
   }
   return ''
 })
 
-function drtPickupMessage(leg){
-  return leg.data.root.drtPickupMessage !== null && leg.data.root.drtPickupMessage !== '' && leg.data.root.from.boardAlightType != 'FLAG_STOP';
+function flexDrtPickupMessage(leg){
+  return leg.data.root.flexDrtPickupMessage !== null && leg.data.root.flexDrtPickupMessage !== '' && leg.data.root.from.boardAlightType != 'FLAG_STOP';
 }
-function drtDropOffMessage(leg){
-  return leg.data.root.drtDropOffMessage !== null && leg.data.root.drtDropOffMessage !== '' && leg.data.root.to.boardAlightType != 'FLAG_STOP';
+function flexDrtDropOffMessage(leg){
+  return leg.data.root.flexDrtDropOffMessage !== null && leg.data.root.flexDrtDropOffMessage !== '' && leg.data.root.to.boardAlightType != 'FLAG_STOP';
 }
 
-Handlebars.registerHelper('hasContinuousPickupMessage', function (leg) {
-  if (leg.data.root.continuousPickupMessage !== null && leg.data.root.continuousPickupMessage !== '') {
+Handlebars.registerHelper('hasflexFlagStopPickupMessage', function (leg) {
+  if (leg.data.root.flexFlagStopPickupMessage !== null && leg.data.root.flexFlagStopPickupMessage !== '') {
     return 'TRUE'
   }
   return ''
 })
-Handlebars.registerHelper('hasContinuousDropOffMessage', function (leg) {
-  if (leg.data.root.continuousDropOffMessage !== null && leg.data.root.continuousDropOffMessage !== '') {
+Handlebars.registerHelper('hasflexFlagStopDropOffMessage', function (leg) {
+  if (leg.data.root.flexFlagStopDropOffMessage !== null && leg.data.root.flexFlagStopDropOffMessage !== '') {
     return 'TRUE'
   }
   return ''
@@ -244,21 +244,21 @@ Handlebars.registerHelper('hideDropoffDeviatedMessage', function (leg) {
   return ''
 })
 
-Handlebars.registerHelper('hasDrtAdvanceBookMin', function (leg) {
-  if (leg.data.root.drtAdvanceBookMin !== null && leg.data.root.drtAdvanceBookMin !== '') {
+Handlebars.registerHelper('hasflexDrtAdvanceBookMin', function (leg) {
+  if (leg.data.root.flexDrtAdvanceBookMin !== null && leg.data.root.flexDrtAdvanceBookMin !== '') {
     return 'TRUE'
   }
   return ''
 })
 
-Handlebars.registerHelper('hasMaxStartTime', function (leg) {
-  if (leg.data.root.maxStartTime !== null && leg.data.root.maxStartTime !== '' && leg.data.root.maxStartTime !== 'undefined') {
+Handlebars.registerHelper('hasflexCallAndRideMaxStartTime', function (leg) {
+  if (leg.data.root.flexCallAndRideMaxStartTime !== null && leg.data.root.flexCallAndRideMaxStartTime !== '' && leg.data.root.flexCallAndRideMaxStartTime !== 'undefined') {
     return 'TRUE'
   }
   return ''
 })
-Handlebars.registerHelper('hasMinEndTime', function (leg) {
-  if (leg.data.root.minEndTime !== null && leg.data.root.minEndTime !== '' && leg.data.root.minEndTime !== undefined) {
+Handlebars.registerHelper('hasflexCallAndRideMinEndTime', function (leg) {
+  if (leg.data.root.flexCallAndRideMinEndTime !== null && leg.data.root.flexCallAndRideMinEndTime !== '' && leg.data.root.flexCallAndRideMinEndTime !== undefined) {
     return 'TRUE'
   }
   return ''

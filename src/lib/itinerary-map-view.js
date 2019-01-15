@@ -231,8 +231,8 @@ var ItineraryMapView = Backbone.View.extend({
         popupContent += '<h5>Service note:</h5>'
 
         if (leg.isFromDeviatedRoute() === true) {
-          if (leg.hasDrtPickupMessage()) {
-            popupContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
+          if (leg.hasflexDrtPickupMessage()) {
+            popupContent += 'Pickup Notice: ' + leg.get('flexDrtPickupMessage') + '<br/>'
           }
           var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
           var fromDestinationLatLong = [leg.getDeviatedRouteFromEndLat(), leg.getDeviatedRouteFromEndLon()]
@@ -254,8 +254,8 @@ var ItineraryMapView = Backbone.View.extend({
           this.stopLayer.addLayer(fromCurvedPath)
         }
         if (leg.isToDeviatedRoute() === true) {
-          if (leg.hasDrtDropOffMessage()) {
-            popupContent += 'Drop Off Notice: ' + leg.get('drtDropOffMessage') + '<br/>'
+          if (leg.hasflexDrtDropOffMessage()) {
+            popupContent += 'Drop Off Notice: ' + leg.get('flexDrtDropOffMessage') + '<br/>'
           }
           var toOriginLatLong = [leg.getDeviatedRouteToStartLat(), leg.getDeviatedRouteToStartLon()]
           var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
@@ -307,8 +307,8 @@ var ItineraryMapView = Backbone.View.extend({
 
     popupContent += '<h5>Service note:</h5>'
 
-    if (leg.hasDrtPickupMessage()) {
-      popupContent += 'Pickup Notice: ' + leg.get('drtPickupMessage') + '<br/>'
+    if (leg.hasflexDrtPickupMessage()) {
+      popupContent += 'Pickup Notice: ' + leg.get('flexDrtPickupMessage') + '<br/>'
     }
 
     var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
