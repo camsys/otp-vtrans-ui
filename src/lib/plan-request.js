@@ -120,7 +120,7 @@ var PlanRequest = Backbone.Model.extend({
 
     var alerts = [];
     var flexCallAndRideMaxStartTime = Math.max.apply(null, plan.itineraries.map(function(d) { return d.startTime }));
-    if (flexCallAndRideMaxStartTime < new Date()) {
+    if (flexCallAndRideMaxStartTime < new Date() && window.OTP_config.tripPlanInPastMessage) {
       alerts.push({ alertHeaderText: window.OTP_config.tripPlanInPastMessage })
     }
     if (window.OTP_config.outOfAreaPolygon) {
