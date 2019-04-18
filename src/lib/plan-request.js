@@ -18,6 +18,7 @@ var PlanRequest = Backbone.Model.extend({
         this.set(key, window.OTP_config.routerDefaults[key])
       }
     }
+    this.locale = $.i18n.locale;
     this.on('change', function () {
       self.request()
     })

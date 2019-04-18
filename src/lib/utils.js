@@ -161,3 +161,4 @@ function isPointInPolygon(poly, x, y) {
 }
 
 module.exports.isPointInPolygon = isPointInPolygon;
+

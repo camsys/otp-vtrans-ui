@@ -2,13 +2,13 @@
   <div class="visibleSettings">
     <div class="form-group fromPlaceControl">
       <div class="col-sm-12">
-        <input id="fromPlace" class="form-control apiParam" data-i18n="[placeholder]startAddr">
+        <input id="fromPlace" class="form-control apiParam" data-i18n="[placeholder]handlebars.startAddr">
       </div>
     </div>
 
     <div class="form-group toPlaceControl">
       <div class="col-sm-12">
-        <input id="toPlace" class="form-control apiParam" data-i18n="[placeholder]endAddr">
+        <input id="toPlace" class="form-control apiParam" data-i18n="[placeholder]handlebars.endAddr">
       </div>
     </div>
   </div>
@@ -73,13 +73,13 @@
       <div class="col-sm-8">
         <select id="maxWalkDistance" class="apiParam form-control">
           <option value="0" data-i18n="handlebars.avoidWalking"></option>
-          <option value="402">1/4 <span data-i18n="handlebars.mile"></span></option>
-          <option value="804" selected="true">1/2 <span data-i18n="handlebars.mile"></span></option>
-          <option value="1223">3/4 <span data-i18n="handlebars.mile"></span></option>
-          <option value="1609">1 <span data-i18n="handlebars.mile"></span></option>
-          <option value="3218">2 <span data-i18n="handlebars.miles"></span></option>
-          <option value="4828">3 <span data-i18n="handlebars.miles"></span></option>
-          <option value="8046">5 <span data-i18n="handlebars.miles"></span></option>
+          <option value="402" data-i18n="handlebars.mile14"></option>
+          <option value="804" selected="true" data-i18n="handlebars.mile12"></option>
+          <option value="1223" data-i18n="handlebars.mile34"></option>
+          <option value="1609" data-i18n="handlebars.mile1"></option>
+          <option value="3218" data-i18n="handlebars.miles2"></option>
+          <option value="4828" data-i18n="handlebars.miles3"></option>
+          <option value="8046" data-i18n="handlebars.miles5"></option>
         </select>
       </div>
       {{/metric}}
@@ -146,3 +146,6 @@
 
 
 </div>
+<script>
+  $(".localize").localize();
+</script>
