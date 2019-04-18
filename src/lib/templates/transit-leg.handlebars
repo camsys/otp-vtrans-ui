@@ -1,4 +1,4 @@
-<div class="otp-leg">
+<div class="otp-leg localize">
   <div class="otp-legHeader" {{#if routeColor }}style="border-top:3px solid #{{routeColor}};" {{else}} style="border-top:3px solid #000;" {{/if}}>
     <div class="agencyBranding" style="background-image: url({{agencyLogoUrl}});"></div>
     <span class="agency-descriptor-span"><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
@@ -23,7 +23,7 @@
               {{/if}}
           </span>
           {{#if headsign}}
-              <br /> to {{headsign}}
+              <br /> <span data-i18n="handlebars.to"></span> {{headsign}}
           {{/if}}
 
       </div>
@@ -39,10 +39,10 @@
                 <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5>Depart</h5>
+                    <h5 data-i18n="depart"></h5>
                     <div>
                         {{#if (hasflexCallAndRideMaxStartTime )}}
-                            <span class="timing_text"> approximately </span> {{formatTimeWithflexCallAndRideMaxStartTime startTime flexCallAndRideMaxStartTime timeOffset}}
+                            <span class="timing_text" data-i18n="handlebars.apprx"></span> {{formatTimeWithflexCallAndRideMaxStartTime startTime flexCallAndRideMaxStartTime timeOffset}}
                         {{else}}
                             {{formatTime startTime timeOffset}}
                         {{/if}}
@@ -55,13 +55,13 @@
                 <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5> From </h5>
+                    <h5 data-i18n="handlebars.from"></h5>
                     <div>
                         {{from.name}}
                     </div>
                     {{#if from.stopId.id}}
                         <div>
-                            Stop #{{from.stopId.id}}
+                            <span data-i18n="handlebars.stopNum"></span> {{from.stopId.id}}
                         </div>
                     {{/if}}
                 </div>
@@ -69,7 +69,7 @@
             {{#if (isFlagStop from.boardAlightType)}}
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
-                        <h5> Flag Stop </h5>
+                        <h5 data-i18n="handlebars.flagStop"></h5>
                         {{#if (hasflexFlagStopPickupMessage)}}
                             {{flexFlagStopPickupMessage}}
                         {{else}}
@@ -81,7 +81,7 @@
             {{#if (isCallAndRide from.boardAlightType) }}
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                     <div>
-                        <h5> Service note: </h5>
+                        <h5 data-i18n="handlebars.serviceNote"></h5>
                         {{#if (hasflexDrtPickupMessage) }}
                             {{flexDrtPickupMessage}}
                         {{else}}
@@ -104,10 +104,10 @@
                 <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5>Arrive</h5>
+                    <h5 data-i18n="handlebars.arrive"></h5>
                     <div>
                         {{#if (hasflexCallAndRideMinEndTime) }}
-                            <span class="timing_text"> approximately </span> {{formatTimeWithflexCallAndRideMinEndTime endTime flexCallAndRideMinEndTime timeOffset}}
+                            <span class="timing_text" data-i18n="handlebars.apprx"></span> {{formatTimeWithflexCallAndRideMinEndTime endTime flexCallAndRideMinEndTime timeOffset}}
                         {{else}}
                             {{formatTime endTime timeOffset}}
                         {{/if}}
@@ -125,13 +125,13 @@
                 <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5> To </h5>
+                    <h5 data-i18n="handlebars.toUP"></h5>
                     <div>
                         {{to.name}}
                     </div>
                     {{#if to.stopId.id}}
                         <div>
-                            Stop #{{to.stopId.id}}
+                            <spandata-i18n="handlebars.stopNum"></span> {{to.stopId.id}}
                         </div>
                     {{/if}}
                 </div>
@@ -139,7 +139,7 @@
             {{#if (isFlagStop to.boardAlightType)}}
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
-                        <h5> Flag Stop </h5>
+                        <h5 data-i18n="handlebars.flagStop"></h5>
                         {{#if (hasflexFlagStopDropOffMessage)}}
                             {{flexFlagStopDropOffMessage}}
                         {{else}}
@@ -153,7 +153,7 @@
                 {{else}}
                     <span class="col-xs-6 col-md-6" id="from_leg_narrative_drt_pickup_message">
                         <div>
-                            <h5> Service note: </h5>
+                            <h5 data-i18n="handlebars.serviceNote"></h5>
                             {{#if (hasflexDrtDropOffMessage) }}
                                 {{flexDrtDropOffMessage}}
                             {{else}}

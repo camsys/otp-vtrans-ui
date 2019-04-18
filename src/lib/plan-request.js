@@ -56,7 +56,8 @@ var PlanRequest = Backbone.Model.extend({
     wheelchairAccessible: false,
     flexFlagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault,
     flexUseReservationServices: true,
-    flexUseEligibilityServices: true
+    flexUseEligibilityServices: true,
+    locale: 'en',
   },
 
   request: function () {

@@ -1,14 +1,14 @@
-<div class="form-horizontal">
+<div class="form-horizontal localize">
   <div class="visibleSettings">
     <div class="form-group fromPlaceControl">
       <div class="col-sm-12">
-        <input id="fromPlace" class="form-control apiParam" placeholder="Start Address">
+        <input id="fromPlace" class="form-control apiParam" data-i18n="[placeholder]startAddr">
       </div>
     </div>
 
     <div class="form-group toPlaceControl">
       <div class="col-sm-12">
-        <input id="toPlace" class="form-control apiParam" placeholder="End Address">
+        <input id="toPlace" class="form-control apiParam" data-i18n="[placeholder]endAddr">
       </div>
     </div>
   </div>
@@ -16,8 +16,8 @@
   <div class="form-group arriveByControl">
     <div class="col-sm-12">
       <select id="arriveBy" class="apiParam form-control">
-        <option value="true">Arrive at</option>
-        <option value="false" selected="true">Depart by</option>
+        <option value="true" data-i18n="handlebars.arriveAt"></option>
+        <option value="false" selected="true" data-i18n="handlebars.departBy"></option>
       </select>
     </div>
   </div>
@@ -49,14 +49,14 @@
         <button class="btn btn-default btn-block reverse-direction" title="Reverse direction"><span class="glyphicon glyphicon-retweet"></span></button>
     </div>
     <div class="col-sm-9">
-        <button id="hideSettings" class="btn toggleSettings btn-default btn-block">Hide Settings <span class="glyphicon glyphicon-chevron-up"></span></button>
-        <button id="showSettings" class="btn toggleSettings btn-default btn-block">Show Settings <span class="glyphicon glyphicon-chevron-down"></span></button>
+        <button id="hideSettings" class="btn toggleSettings btn-default btn-block"><span data-i18n="handlebars.hideSettings"></span> <span class="glyphicon glyphicon-chevron-up"></span></button>
+        <button id="showSettings" class="btn toggleSettings btn-default btn-block"><span data-i18n="handlebars.showSettings"></span> <span class="glyphicon glyphicon-chevron-down"></span></button>
     </div>
   </div>
 
   <div id="hidableSettings">
     <div class="form-group maxWalkControl">
-      <label for="maxWalkDistance" class="col-sm-4 control-label">Max walk</label>
+      <label for="maxWalkDistance" class="col-sm-4 control-label" data-i18n="handlebars.maxWalk"></label>
       {{#metric}}
       <div class="col-sm-8">
         <select id="maxWalkDistance" class="apiParam form-control">
@@ -72,21 +72,21 @@
       {{^metric}}
       <div class="col-sm-8">
         <select id="maxWalkDistance" class="apiParam form-control">
-          <option value="0">Avoid walking</option>
-          <option value="402">1/4 mile</option>
-          <option value="804" selected="true">1/2 mile</option>
-          <option value="1223">3/4 mile</option>
-          <option value="1609">1 mile</option>
-          <option value="3218">2 miles</option>
-          <option value="4828">3 miles</option>
-          <option value="8046">5 miles</option>
+          <option value="0" data-i18n="handlebars.avoidWalking"></option>
+          <option value="402">1/4 <span data-i18n="handlebars.mile"></span></option>
+          <option value="804" selected="true">1/2 <span data-i18n="handlebars.mile"></span></option>
+          <option value="1223">3/4 <span data-i18n="handlebars.mile"></span></option>
+          <option value="1609">1 <span data-i18n="handlebars.mile"></span></option>
+          <option value="3218">2 <span data-i18n="handlebars.miles"></span></option>
+          <option value="4828">3 <span data-i18n="handlebars.miles"></span></option>
+          <option value="8046">5 <span data-i18n="handlebars.miles"></span></option>
         </select>
       </div>
       {{/metric}}
     </div>
 
     <div class="form-group maxBikeControl">
-      <label class="col-sm-4 control-label" for="maxWalkDist">Max bike</label>
+      <label class="col-sm-4 control-label" for="maxWalkDist" data-i18n="handlebars.maxBike"></label>
 
       {{#metric}}
       <div class="col-sm-8">
@@ -103,11 +103,11 @@
       {{^metric}}
       <div class="col-sm-8">
         <select id="maxBikeDistance" class="apiParam form-control">
-          <option value="804">1/2 mile</option>
-          <option value="1609">1 mile</option>
-          <option value="4026" selected>2.5 miles</option>
-          <option value="8047">5 miles</option>
-          <option value="16093">10 miles</option>
+          <option value="804">1/2 <span data-i18n="handlebars.mile"></span></option>
+          <option value="1609">1 <span data-i18n="handlebars.mile"></span></option>
+          <option value="4026" selected>2.5 <span data-i18n="handlebars.miles"></span></option>
+          <option value="8047">5 <span data-i18n="handlebars.miles"></span></option>
+          <option value="16093">10 <span data-i18n="handlebars.miles"></span></option>
         </select>
       </div>
       {{/metric}}
@@ -121,14 +121,14 @@
         <div class="col-sm-12">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="flexUseReservationServices" id="flexUseReservationServices"> Show services requiring reservation
+                    <input type="checkbox" name="flexUseReservationServices" id="flexUseReservationServices"><span data-i18n="handlebars.servReqRes"></span>
                 </label>
             </div>
         </div>
         <div class="col-sm-12">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="flexUseEligibilityServices" id="flexUseEligibilityServices"> Show services with eligibility requirements
+                    <input type="checkbox" name="flexUseEligibilityServices" id="flexUseEligibilityServices" ><span data-i18n="handlebars.servEliReq"></span>
                 </label>
             </div>
         </div>
@@ -137,9 +137,9 @@
 
   <div class="form-group request-form-search-buttons">
     <div class="col-sm-12">
-      <button class="search-button btn btn-primary btn-block">Submit <span class="glyphicon glyphicon-search"></span></button>
+      <button class="search-button btn btn-primary btn-block"> <span data-i18n="handlebars.submit"></span> <span class="glyphicon glyphicon-search"></span></button>
       <div class="searching-button hidden">
-        <button class="btn btn-primary btn-block disabled" diabled>Searching <span class="glyphicon glyphicon-refresh spin"></span></button>
+        <button class="btn btn-primary btn-block disabled" diabled> <span data-i18n="handlebars.searching"></span> <span class="glyphicon glyphicon-refresh spin"></span></button>
       </div>
     </div>
   </div>

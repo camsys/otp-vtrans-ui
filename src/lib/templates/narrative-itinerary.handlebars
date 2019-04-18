@@ -1,14 +1,14 @@
-<div class="well">
+<div class="well localize">
   <div class="otp-itinHeader">
     <div class="otp-itinHeader-title">
       <span class="pull-right">
         <a href="#" class="print" title="Print Itinerary"><span class="glyphicon glyphicon-print"></span></a>
       </span>
         <span>
-            <strong>Option {{index}}</strong>:
+            <strong><span data-i18n="handlebars.option"></span> {{index}}</strong>:
         </span>
         <span>
-            departs {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
+            <span data-i18n="handlebars.departs"></span> {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
         </span>
         <span class='pull-right'>
             {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}&nbsp;&nbsp;&nbsp;
@@ -41,7 +41,7 @@
   </div>
   <div class="otp-itinBody">
     {{#if walkLimitExceeded}}
-        <div class="alert alert-warning">This itinerary exceeds your maximum walk distance.</div>
+        <div class="alert alert-warning" data-i18n="handlebars.exceedMaxWalk"></div>
     {{/if}}
   </div>
 </div>
