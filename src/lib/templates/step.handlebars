@@ -6,15 +6,15 @@
         </div>
         <div class="otp-legStep-text">
             {{#if isRoundabout}}
-                <span data-i18n="handlebars.roundabout"></span>{{relativeDirection}} <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> {{streetName}}
+                <span data-i18n="handlebars.roundabout"></span>{{localizedRelativeDirection}} <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> {{streetName}}
             {{else}}
                 {{#if isFirst}}
-                    <span data-i18n="handlebars.startOn"></span><b>{{streetName}}</b> <span data-i18n="handlebars.heading"></span> {{absoluteDirection}}
+                    <span data-i18n="handlebars.startOn"></span><b>{{streetName}}</b> <span data-i18n="handlebars.heading"></span> {{localizedAbsoluteDirection}}
                 {{else}}
                     {{#if stayOn}}
-                        <b>{{relativeDirection}}</b> <span data-i18n="handlebars.toContinueOn"></span> <b>{{streetName}}</b>
+                        <b>{{localizedRelativeDirection}}</b> <span data-i18n="handlebars.toContinueOn"></span> <b>{{streetName}}</b>
                     {{else}}
-                        <b>{{relativeDirection}}</b><span data-i18n="handlebars.onTo"></span><b>{{streetName}}</b>
+                        <b>{{localizedRelativeDirection}}</b><span data-i18n="handlebars.onTo"></span><b>{{streetName}}</b>
                     {{/if}}
                 {{/if}}
             {{/if}}
