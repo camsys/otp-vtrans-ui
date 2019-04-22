@@ -6,6 +6,8 @@ import "./lib/styles/tabs.css";
 import "./lib/styles/topo.css";
 import "./client.css";
 
+import "./lib/i18n.js";
+
 // html
 import "./index.html"
 import "./config.js"
@@ -209,5 +211,4 @@ ready(function () {
   $('#tabs').tab()
   map.invalidateSize()
   assign_bootstrap_mode()
-
 })
