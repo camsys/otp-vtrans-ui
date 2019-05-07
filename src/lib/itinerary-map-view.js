@@ -247,11 +247,21 @@ var ItineraryMapView = Backbone.View.extend({
             color: window.OTP_config.flagStopLineColor,
             weight: 5,
             vertices: 20000000,
-            offset: 100
+            offset: 100,
+            dashArray: "10 10"
           })
 
           fromCurvedPath.bindTooltip(popupContent)
           this.stopLayer.addLayer(fromCurvedPath)
+
+          var fromCurveShadow = new L.polyline([fromOriginLatLong, fromDestinationLatLong]);
+          fromCurveShadow.setStyle({
+            color: green,
+            weight: 3,
+            vertices: 20000000
+          })
+          this.stopLayer.addLayer(fromCurveShadow)
+
         }
         if (leg.isToDeviatedRoute() === true) {
           if (leg.hasflexDrtDropOffMessage()) {
@@ -270,11 +280,21 @@ var ItineraryMapView = Backbone.View.extend({
             color: window.OTP_config.flagStopLineColor,
             weight: 5,
             vertices: 20000000,
-            offset: 100
+            offset: 100,
+            dashArray: "10 10"
           })
 
           toCurvedPath.bindTooltip(popupContent)
           this.stopLayer.addLayer(toCurvedPath)
+
+
+          var toCurveShadow = new L.polyline(toOriginLatLong, toDestinationLatLong);
+          toCurveShadow.setStyle({
+            color: blue,
+            weight: 3,
+            vertices: 20000000
+          })
+          this.stopLayer.addLayer(toCurveShadow)
         }
       }
       polyline.bindTooltip(popupContent)
@@ -324,7 +344,8 @@ var ItineraryMapView = Backbone.View.extend({
       color: window.OTP_config.flagStopLineColor,
       weight: 5,
       vertices: 20000000,
-      offset: 100
+      offset: 100,
+      dashArray: "10 10"
     })
 
     fromCurvedPath.bindTooltip(popupContent)
@@ -332,6 +353,23 @@ var ItineraryMapView = Backbone.View.extend({
     var marker = this.getLegFromBubbleMarker(leg, this.highlightLeg === leg)
     this.pathMarkerLayer.addLayer(marker)
     this.mapBounds.extend(fromCurvedPath.getBounds())
+
+    console.log("Lat Long stuffs")
+    console.log("console.log([toOriginLatLong, toDestinationLatLong]): ")
+    console.log([fromOriginLatLong, toDestinationLatLong])
+
+    console.log([fromOriginLatLong.toString(), toDestinationLatLong.toString()])
+
+    console.log("Lat Long stuffs")
+
+    var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
+                                          new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
+    fromCurveShadow.setStyle({
+      color: 'darkgrey',
+      weight: 4,
+      opacity: 0.4
+    })
+    this.stopLayer.addLayer(fromCurveShadow)
   },
   determineArcPoint: function (originLatLong, destinationLatLong) {
     var offsetLong = destinationLatLong[1] - originLatLong[1]
