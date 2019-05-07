@@ -234,8 +234,14 @@ var ItineraryMapView = Backbone.View.extend({
           if (leg.hasflexDrtPickupMessage()) {
             popupContent += 'Pickup Notice: ' + leg.get('flexDrtPickupMessage') + '<br/>'
           }
-          var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
-          var fromDestinationLatLong = [leg.getDeviatedRouteFromEndLat(), leg.getDeviatedRouteFromEndLon()]
+
+          if ( (leg.getDeviatedRouteFromStartLon() - leg.getDeviatedRouteFromEndLon()) <= 0) {
+            var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
+            var fromDestinationLatLong = [leg.getDeviatedRouteFromEndLat(), leg.getDeviatedRouteFromEndLon()]
+          } else {
+            var fromOriginLatLong = [leg.getDeviatedRouteFromEndLat(), leg.getDeviatedRouteFromEndLon()]
+            var fromDestinationLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
+          }
 
           var fromArcPoint = this.determineArcPoint(fromDestinationLatLong, fromOriginLatLong)
 
@@ -254,11 +260,14 @@ var ItineraryMapView = Backbone.View.extend({
           fromCurvedPath.bindTooltip(popupContent)
           this.stopLayer.addLayer(fromCurvedPath)
 
-          var fromCurveShadow = new L.polyline([fromOriginLatLong, fromDestinationLatLong]);
+          var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
+            new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
           fromCurveShadow.setStyle({
-            color: green,
-            weight: 3,
-            vertices: 20000000
+            color: 'darkgrey',
+            lineCap: 'round',
+            weight: 4,
+            opacity: 0.4,
+            blur: 5
           })
           this.stopLayer.addLayer(fromCurveShadow)
 
@@ -267,8 +276,14 @@ var ItineraryMapView = Backbone.View.extend({
           if (leg.hasflexDrtDropOffMessage()) {
             popupContent += 'Drop Off Notice: ' + leg.get('flexDrtDropOffMessage') + '<br/>'
           }
-          var toOriginLatLong = [leg.getDeviatedRouteToStartLat(), leg.getDeviatedRouteToStartLon()]
-          var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
+          if ( (leg.getDeviatedRouteToStartLon() - leg.getDeviatedRouteToEndLon()) <= 0) {
+            var toOriginLatLong = [leg.getDeviatedRouteToStartLat(), leg.getDeviatedRouteToStartLon()]
+            var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
+          } else {
+            var toOriginLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
+            var toDestinationLatLong = [leg.getDeviatedRouteToStartLat(), leg.getDeviatedRouteToStartLon()]
+          }
+
 
           var toArcPoint = this.determineArcPoint(toOriginLatLong, toDestinationLatLong)
 
@@ -288,13 +303,16 @@ var ItineraryMapView = Backbone.View.extend({
           this.stopLayer.addLayer(toCurvedPath)
 
 
-          var toCurveShadow = new L.polyline(toOriginLatLong, toDestinationLatLong);
-          toCurveShadow.setStyle({
-            color: blue,
-            weight: 3,
-            vertices: 20000000
+          var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
+            new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
+          fromCurveShadow.setStyle({
+            color: 'darkgrey',
+            lineCap: 'round',
+            weight: 4,
+            opacity: 0.4,
+            blur: 5
           })
-          this.stopLayer.addLayer(toCurveShadow)
+          this.stopLayer.addLayer(fromCurveShadow)
         }
       }
       polyline.bindTooltip(popupContent)
@@ -331,8 +349,15 @@ var ItineraryMapView = Backbone.View.extend({
       popupContent += 'Pickup Notice: ' + leg.get('flexDrtPickupMessage') + '<br/>'
     }
 
-    var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
-    var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
+    if ( (leg.getDeviatedRouteFromStartLon() - leg.getDeviatedRouteToEndLon()) <= 0) {
+      var fromOriginLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
+      var toDestinationLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
+    } else {
+      var fromOriginLatLong = [leg.getDeviatedRouteToEndLat(), leg.getDeviatedRouteToEndLon()]
+      var toDestinationLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
+    }
+
+
 
     var fromArcPoint = this.determineArcPoint(fromOriginLatLong, toDestinationLatLong)
 
@@ -345,7 +370,8 @@ var ItineraryMapView = Backbone.View.extend({
       weight: 5,
       vertices: 20000000,
       offset: 100,
-      dashArray: "10 10"
+      dashArray: "10 10",
+      blur: 5
     })
 
     fromCurvedPath.bindTooltip(popupContent)
@@ -354,20 +380,15 @@ var ItineraryMapView = Backbone.View.extend({
     this.pathMarkerLayer.addLayer(marker)
     this.mapBounds.extend(fromCurvedPath.getBounds())
 
-    console.log("Lat Long stuffs")
-    console.log("console.log([toOriginLatLong, toDestinationLatLong]): ")
-    console.log([fromOriginLatLong, toDestinationLatLong])
-
-    console.log([fromOriginLatLong.toString(), toDestinationLatLong.toString()])
-
-    console.log("Lat Long stuffs")
 
     var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
-                                          new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
+      new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
     fromCurveShadow.setStyle({
       color: 'darkgrey',
+      lineCap: 'round',
       weight: 4,
-      opacity: 0.4
+      opacity: 0.4,
+      blur: 5
     })
     this.stopLayer.addLayer(fromCurveShadow)
   },

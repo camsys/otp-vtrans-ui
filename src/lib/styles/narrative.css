@@ -2,6 +2,7 @@
 .otp-itinHeader {
 	cursor: pointer;
 	line-height: 1.8em;
+	font-family: 'Roboto', sans-serif;
 }
 
 .otp-itinHeader-title {
@@ -12,6 +13,7 @@
 .otp-itinHeader-preview {
 	margin-bottom: .25em;
 	text-align: center;
+	font-family: 'Roboto', sans-serif;
 }
 
 .otp-itinHeader-details {
