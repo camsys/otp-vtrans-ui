@@ -9,6 +9,7 @@ require("./leaflet-shifted-polyline.js")
 
 var flagStopIcon;
 var flagStopLineStyle
+var dialARideIcon
 
 var ItineraryMapView = Backbone.View.extend({
   initialize: function (options) {
@@ -25,6 +26,12 @@ var ItineraryMapView = Backbone.View.extend({
       weight: 7
       // weight: window.OTP_config.flagStopLineWeight
     }
+
+    dialARideIcon = L.divIcon({
+      className: 'ocotp-dial-a-ride',
+      iconAnchor: [50, 50],
+      iconSize: [100, 100],
+    })
 
     this.options = options || {}
 
@@ -261,7 +268,7 @@ var ItineraryMapView = Backbone.View.extend({
           this.stopLayer.addLayer(fromCurvedPath)
 
           var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
-            new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
+            new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ], { className: 'shadow_polyline' })
           fromCurveShadow.setStyle({
             color: 'darkgrey',
             lineCap: 'round',
@@ -269,6 +276,7 @@ var ItineraryMapView = Backbone.View.extend({
             opacity: 0.4,
             blur: 5
           })
+
           this.stopLayer.addLayer(fromCurveShadow)
 
         }
@@ -304,7 +312,7 @@ var ItineraryMapView = Backbone.View.extend({
 
 
           var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
-            new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
+            new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ], { className: 'shadow_polyline' });
           fromCurveShadow.setStyle({
             color: 'darkgrey',
             lineCap: 'round',
@@ -320,6 +328,10 @@ var ItineraryMapView = Backbone.View.extend({
 
     var marker = this.getLegFromBubbleMarker(leg, this.highlightLeg === leg)
     this.pathMarkerLayer.addLayer(marker)
+  },
+
+  onPhoneMarkerClick: function(e) {
+    console.log('alert("You Clicked on a thing")')
   },
 
   renderCallAndRideLeg: function (leg) {
@@ -366,7 +378,7 @@ var ItineraryMapView = Backbone.View.extend({
       'Q', fromArcPoint, toDestinationLatLong
     ])
     fromCurvedPath.setStyle({
-      color: window.OTP_config.flagStopLineColor,
+      color: '#3E4D61',
       weight: 5,
       vertices: 20000000,
       offset: 100,
@@ -382,15 +394,28 @@ var ItineraryMapView = Backbone.View.extend({
 
 
     var fromCurveShadow = new L.polyline([new L.LatLng(fromOriginLatLong[0], fromOriginLatLong[1]),
-      new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ]);
+      new L.latLng(toDestinationLatLong[0], toDestinationLatLong[1]) ], { className: 'shadow_polyline' })
     fromCurveShadow.setStyle({
-      color: 'darkgrey',
+      color: 'black',
       lineCap: 'round',
       weight: 4,
       opacity: 0.4,
       blur: 5
     })
     this.stopLayer.addLayer(fromCurveShadow)
+
+    // create custom icon
+    var phone_location = fromCurvedPath.getCenter()
+
+    // fromOriginLatLong, toDestinationLatLong
+    var midpoint = [(fromOriginLatLong[0] + toDestinationLatLong[0])/2, (fromOriginLatLong[1] + toDestinationLatLong[1])/2]
+    var midpoint_2 = [(midpoint[0] + fromArcPoint[0])/2, (midpoint[1] + fromArcPoint[1])/2]
+
+    var curveIcon = L.marker(midpoint_2, {icon: dialARideIcon});
+
+    curveIcon.on('click', self.onPhoneMarkerClick)
+
+    this.stopLayer.addLayer(curveIcon)
   },
   determineArcPoint: function (originLatLong, destinationLatLong) {
     var offsetLong = destinationLatLong[1] - originLatLong[1]

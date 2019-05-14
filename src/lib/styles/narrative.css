@@ -139,6 +139,15 @@
 	background-image: url('../images/waving_person.png');
 }
 
+.ocotp-dial-a-ride {
+	background-image: url('../images/ocotp/dial-a-bus-icon_dark-blue.png');
+	-webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
+	-moz-transform: scale(0.5); /* FF3.5+ */
+	-ms-transform: scale(0.5); /* IE9 */
+	-o-transform: scale(0.5); /* Opera 10.5+ */
+	transform: scale(0.5);
+}
+
 .otp-legStep-icon-LEFT {
     background-image: url('../images/directions/left.png')
 }
