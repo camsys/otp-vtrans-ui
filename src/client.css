@@ -1,6 +1,7 @@
 body {
   overflow: hidden;
   max-height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -19,6 +20,7 @@ body {
 	width: 100%;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
 }
 
 #narrative {

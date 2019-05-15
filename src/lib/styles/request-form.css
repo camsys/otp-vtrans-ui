@@ -45,6 +45,113 @@
   padding-right: 0px;
 }
 
+.reverse-button {
+  background: url('../images/ocotp/map_flipper.png');
+  background-size: 23px;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 35px 12px;
+  border: none;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.no-left-padding {
+  padding-left: 0px;
+}
+
+.form-horizontal {
+  background: #E4EBF1;
+}
+
+.setting-as-bar-button {
+  alignment: right;
+  background: #E4EBF1;
+  border: none;
+}
+
+.trip-planning-request-header {
+  background: url('../images/ocotp/plan-trip-icon_white.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  padding: 18px;
+}
+
+.depart-arrive-by-clock-button {
+  background: url("../images/ocotp/time-watch-icon_grey.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 17px;
+}
+
+.depart-arrive-by-calendar-button {
+  background: url("../images/ocotp/search-calendar-icon_grey.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 17px;
+}
+
+.search_icon {
+  background: url('../images/ocotp/plan-trip-icon_white.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding: 15px 25px;
+}
+
+.apiTextParam {
+
+}
+
+.input-group-addon {
+  border-radius: 50%;
+}
+
+.search-button{
+  border: none;
+  background: #EEA660;
+  border-radius: 12px;
+}
+
+.search-button.btn.btn-primary.btn-block {
+  border: none;
+  background: #EEA660;
+  border-radius: 12px;
+}
+
+.btn.btn-primary.btn-block.disabled {
+  width: 50%;
+  border: none;
+  background: #EEA660;
+  align-content: center;
+  border-radius: 12px;
+}
+
+.searching-button {
+  width: 50%;
+  border: none;
+  background: #EEA660;
+  border-radius: 12px;
+}
+
+.right-aligned-text {
+  float: right;
+  border: black;
+}
+
+.service-requiring-special-exceptions-control-label {
+  color: #87909C;
+}
+
+.requirements-line {
+  width: 100%;
+  color: #87909C;
+
+}
+
 @media print {
   .form-control .select2-choice .select2-arrow {
     border: none;
@@ -60,3 +167,4 @@
 #showSettings {
   margin-top: 0;
 }
+

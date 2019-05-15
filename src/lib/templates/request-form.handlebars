@@ -1,62 +1,72 @@
-<div class="form-horizontal localize">
-  <div class="visibleSettings">
-    <div class="form-group fromPlaceControl">
-      <div class="col-sm-12">
-        <input id="fromPlace" class="form-control apiParam" data-i18n="[placeholder]handlebars.startAddr">
-      </div>
+<div class="form-horizontal localize col-sm-12">
+
+        <div class="trip-planning-request-header col-sm-12 ">
+            HEADER IMAGE GOES HERE!
+        </div>
+        <div class="visibleSettings col-sm-11 no-padding">
+            <div class="form-group fromPlaceControl">
+                <div class="col-sm-12">
+                    <input id="fromPlace" class="form-control apiParam" data-i18n="[placeholder]handlebars.startAddr">
+                </div>
+            </div>
+            <div class="form-group toPlaceControl">
+                <div class="col-sm-12">
+                    <input id="toPlace" class="form-control apiParam" data-i18n="[placeholder]handlebars.endAddr">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="visibleSettings col-sm-1 no-padding">
+                <button class="btn btn-default btn-block reverse-direction reverse-button" title="Reverse direction"></button>
+            </div>
+        </div>
+
+    <div class="timing-group col-sm-12" >
+        <div class="col-sm-3 no-left-padding">
+            <div class="form-group arriveByControl">
+                <select id="arriveBy" class="apiParam form-control">
+                    <option value="true" data-i18n="handlebars.arriveBy"></option>
+                    <option value="false" selected="true" data-i18n="handlebars.departBy"></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="form-group dateTimeControl">
+                <div class="timeControl col-sm-6">
+                    <div class="input-group date" id="time">
+                        <input type="text" class="form-control apiTextParam" data-format="HH:mm PP">
+                            <span class="input-group-addon">
+                                <span class="depart-arrive-by-clock-button"></span>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="dateControl col-sm-6">
+                    <div class="input-group date" id="date">
+                        <input type="text" class="form-control apiTextParam">
+                            <span class="input-group-addon">
+                                <span class="depart-arrive-by-calendar-button"></span>
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group toPlaceControl">
-      <div class="col-sm-12">
-        <input id="toPlace" class="form-control apiParam" data-i18n="[placeholder]handlebars.endAddr">
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group arriveByControl">
-    <div class="col-sm-12">
-      <select id="arriveBy" class="apiParam form-control">
-        <option value="true" data-i18n="handlebars.arriveAt"></option>
-        <option value="false" selected="true" data-i18n="handlebars.departBy"></option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-group dateTimeControl">
-      <div class="col-sm-12">
-          <div class="timeControl col-sm-6">
-              <div class="input-group date" id="time">
-                  <input type="text" class="form-control apiParam" data-format="HH:mm PP">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-time"></span>
-                  </span>
-              </div>
-          </div>
-
-          <div class="dateControl col-sm-6">
-              <div class="input-group date" id="date">
-                  <input type="text" class="form-control apiParam">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-time"></span>
-                  </span>
-              </div>
-          </div>
-      </div>
-  </div>
 
   <div class="form-group request-form-buttons">
-    <div class="col-sm-3">
-        <button class="btn btn-default btn-block reverse-direction" title="Reverse direction"><span class="glyphicon glyphicon-retweet"></span></button>
+    <div class="col-sm-8">
+        <hr class="requirements-line">
     </div>
-    <div class="col-sm-9">
-        <button id="hideSettings" class="btn toggleSettings btn-default btn-block"><span data-i18n="handlebars.hideSettings"></span> <span class="glyphicon glyphicon-chevron-up"></span></button>
-        <button id="showSettings" class="btn toggleSettings btn-default btn-block"><span data-i18n="handlebars.showSettings"></span> <span class="glyphicon glyphicon-chevron-down"></span></button>
+    <div class="col-sm-4">
+        <button id="hideSettings" class="btn toggleSettings btn-default btn-block setting-as-bar-button"> <span class="glyphicon glyphicon-minus"></span> <span data-i18n="handlebars.hideSettings"></span> </button>
+        <button id="showSettings" class="btn toggleSettings btn-default btn-block setting-as-bar-button"> <span class="glyphicon glyphicon-plus"></span> <span data-i18n="handlebars.showSettings"></span> </button>
     </div>
   </div>
 
   <div id="hidableSettings">
     <div class="form-group maxWalkControl">
-      <label for="maxWalkDistance" class="col-sm-4 control-label" data-i18n="handlebars.maxWalk"></label>
+
       {{#metric}}
       <div class="col-sm-8">
         <select id="maxWalkDistance" class="apiParam form-control">
@@ -118,14 +128,18 @@
     </div>
     
     <div class="form-group">
-        <div class="col-sm-12">
+        <div class="col-sm-12 no-padding">
+            <label for="serviceRequiringSpecialExceptions" class="service-requiring-special-exceptions-control-label col-sm-4" data-i18n="handlebars.showServiceRequiringSpecialExceptions"></label>
+        </div>
+
+        <div class="col-sm-6">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" name="flexUseReservationServices" id="flexUseReservationServices"><span data-i18n="handlebars.servReqRes"></span>
                 </label>
             </div>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" name="flexUseEligibilityServices" id="flexUseEligibilityServices" ><span data-i18n="handlebars.servEliReq"></span>
@@ -135,13 +149,16 @@
     </div>
   </div>
 
-  <div class="form-group request-form-search-buttons">
-    <div class="col-sm-12">
-      <button class="search-button btn btn-primary btn-block"> <span data-i18n="handlebars.submit"></span> <span class="glyphicon glyphicon-search"></span></button>
-      <div class="searching-button hidden">
+  <div class="form-group request-form-search-buttons ">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-5">
+      <button class="search-button btn btn-primary btn-block"> <span data-i18n="handlebars.submit"></span> <span class="search_icon"></span> </button>
+
+        <div class="searching-button hidden">
         <button class="btn btn-primary btn-block disabled" diabled> <span data-i18n="handlebars.searching"></span> <span class="glyphicon glyphicon-refresh spin"></span></button>
       </div>
     </div>
+    <div class="col-sm-3"></div>
   </div>
 
 

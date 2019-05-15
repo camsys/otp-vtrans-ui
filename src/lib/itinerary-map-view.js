@@ -29,8 +29,8 @@ var ItineraryMapView = Backbone.View.extend({
 
     dialARideIcon = L.divIcon({
       className: 'ocotp-dial-a-ride',
-      iconAnchor: [50, 50],
-      iconSize: [100, 100],
+      iconAnchor: [17, 17],
+      iconSize: [34, 34],
     })
 
     this.options = options || {}

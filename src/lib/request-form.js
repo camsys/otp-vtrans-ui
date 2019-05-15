@@ -211,8 +211,7 @@ var RequestView = Backbone.View.extend({
 
     this.$el.html(html)
 
-    this.$('#hideSettings').hide()
-    this.$('#hidableSettings').hide()
+    this.$('#showSettings').hide()
     this.$('#date').datetimepicker({
       pickTime: false
     })

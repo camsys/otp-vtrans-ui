@@ -140,12 +140,14 @@
 }
 
 .ocotp-dial-a-ride {
-	background-image: url('../images/ocotp/dial-a-bus-icon_dark-blue.png');
-	-webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
-	-moz-transform: scale(0.5); /* FF3.5+ */
-	-ms-transform: scale(0.5); /* IE9 */
-	-o-transform: scale(0.5); /* Opera 10.5+ */
-	transform: scale(0.5);
+	background: #3E4D61;
+	background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
+	background-size: 25px;
+	background-position: center;
+	background-repeat: no-repeat;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
 }
 
 .otp-legStep-icon-LEFT {
