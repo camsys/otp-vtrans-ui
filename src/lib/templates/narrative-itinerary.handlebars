@@ -1,50 +1,54 @@
-<div class="well localize">
-  <div class="otp-itinHeader">
-    <div class="otp-itinHeader-title">
-      <span class="pull-right">
-        <a href="#" class="print" title="Print Itinerary"><span class="glyphicon glyphicon-print"></span></a>
-      </span>
-        <span>
-            <strong><span data-i18n="handlebars.option"></span> {{index}}</strong>:
-        </span>
-        <span>
-            <span data-i18n="handlebars.departs"></span> {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
-        </span>
-        <span class='pull-right'>
-            {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}&nbsp;&nbsp;&nbsp;
-        </span>
+<div class="tab-content ">
+    <div class="tab-pane" id="{{index}}">
+        <div class="well localize">
+            <div class="otp-itinHeader">
+                <div class="otp-itinHeader-title">
+              <span class="pull-right">
+                <a href="#" class="print" title="Print Itinerary"><span class="glyphicon glyphicon-print"></span></a>
+              </span>
+                    <span>
+                    <strong><span data-i18n="handlebars.option"></span> {{index}}</strong>:
+                </span>
+                    <span>
+                    <span data-i18n="handlebars.departs"></span> {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
+                </span>
+                    <span class='pull-right'>
+                    {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}&nbsp;&nbsp;&nbsp;
+                </span>
+                </div>
+                <div class="otp-itinHeader-preview">
+                    {{#each legs}}
+                        <nobr>
+                            {{#if (isAnyCallAndRideFromAttributes attributes) }}
+                                <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
+                            {{else}}
+                                <div class="otp-legMode-icon otp-legMode-icon-{{ attributes.mode }}"></div>
+                            {{/if}}
+
+
+                            <span {{#if attributes.routeColor }}style="border-bottom:2px solid #{{attributes.routeColor}};"{{/if}}>{{#if attributes.routeShortName }}{{attributes.routeShortName}}{{/if}}</span>
+                            {{#unless @last}}
+                                <div class="otp-legMode-icon otp-legMode-icon-arrow-right" style="margin-left: 4px;"></div>
+                            {{/unless}}
+                        </nobr>
+                    {{/each}}
+
+                    <span class="otp-itinFare-preview">
+                    {{#fare}}
+                        <span class='pull-right'>{{fareString fare}}</span>
+                    {{/fare}}
+                        <span class='pull-right'></span>
+                </span>
+                </div>
+            </div>
+            <div class="otp-itinBody">
+                {{#if walkLimitExceeded}}
+                    <div class="alert alert-warning" data-i18n="handlebars.exceedMaxWalk"></div>
+                {{/if}}
+            </div>
+        </div>
     </div>
-    <div class="otp-itinHeader-preview">
-      {{#each legs}}
-      <nobr>
-          {{#if (isAnyCallAndRideFromAttributes attributes) }}
-              <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
-          {{else}}
-              <div class="otp-legMode-icon otp-legMode-icon-{{ attributes.mode }}"></div>
-          {{/if}}
-
-
-        <span {{#if attributes.routeColor }}style="border-bottom:2px solid #{{attributes.routeColor}};"{{/if}}>{{#if attributes.routeShortName }}{{attributes.routeShortName}}{{/if}}</span>
-        {{#unless @last}}
-          <div class="otp-legMode-icon otp-legMode-icon-arrow-right" style="margin-left: 4px;"></div>
-        {{/unless}}
-      </nobr>
-      {{/each}}
-
-        <span class="otp-itinFare-preview">
-            {{#fare}}
-                <span class='pull-right'>{{fareString fare}}</span>
-            {{/fare}}
-            <span class='pull-right'></span>
-        </span>
-    </div>
-  </div>
-  <div class="otp-itinBody">
-    {{#if walkLimitExceeded}}
-        <div class="alert alert-warning" data-i18n="handlebars.exceedMaxWalk"></div>
-    {{/if}}
-  </div>
 </div>
 <script>
-  $(".localize").localize();
+    $(".localize").localize();
 </script>

@@ -1,5 +1,6 @@
 var log = require('./log')('plan-response-narrative-view')
 var ItineraryNarrativeView = require('./itinerary-narrative-view')
+var ItineraryTabsView = require('./itinerary-tabs-view')
 var PlanAlertView = require('./plan-alert-view')
 
 var Backbone = require("backbone")
@@ -39,24 +40,38 @@ var PlanResponseNarrativeView = Backbone.View.extend({
   },
 
   processPlanAlert: function (planAlert, index) {
-     var planAlertView = new PlanAlertView({
-       model: planAlert,
-       planView: this,
-       index: index
-     })
-     planAlertView.render()
-     this.$el.find('.itineraries').append(planAlertView.el)
-   },
- 
-  processItinerary: function (itin, index) {
-    var itinView = new ItineraryNarrativeView({
-      model: itin,
+    var planAlertView = new PlanAlertView({
+      model: planAlert,
       planView: this,
       index: index
     })
+    planAlertView.render()
+    this.$el.find('.itineraries').append(planAlertView.el)
+  },
+
+  processItinerary: function (itin, index) {
+    console.log('in plan-response-narrative-view')
+    var itinView = new ItineraryNarrativeView({
+      model: itin,
+      planView: this,
+      index: index,
+      legs: itin.get('legs'),
+      itineraries_for_tabs: this.model.get('itineraries')
+    })
+
+    // var itinTabsView = new ItineraryTabsView({
+    //   model: itin,
+    //   planView: this,
+    //   index: index,
+    //   legs: itin.get('legs'),
+    //   itineraries_for_tabs: this.model.get('itineraries')
+    // })
 
     itinView.render()
+    // itinTabsView.render()
+
     this.$el.find('.itineraries').append(itinView.el)
+    // this.$el.find('.itinerarytabs').append(itinView.el)
   }
 })
 

@@ -3,6 +3,7 @@ var ItineraryTopoView = require('./itinerary-topo-view')
 var log = require('./log')('plan-response-view')
 var PlanResponseNarrativeView = require('./plan-response-narrative-view')
 
+
 var Backbone = require("backbone")
 var _ = require("underscore")
 
@@ -28,6 +29,8 @@ module.exports = Backbone.View.extend({
       this.narrativeView.error = this.error
       this.narrativeView.render()
     }
+
+
 
     if (this.model) {
       this.model.getTimeOffset()
