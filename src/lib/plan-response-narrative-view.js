@@ -50,7 +50,6 @@ var PlanResponseNarrativeView = Backbone.View.extend({
   },
 
   processItinerary: function (itin, index) {
-    console.log('in plan-response-narrative-view')
     var itinView = new ItineraryNarrativeView({
       model: itin,
       planView: this,
@@ -59,19 +58,31 @@ var PlanResponseNarrativeView = Backbone.View.extend({
       itineraries_for_tabs: this.model.get('itineraries')
     })
 
-    // var itinTabsView = new ItineraryTabsView({
-    //   model: itin,
-    //   planView: this,
-    //   index: index,
-    //   legs: itin.get('legs'),
-    //   itineraries_for_tabs: this.model.get('itineraries')
-    // })
+    var itinTabsView = new ItineraryTabsView({
+      model: itin,
+      planView: this,
+      index: index,
+      legs: itin.get('legs'),
+      itineraries_for_tabs: this.model.get('itineraries')
+    })
 
     itinView.render()
-    // itinTabsView.render()
+    itinTabsView.render()
 
-    this.$el.find('.itineraries').append(itinView.el)
-    // this.$el.find('.itinerarytabs').append(itinView.el)
+    console.log("Index is --"+index)
+    if(index == 0) {
+      this.$el.find('.itinerary1').append(itinView.el)
+      this.$el.find('.itineraryTab1').append(itinTabsView.el)
+    }
+    else if(index == 1) {
+      this.$el.find('.itinerary2').append(itinView.el)
+      this.$el.find('.itineraryTab2').append(itinTabsView.el)
+    }
+    else if(index == 2) {
+      this.$el.find('.itinerary3').append(itinView.el)
+      this.$el.find('.itineraryTab3').append(itinTabsView.el)
+    }
+
   }
 })
 

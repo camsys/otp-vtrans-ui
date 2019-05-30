@@ -44,7 +44,7 @@ i18next
                 toUP:'To',
                 setStartLocation:'Set Start Location',
                 setEndLocation: 'Set End Location',
-                dragOrForm:'Drag start and end location pins on the map or use the form above to adjust trip settings.',
+                dragOrForm:'Drag pints on the map or use the form above to adjust trip settings.',
                 option:'Option',
                 departs:'departs',
                 depart:'Depart',

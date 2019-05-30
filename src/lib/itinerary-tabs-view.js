@@ -89,38 +89,17 @@
 
 var LegNarrativeView = require('./leg-narrative-view')
 
-var itinNarrativeTemplate = require('./templates/narrative-itinerary.handlebars')
+var itinNarrativeTabTemplate = require('./templates/narrative-itinerarytab.handlebars')
+// var itinNarrativeTemplate = require('./templates/narrative-itinerary.handlebars')
 
 var Backbone = require("backbone")
 var _ = require("underscore")
 
 var ItineraryTabsView = Backbone.View.extend({
-  className: 'PlanResponseNarrativeView',
-
-  events: {
-    'click .otp-itinHeader': 'headerClicked',
-    // 'mouseenter .otp-itinHeader': 'headerMouseenter',
-    // 'mouseleave .otp-itinHeader': 'headerMouseleave',
-    'click .print': 'print'
-  },
 
   initialize: function (options) {
     this.options = options || {}
 
-    _.bindAll(this, 'headerClicked')
-
-    this.listenTo(this.model, 'activate', this.expand)
-    this.listenTo(this.model, 'deactivate', this.collapse)
-  },
-
-  print: function (e) {
-    e.preventDefault()
-    if (!this.isActive) this.model.trigger('activate')
-    if (this.legs) this.legs.forEach(function (leg) { leg.print() })
-
-    setTimeout(function () {
-      window.print()
-    }, 500)
   },
 
   render: function () {
@@ -146,7 +125,7 @@ var ItineraryTabsView = Backbone.View.extend({
     context.duration = duration
     context.timeOffset = timeOffset
 
-    this.$el.html(itinNarrativeTemplate(context))
+    this.$el.html(itinNarrativeTabTemplate(context))
 
     this.legs = []
     _.each(legs.models, this.processLeg, this)
@@ -164,28 +143,11 @@ var ItineraryTabsView = Backbone.View.extend({
     this.$el.find('.otp-itinBody').append(legView.el)
   },
 
-  collapse: function () {
-    this.$el.find('.otp-itinBody').slideUp('fast')
-    this.$el.removeClass('activated')
-  },
 
-  expand: function () {
-    this.$el.find('.otp-itinBody').slideDown('fast')
-    this.$el.addClass('activated')
-  },
 
-  headerClicked: function (e) {
-    if (!this.isActive() || !this.active) {
-      this.active = true
-      this.model.trigger('activate')
-    } else {
-      this.model.trigger('deactivate')
-      this.active = false
-    }
-  },
 
   isActive: function () {
-    return this.options.planView.model.get('itineraries').activeItinerary ===
+    return this.options.planView.model.get('itinerarytabs').activeItinerary ===
       this.model
   }
 })

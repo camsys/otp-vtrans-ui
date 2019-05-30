@@ -6,7 +6,7 @@ var Backbone = require("backbone")
 var _ = require("underscore")
 
 var ItineraryNarrativeView = Backbone.View.extend({
-  className: 'PlanResponseNarrativeView',
+  // className: 'PlanResponseNarrativeView',
 
   events: {
     'click .otp-itinHeader': 'headerClicked',
