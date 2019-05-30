@@ -1,10 +1,20 @@
 <div class="messageWell well">
   <span class="text-danger">{{message}}</span>
 </div>
-<div>
-    <ul class="nav nav-tabs itinerarytabs">
+<div class="tab-container">
+    <ul class="nav nav-tabs">
+        <li> <a  href="#1" data-toggle="tab"><div class="itineraryTab1"></div></a> </li>
+        <li> <a href="#2" data-toggle="tab"><div class="itineraryTab2"></div></a> </li>
+        <li> <a href="#3" data-toggle="tab"><div class="itineraryTab3"></div></a> </li>
     </ul>
 </div>
 
-<div class="itineraries"></div>
+<div class="tab-content">
+    <div class="tab-pane" id="1"> <div class="itinerary1"></div> </div>
+    <div class="tab-pane" id="2"> <div class="itinerary2"></div> </div>
+    <div class="tab-pane" id="3"> <div class="itinerary3"></div> </div>
 </div>
+
+<script>
+    $(".localize").localize();
+</script>

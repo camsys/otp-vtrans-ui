@@ -46,7 +46,7 @@ i18next
                 setEndLocation: 'Set End Location',
                 dragOrForm:'Drag pints on the map or use the form above to adjust trip settings.',
                 option:'Option',
-                departs:'departs',
+                departs:'Departs',
                 depart:'Depart',
                 exceedMaxWalk:'This itinerary exceeds your maximum walk distance.',
                 apprx:'approximately',

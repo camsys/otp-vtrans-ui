@@ -336,6 +336,16 @@
     font-style: italic;
 }
 
+.tab-part{
+	font-size: 11px;
+	padding: 1px;
+}
+
+.narrative-tab {
+	padding: 0px;
+	font-size: 11px;
+}
+
 @media print {
 	.messageWell {
 		display: none;

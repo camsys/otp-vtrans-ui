@@ -1,92 +1,3 @@
-// var itinNarrativeTabTemplate = require('./templates/narrative-itinerarytab.handlebars')
-//
-// var Backbone = require("backbone")
-// var _ = require("underscore")
-//
-// var ItineraryTabsView = Backbone.View.extend({
-//   className: 'PlanResponseNarrativeView',events: {
-//     'click .otp-itinHeader': 'headerClicked',
-//     // 'mouseenter .otp-itinHeader': 'headerMouseenter',
-//     // 'mouseleave .otp-itinHeader': 'headerMouseleave',
-//     'click .print': 'print'
-//   },
-//
-//   initialize: function (options) {
-//
-//     console.log('templates/narrative-itinerarytab.handlebars should be initializedkfkfkfkfkfkfkfkfkfkfkfkfk');
-//
-//     this.options = options || {}
-//
-//     _.bindAll(this, 'headerClicked')
-//
-//     this.listenTo(this.model, 'activate', this.expand)
-//     this.listenTo(this.model, 'deactivate', this.collapse)
-//   },
-//
-//   print: function (e) {
-//     e.preventDefault()
-//     if (!this.isActive) this.model.trigger('activate')
-//     if (this.legs) this.legs.forEach(function (leg) { leg.print() })
-//
-//     setTimeout(function () {
-//       window.print()
-//     }, 500)
-//   },
-//
-//   render: function () {
-//     var legs = this.model.get('legs')
-//     var timeOffset = this.options.planView.model.getTimeOffset()
-//     var duration = this.options.planView.options.showFullDuration
-//       ? this.model.getFullDuration(this.options.planView.model.get('request'), timeOffset)
-//       : this.model.get('duration')
-//
-//     // filter out internal walk legs
-//     var filteredLegs = []
-//     legs.models.forEach(function(model, i) {
-//       if(i === 0 || i === legs.models.length - 1) {
-//         filteredLegs.push(model)
-//         return;
-//       }
-//       if(model.get('mode') !== 'WALK') filteredLegs.push(model)
-//     })
-//
-//     var context = _.clone(this.model.attributes)
-//     context.index = this.options.index + 1
-//     context.legs = filteredLegs
-//     context.duration = duration
-//     context.timeOffset = timeOffset
-//
-//     this.$el.html(itinNarrativeTabTemplate(context))
-//   },
-//
-//   collapse: function () {
-//     this.$el.find('.otp-itinBody').slideUp('fast')
-//     this.$el.removeClass('activated')
-//   },
-//
-//   expand: function () {
-//     this.$el.find('.otp-itinBody').slideDown('fast')
-//     this.$el.addClass('activated')
-//   },
-//
-//   headerClicked: function (e) {
-//     if (!this.isActive() || !this.active) {
-//       this.active = true
-//       this.model.trigger('activate')
-//     } else {
-//       this.model.trigger('deactivate')
-//       this.active = false
-//     }
-//   },
-//
-//   isActive: function () {
-//     return this.options.planView.model.get('itinerarytabs').activeItinerary ===
-//       this.model
-//   }
-// })
-//
-// module.exports = ItineraryTabsView
-
 var LegNarrativeView = require('./leg-narrative-view')
 
 var itinNarrativeTabTemplate = require('./templates/narrative-itinerarytab.handlebars')
@@ -119,11 +30,17 @@ var ItineraryTabsView = Backbone.View.extend({
       if(model.get('mode') !== 'WALK') filteredLegs.push(model)
     })
 
+    var starting_ascii_value_A = "A".charCodeAt(0)
+
     var context = _.clone(this.model.attributes)
     context.index = this.options.index + 1
+    context.alphaValue = String.fromCharCode(this.options.index + starting_ascii_value_A)
     context.legs = filteredLegs
     context.duration = duration
     context.timeOffset = timeOffset
+    console.log('fare is in this model')
+    console.log(this.model.get('fare').fare)
+    context.fare = this.model.get('fare').fare
 
     this.$el.html(itinNarrativeTabTemplate(context))
 
