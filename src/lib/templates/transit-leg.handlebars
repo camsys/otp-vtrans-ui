@@ -1,35 +1,43 @@
 <div class="otp-leg localize">
-  <div class="otp-legHeader" {{#if routeColor }}style="border-top:3px solid #{{routeColor}};" {{else}} style="border-top:3px solid #000;" {{/if}}>
+  <div class="otp-legHeader">
     <div class="agencyBranding" style="background-image: url({{agencyLogoUrl}});"></div>
-    <span class="agency-descriptor-span"><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
-    <span class="transit-line-container">
-        {{#if (isAnyCallAndRide) }}
-            <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
-        {{else}}
-            <div class="otp-legMode-icon otp-legMode-icon-{{ mode }}"></div>
-        {{/if}}
+        <!--        TODO ADD TRANSLATION and make change to MORE-->
+        <span style="float:right;">- LESS</span>
 
-          <span class="transit-line-well"
-              {{#if routeColor }}
-                {{#if routeTextColor }}
-                    style="background-color: #{{routeColor}}; color: #{{routeTextColor}};"
+        <span class="agency-descriptor-span"><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
+
+        <div>
+            <span class="transit-line-container">
+                <span class="transit-line-well"
+                    {{#if routeColor }}
+                        {{#if routeTextColor }}
+                      style="background-color: #{{routeColor}}; color: #{{routeTextColor}};"
+                        {{/if}}
+                    {{/if}}
+                >
+
+                </span>
+                {{#if (isAnyCallAndRide) }}
+                    <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
+                {{else}}
+                    <div class="otp-legMode-icon otp-legMode-icon-{{ mode }}"></div>
                 {{/if}}
-              {{/if}}
-          >
-              {{#if routeShortName}}
-                  <b>{{routeShortName}}</b>
-              {{else}}
-                  <b>{{routeLongName}}</b>
-              {{/if}}
-          </span>
-          {{#if headsign}}
-              <br /> <span data-i18n="handlebars.to"></span> {{headsign}}
-          {{/if}}
 
-      </div>
-    </span>
+                {{#if routeShortName}}
+                    <b>{{routeShortName}}</b>
+                {{else}}
+                    <b>{{routeLongName}}</b>
+                {{/if}}
+            </span>
+                {{#if headsign}}
+                   <span data-i18n="handlebars.to"></span> {{headsign}}
+                {{/if}}
+        </div>
+
+    </div>
+        </span>
   {{#each alerts}}
-    <div class="alert alert-warning">{{alertDescriptionText}}</div>
+        <div class="alert alert-warning">{{alertDescriptionText}}</div>
   {{/each}}
     <div class="otp-legBody">
         <div class="otp-legBody-from">
@@ -39,14 +47,16 @@
                 <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5 data-i18n="depart"></h5>
-                    <div>
+                    <span class="narrative-depart-arrival-text" data-i18n="handlebars.depart">
+
+                    </span>
+                    <span class="narrative-depart-arrival-time">
                         {{#if (hasflexCallAndRideMaxStartTime )}}
                             <span class="timing_text" data-i18n="handlebars.apprx"></span> {{formatTimeWithflexCallAndRideMaxStartTime startTime flexCallAndRideMaxStartTime timeOffset}}
                         {{else}}
                             {{formatTime startTime timeOffset}}
                         {{/if}}
-                    </div>
+                    </span>
                 </div>
             </span>
             {{#if (hasFromTransitMessage) }}
@@ -55,17 +65,16 @@
                 <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5 data-i18n="handlebars.from"></h5>
-                    <div>
+                    <span class="narrative-from-to-text" data-i18n="handlebars.from"></span>
+                    <span class="narrative-from-to-location">
                         {{from.name}}
-                    </div>
-                    {{#if from.stopId.id}}
-                        <div>
+                        {{#if from.stopId.id}}
                             <span data-i18n="handlebars.stopNum"></span> {{from.stopId.id}}
-                        </div>
-                    {{/if}}
+                        {{/if}}
+                    </span>
                 </div>
             </span>
+<!--            TODO manage flag stops once we have examples-->
             {{#if (isFlagStop from.boardAlightType)}}
                 <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
                     <div>
@@ -104,14 +113,14 @@
                 <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5 data-i18n="handlebars.arrive"></h5>
-                    <div>
+                    <span class="narrative-depart-arrival-text" data-i18n="handlebars.arrive"></span>
+                    <span class="narrative-depart-arrival-time">
                         {{#if (hasflexCallAndRideMinEndTime) }}
                             <span class="timing_text" data-i18n="handlebars.apprx"></span> {{formatTimeWithflexCallAndRideMinEndTime endTime flexCallAndRideMinEndTime timeOffset}}
                         {{else}}
                             {{formatTime endTime timeOffset}}
                         {{/if}}
-                    </div>
+                    </span>
                 </div>
             </span>
             {{#if (hasToTransitMessage)}}
@@ -125,15 +134,14 @@
                 <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <h5 data-i18n="handlebars.toUP"></h5>
-                    <div>
+                    <span class="narrative-from-to-text" data-i18n="handlebars.toUP"/>
+                    <span class="narrative-from-to-location">
                         {{to.name}}
-                    </div>
+
                     {{#if to.stopId.id}}
-                        <div>
-                            <spandata-i18n="handlebars.stopNum"></span> {{to.stopId.id}}
-                        </div>
+                            <span data-i18n="handlebars.stopNum"></span> {{to.stopId.id}}
                     {{/if}}
+                    </span>
                 </div>
             </span>
             {{#if (isFlagStop to.boardAlightType)}}
