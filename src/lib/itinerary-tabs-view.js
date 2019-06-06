@@ -60,9 +60,6 @@ var ItineraryTabsView = Backbone.View.extend({
     this.$el.find('.otp-itinBody').append(legView.el)
   },
 
-
-
-
   isActive: function () {
     return this.options.planView.model.get('itinerarytabs').activeItinerary ===
       this.model

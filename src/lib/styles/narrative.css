@@ -340,11 +340,6 @@
     font-style: italic;
 }
 
-.tab-part{
-	font-size: 11px;
-	padding: 1px;
-}
-
 .narrative-tab {
 	padding: 0px;
 	font-size: 11px;
@@ -369,9 +364,18 @@
 	}
 }
 
-.failure-message {
+.narrative-message {
   text-align: center;
   font-size: 13px;
   font-style: italic;
   color: #2767AC;
+}
+
+.tab-part {
+  padding: 0px;
+}
+
+.itinerary-summary {
+  font-size: 16px;
+  font-weight: bold;
 }

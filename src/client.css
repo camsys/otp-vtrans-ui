@@ -23,10 +23,6 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-#narrative {
-  margin-top: 15px;
-}
-
 #itineraries {
 	overflow-y: auto;
 	padding-right: 5px;

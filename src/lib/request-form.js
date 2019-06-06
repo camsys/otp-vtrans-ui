@@ -213,6 +213,10 @@ var RequestView = Backbone.View.extend({
 
     this.$('#showSettings').hide()
     this.$('#date').datetimepicker({
+      icons: {
+        time: 'depart-arrive-by-clock-button',
+        date: 'depart-arrive-by-calendar-button'
+      },
       format: "MM/DD/YY",
       pickTime: false
     })
@@ -224,6 +228,10 @@ var RequestView = Backbone.View.extend({
     })
 
     this.$('#time').datetimepicker({
+      icons: {
+        time: 'depart-arrive-by-clock-button',
+        date: 'depart-arrive-by-calendar-button'
+      },
       pick12HourFormat: true,
       pickSeconds: false,
       pickDate: false
@@ -334,20 +342,23 @@ var RequestView = Backbone.View.extend({
         $('#itineraries').height($(window).height() - ($('#request').height() +
           $('#messageWell').height() + 80))
       })
-      $('#showSettings').show()
-      $('#hideSettings').hide()
-      this.bikeTriangle.disable()
+      $('#showSettings').show();
+      $('#hideSettings').hide();
+      
+      if(this.bikeTriangle && this.bikeTriangle.rendered) {
+        this.bikeTriangle.disable();
+      }
     } else {
       $('#hidableSettings').slideDown('fast', function () {
         $('#itineraries').height($(window).height() - ($('#request').height() +
           $('#messageWell').height() + 80))
       })
-      $('#showSettings').hide()
-      $('#hideSettings').show()
+      $('#showSettings').hide();
+      $('#hideSettings').show();
       if (!this.bikeTriangle.rendered) {
-        this.bikeTriangle.render()
+        this.bikeTriangle.render();
       }
-      this.bikeTriangle.enable()
+      this.bikeTriangle.enable();
     }
   },
 

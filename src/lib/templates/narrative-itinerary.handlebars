@@ -5,19 +5,21 @@
                         <a href="#" class="print" title="Print Itinerary"><span class="glyphicon glyphicon-print"></span></a>
                     </span>
 
-                    <span>
-                        <span data-i18n="handlebars.departs"></span> {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
-                    </span>
-                    /
-                    <span>
-                        {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}&nbsp;&nbsp;&nbsp;
-                    </span>
-                    /
-                    <span class="otp-itinFare-preview">
-                        {{#fare}}
-                            <span>{{fareString fare}}</span>
-                        {{/fare}}
-                            <span></span>
+                    <span class="itinerary-summary">
+                        <span>
+                            <span data-i18n="handlebars.departs"></span> {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
+                        </span>
+                        /
+                        <span>
+                            {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}&nbsp;&nbsp;&nbsp;
+                        </span>
+                        /
+                        <span class="otp-itinFare-preview">
+                            {{#fare}}
+                                <span>{{fareString fare}}</span>
+                            {{/fare}}
+                                <span></span>
+                        </span>
                     </span>
                 </div>
 
