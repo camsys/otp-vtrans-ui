@@ -73,7 +73,7 @@ var Itinerary = Backbone.Model.extend({
    */
 
   getFullDuration: function (request, offset) {
-    var queryDateTime = moment(request.get('date') + ' ' + request.get('time'), 'MM-DD-YYYY h:mma')
+    var queryDateTime = moment(request.get('date') + ' ' + request.get('time'), 'MM-DD-YY h:mma')
     var startTime = moment(this.get('startTime'))
     var endTime = moment(this.get('endTime'))
 

@@ -1,6 +1,4 @@
 /*always  shows tab pane when tabs aren't shown */
 body.mode-md .always-show {
 	display: inline;
-	border-right-color: #EEA660;
-	border-right: #EEA660;
 }

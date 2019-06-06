@@ -62,28 +62,20 @@
   padding-left: 0px;
 }
 
-.form-horizontal {
+#request {
+  padding: 15px;
+}
+
+#request-form-container {
   background: #E4EBF1;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .setting-as-bar-button {
   alignment: right;
   background: #E4EBF1;
   border: none;
-}
-
-.trip-planning-request-header {
-  background: url('../images/ocotp/blue-orange-header.png');
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 60%;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  alignment: left;
-  color: #2767AC;
-  font-size: xx-large;
 }
 
 .depart-arrive-by-clock-button {
@@ -104,7 +96,7 @@
   background: url('../images/ocotp/plan-trip-icon_white.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 30px;
+  background-size: 20px;
   padding: 15px 25px;
 }
 
@@ -117,9 +109,11 @@
 }
 
 .search-button{
-  border: none;
+  border: 2px solid white;
   background: #EEA660;
   border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .search-button.btn.btn-primary.btn-block {
@@ -154,8 +148,7 @@
 
 .requirements-line {
   width: 100%;
-  color: #87909C;
-
+  border-color: #7f8488;
 }
 
 @media print {
@@ -172,5 +165,17 @@
 
 #showSettings {
   margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar {
+    padding-top: 70px !important;
+  }
+}
+
+.toggleSettings {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #7f8488;
 }
 

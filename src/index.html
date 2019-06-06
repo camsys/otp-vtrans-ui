@@ -22,19 +22,28 @@
 
 	</head>
 	<body>
+		<nav class="navbar navbar-default navbar-fixed-top trip-planning-request-header col-md-4">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">
+		        Trip Planner
+		      </a>
+		    </div>
+		  </div>
+		</nav>
 		<div class="container">
-	    <div class="row">
+	    <div class="row">		
 				<ul class="nav nav-tabs visible-xs visible-sm localize" id="tabs" data-tabs="tabs">
 					<li id="request_tab" class="active"><a href="#sidebar" data-toggle="tab" data-i18n="nav.input"></a></li>
 					<li id="plan_tab"><a href="#plan" data-toggle="tab" data-i18n="nav.plan"></a></li>
 					<li id="map_tab"><a class="formap" href="#mymap" data-toggle="tab" data-i18n="nav.map"></a></li>
 				</ul>
 				<div class="tab-content">
-					<div id="sidebar" class="col-md-3 active tab-pane always-show">
+					<div id="sidebar" class="col-md-4 active tab-pane always-show">
 						<div class="row" id="request"></div>
 						<div class="row" id="narrative"></div>
 					</div>
-					<div class="col-md-9 tab-pane always-show map-container" id="mymap">
+					<div class="col-md-8 tab-pane always-show map-container" id="mymap">
 						<div id="map" style="height: 700px"></div>
 					</div>
 					<div class="col-md-6 tab-pane always-show" id="plan">

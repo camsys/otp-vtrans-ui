@@ -39,7 +39,7 @@ var RequestView = Backbone.View.extend({
 
     this.model.set({
       arriveBy: true,
-      date: date.format('MM-DD-YYYY'),
+      date: date.format('MM-DD-YY'),
       time: date.format('hh:mm a')
     })
   },
@@ -51,7 +51,7 @@ var RequestView = Backbone.View.extend({
 
     this.model.set({
       arriveBy: false,
-      date: date.format('MM-DD-YYYY'),
+      date: date.format('MM-DD-YY'),
       time: date.format('hh:mm a')
     })
   },
@@ -110,7 +110,7 @@ var RequestView = Backbone.View.extend({
       }
 
       if (data.attributes.date) {
-        var date = moment(data.attributes.date, 'MM-DD-YYYY').toDate()
+        var date = moment(data.attributes.date, 'MM-DD-YY').toDate()
         view.datepicker.setDate(date)
       }
 
@@ -213,6 +213,7 @@ var RequestView = Backbone.View.extend({
 
     this.$('#showSettings').hide()
     this.$('#date').datetimepicker({
+      format: "MM/DD/YY",
       pickTime: false
     })
 

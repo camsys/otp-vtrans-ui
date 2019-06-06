@@ -1,6 +1,7 @@
 // styles
 import "./lib/styles/map.css";
 import "./lib/styles/narrative.css";
+import "./lib/styles/index.css";
 import "./lib/styles/request-form.css";
 import "./lib/styles/tabs.css";
 import "./lib/styles/topo.css";

@@ -1,0 +1,27 @@
+@media (max-width: 767px) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+.trip-planning-request-header {
+  background: url('../images/ocotp/blue-orange-header.png');
+  background-color: white;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 35%;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  alignment: left;
+}
+
+.trip-planning-request-header .navbar-brand {
+  color: #2767AC;
+  font-size: xx-large;
+}
+
+#sidebar {
+  padding-bottom: 20px;
+}

@@ -1,3 +1,14 @@
+@media (min-width: 768px) {
+    #mymap {
+        border-left: 2px solid #EEA660;
+    }
+}
+@media (max-width: 767px) {
+    #mymap {
+        border: none;
+    }
+}
+
 .otp-startFlagIcon {
 	background: url('../images/marker-flag-start-shadowed.png');
 	width: 48px;

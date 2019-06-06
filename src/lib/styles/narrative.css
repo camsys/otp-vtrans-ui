@@ -1,4 +1,7 @@
-
+.drag-info {
+  font-size: 13px;
+  font-style: italic;
+}
 .otp-itinHeader {
 	cursor: pointer;
 	line-height: 1.8em;
@@ -364,4 +367,11 @@
 	.PlanResponseNarrativeView.activated {
 		display: block;
 	}
+}
+
+.failure-message {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  color: #2767AC;
 }
