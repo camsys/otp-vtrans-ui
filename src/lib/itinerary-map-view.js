@@ -6,6 +6,7 @@ var L = require("leaflet");
 require("leaflet-polylinedecorator");
 require("leaflet-curve");
 require("./leaflet-shifted-polyline.js")
+var FlexServicePopupView = require('./flex-service-popup-view');
 
 var flagStopIcon;
 var flagStopLineStyle
@@ -330,10 +331,6 @@ var ItineraryMapView = Backbone.View.extend({
     this.pathMarkerLayer.addLayer(marker)
   },
 
-  onPhoneMarkerClick: function(e) {
-    console.log('alert("You Clicked on a thing")')
-  },
-
   renderCallAndRideLeg: function (leg) {
     // draw the arc a
     popupContent = '<div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>'
@@ -369,8 +366,6 @@ var ItineraryMapView = Backbone.View.extend({
       var toDestinationLatLong = [leg.getDeviatedRouteFromStartLat(), leg.getDeviatedRouteFromStartLon()]
     }
 
-
-
     var fromArcPoint = this.determineArcPoint(fromOriginLatLong, toDestinationLatLong)
 
     var fromCurvedPath = L.curve([
@@ -386,8 +381,8 @@ var ItineraryMapView = Backbone.View.extend({
       blur: 5
     })
 
-    fromCurvedPath.bindTooltip(popupContent)
-    this.stopLayer.addLayer(fromCurvedPath)
+    //fromCurvedPath.bindTooltip(popupContent)
+    this.stopLayer.addLayer(fromCurvedPath);
     var marker = this.getLegFromBubbleMarker(leg, this.highlightLeg === leg)
     this.pathMarkerLayer.addLayer(marker)
     this.mapBounds.extend(fromCurvedPath.getBounds())
@@ -402,10 +397,10 @@ var ItineraryMapView = Backbone.View.extend({
       opacity: 0.4,
       blur: 5
     })
-    this.stopLayer.addLayer(fromCurveShadow)
+    this.stopLayer.addLayer(fromCurveShadow);
 
     // create custom icon
-    var phone_location = fromCurvedPath.getCenter()
+    var phone_location = fromCurvedPath.getCenter();
 
     // fromOriginLatLong, toDestinationLatLong
     var midpoint = [(fromOriginLatLong[0] + toDestinationLatLong[0])/2, (fromOriginLatLong[1] + toDestinationLatLong[1])/2]
@@ -413,10 +408,24 @@ var ItineraryMapView = Backbone.View.extend({
 
     var curveIcon = L.marker(midpoint_2, {icon: dialARideIcon});
 
-    curveIcon.on('click', self.onPhoneMarkerClick)
+    var self = this;
+    curveIcon.on('click', function() {
+      self.onPhoneMarkerClick.apply(self, [leg, curveIcon]);
+    });
 
-    this.stopLayer.addLayer(curveIcon)
+    this.stopLayer.addLayer(curveIcon);
   },
+
+  onPhoneMarkerClick: function(leg) {
+    leg.getFlexService(this.showFlexServicePopup);
+  },
+
+  showFlexServicePopup: function(serviceData, marker) {
+    new FlexServicePopupView({
+      model: serviceData
+    });
+  },
+
   determineArcPoint: function (originLatLong, destinationLatLong) {
     var offsetLong = destinationLatLong[1] - originLatLong[1]
     var offsetLat = destinationLatLong[0] - originLatLong[0]

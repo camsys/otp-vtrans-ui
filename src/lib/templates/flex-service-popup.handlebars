@@ -1,0 +1,31 @@
+<div class="modal fade flex-service-popup" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-info pull-right close-flex-service-popup" data-dismiss="modal" aria-label="Close"><span data-i18n="handlebars.close" aria-hidden="true"></span></button>
+        <a href="{{agency.url}}" class="ocotp-dial-a-ride flex-service-popup-icon"></a>
+        <span class="flex-service-popup-title">    
+          <h4 class="modal-title">{{agency.name}}</h4>
+          <span data-i18n="handlebars.serviceDetails"></span>
+        </span>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-8 flex-service-details-left-panel">
+            <h5 class="uppercase" data-i18n="handlebars.toScheduleARide"></h5>
+            <span style="font-size: large;">
+              <span data-i18n="handlebars.call"></span>
+              <span style="text-decoration: underline;"><b>{{agency.phone}}</b></span>
+            </span>
+            <h5 class="uppercase" data-i18n="handlebars.toApply"></h5>
+            <span>{{serviceInfo}}</span>
+          </div>
+          <div class="col-sm-4">
+            <h5 class="uppercase" data-i18n="handlebars.callCenterHoursOfOperation"></h5>
+            <span>{{days}}</span>
+            <br>
+            <span>{{startTime}} - {{endTime}}</span>
+          </div>
+        </div>
+      </div>
+</div><!-- /.modal -->

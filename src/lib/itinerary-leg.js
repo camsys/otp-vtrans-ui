@@ -253,6 +253,14 @@ var ItineraryLeg = Backbone.Model.extend({
     $.get(qs, callback)
   },
 
+  getFlexService: function (callback) {
+    var tripId = this.get('tripId');
+    var from = this.get('from');
+    var startIndex = from.stopIndex;
+    var qs = OTPURL + '/flexService/' + tripId + '?startIndex' + startIndex;
+    $.get(qs, callback);
+  },
+
   hasflexDrtPickupMessage: function () {
     if (this.flexDrtPickupMessage !== null && this.flexDrtPickupMessage !== '') {
       return true

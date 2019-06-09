@@ -136,3 +136,34 @@
 		display: none !important;
 	}
 }
+
+.uppercase {
+    text-transform:uppercase;
+    color: #8ab8e0;
+}
+
+.flex-service-details-left-panel {
+    border-right: 1px solid #E4EBF1;
+}
+
+.flex-service-popup-icon {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+}
+
+.flex-service-popup-title {
+    display: inline-block;
+}
+
+.close-flex-service-popup {
+    color: white;
+    background: #8ab8e0;
+    border-radius: 15px;
+    padding: 5px 15px;
+    border: 2px solid white;
+}
+
+.flex-service-popup .modal-header {
+    background: #E4EBF1;
+}

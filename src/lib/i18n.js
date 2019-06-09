@@ -84,6 +84,12 @@ i18next
                 heading:'heading',
                 toContinueOn:'to continue on',
                 onTo:'on to',
+                serviceDetails: 'Service Details',
+                toScheduleARide: 'To Schedule a Ride',
+                toApply: 'To Apply',
+                callCenterHoursOfOperation: "Call Center Hours of Operation",
+                close: 'Close',
+                call: 'Call'
             }
         }
     },
@@ -144,6 +150,12 @@ i18next
                 heading:'dirigiéndose hacia',
                 toContinueOn:'continuar',
                 onTo:'sobre',
+                serviceDetails: 'Detalles del servicio',
+                toScheduleARide: 'Programar un viaje',
+                toApply: 'Aplicar',
+                callCenterHoursOfOperation: "Centro de llamadas Horas de Operación",
+                close: 'Cerrar',
+                call: 'Llamada'
             }
         }
     },
