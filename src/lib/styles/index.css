@@ -1,4 +1,4 @@
-/*.trip-planner {
+.trip-planner {
   display: table;
   width: 100%;
 }
@@ -6,11 +6,11 @@
 #sidebar, #mymap {
   display: table-cell;
   vertical-align: top;
-}*/
+}
 
 #sidebar {
   padding: 0 0 20px 0;
-  /*width: 32em;*/
+  width: 32em;
 }
 
 #sidebar .row {
@@ -64,9 +64,17 @@
 
 @media (max-width: 991px) {
 
-  /*.trip-planner, #sidebar, #mymap {
+  .trip-planner {
     display: block;
-  }*/
+  }
+
+  #sidebar, #mymap {
+    display: none;
+  }
+
+  #sidebar.active, #mymap.active {
+    display: block;
+  }
 
   #trip-plan-header {
     width: auto;
