@@ -4,24 +4,58 @@
   }
 }
 
-.trip-planning-request-header {
-  background: url('../images/ocotp/blue-orange-header.png');
-  background-color: white;
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 35%;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  alignment: left;
+#sidebar {
+  padding: 0 0 20px 0;
 }
 
-.trip-planning-request-header .navbar-brand {
+#sidebar .row {
+  margin: 0;
+  padding: .75em 1.5em;
+}
+
+#sidebar #request {
+  padding-top: 1.5em;
+}
+
+#trip-plan-header {
+  /*background: url('../images/ocotp/blue-orange-header.png');
+  background-color: white;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 35%;*/
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+
+#trip-plan-header .header-brand {
   color: #2767AC;
   font-size: xx-large;
 }
 
-#sidebar {
-  padding-bottom: 20px;
+#trip-plan-header::before {
+  content: '';
+  position: absolute;
+  right: 1.5em;
+  top: 0;
+  width: 35%;
+  height: 100%;
+  background: url('../images/ocotp/blue-orange-header.png');
+  background-color: white;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+#trip-plan-header::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: .375em;
+  left: 0;
+  bottom: -.375em;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }

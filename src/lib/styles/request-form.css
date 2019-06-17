@@ -106,7 +106,7 @@
 
 .datetime-input-group-addon {
   border-radius: 50%;
-  padding: 6px;
+  padding: 6px; 
 }
 
 .search-button, .searching-button{
@@ -162,9 +162,9 @@
 }
 
 @media (min-width: 768px) {
-  #sidebar {
+  /*#sidebar {
     padding-top: 70px !important;
-  }
+  }*/
 }
 
 .toggleSettings {
