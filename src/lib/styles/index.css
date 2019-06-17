@@ -1,5 +1,16 @@
+/*.trip-planner {
+  display: table;
+  width: 100%;
+}
+
+#sidebar, #mymap {
+  display: table-cell;
+  vertical-align: top;
+}*/
+
 #sidebar {
   padding: 0 0 20px 0;
+  /*width: 32em;*/
 }
 
 #sidebar .row {
@@ -12,14 +23,10 @@
 }
 
 #trip-plan-header {
-  /*background: url('../images/ocotp/blue-orange-header.png');
-  background-color: white;
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: 35%;*/
   text-align: left;
   width: 100%;
   position: relative;
+  height: 4.5em;
 }
 
 #trip-plan-header .header-brand {
@@ -31,10 +38,11 @@
   content: '';
   position: absolute;
   right: 1.5em;
-  top: 0;
-  width: 35%;
-  height: 100%;
-  background: url('../images/ocotp/blue-orange-header.png');
+  top: 50%;
+  width: 10em;
+  height: 2.5em;
+  transform: translateY(-50%);
+  background-image: url('../images/ocotp/blue-orange-header.png');
   background-color: white;
   background-position: right center;
   background-repeat: no-repeat;
@@ -55,19 +63,16 @@
 }
 
 @media (max-width: 991px) {
-  
-  body {
-    padding-top: 80px;
-  }
 
-  #sidebar {
-    position: static;
-  }
+  /*.trip-planner, #sidebar, #mymap {
+    display: block;
+  }*/
 
   #trip-plan-header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: auto;
+    margin: 0 0 1.5em 0;
+    padding: .75em 1.5em;
   }
+
   
 }

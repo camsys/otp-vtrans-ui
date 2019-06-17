@@ -33,17 +33,21 @@ function assign_bootstrap_mode () {
   var width = $(window).width()
   var mode = ''
   var nar = $('#narrative').detach()
+  var tripHeader = $('#trip-plan-header').detach()
   if (width < 768) {
     mode = 'mode-xs'
     nar.appendTo('#plan')
+    tripHeader.prependTo('body')
     $('body').css( 'overflow-y', 'scroll' )
   } else if (width < 992) {
     mode = 'mode-sm'
     nar.appendTo('#plan')
+    tripHeader.prependTo('body')
     $('body').css( 'overflow-y', 'scroll' )
   } else {
     mode = 'mode-md'
     nar.appendTo('#sidebar')
+    tripHeader.prependTo('#sidebar')
   }
 
   $('body').removeClass('mode-md').removeClass('mode-sm').removeClass('mode-xs').addClass(mode)

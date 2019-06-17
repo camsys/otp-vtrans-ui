@@ -161,12 +161,6 @@
   margin-top: 0;
 }
 
-@media (min-width: 768px) {
-  /*#sidebar {
-    padding-top: 70px !important;
-  }*/
-}
-
 .toggleSettings {
   text-transform: uppercase;
   font-size: 12px;
