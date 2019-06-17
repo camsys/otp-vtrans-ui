@@ -35,16 +35,6 @@
   }
 }
 
-.timeControl {
-  padding-left: 0px;
-  padding-right: 5px;
-}
-
-.dateControl {
-  padding-left: 5px;
-  padding-right: 0px;
-}
-
 .reverse-button {
   background: url('../images/ocotp/map_flipper.png');
   background-size: 23px;
@@ -78,15 +68,58 @@
   border: none;
 }
 
+.form-control {
+  border: none;
+}
+
+.icon-button-group {
+  position: relative;
+}
+
+.icon-button-group::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px 16px 16px 4px;
+  z-index: 0
+}
+
+.icon-button-group .form-control, .icon-button-group .input-group-addon {
+  border: none;   
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-button-group .input-group-addon {
+  background-color: #87909C;
+  width: 34px;
+  /*not sure why the above is working, but it is*/
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.input-group.date .input-group-addon span {
+  width: 100%;
+  height: 100%;
+}
+
 .depart-arrive-by-clock-button {
-  background: url("../images/ocotp/time-watch-icon_grey.png");
+  background: url("../images/ocotp/time-watch-icon_white.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 17px;
 }
 
 .depart-arrive-by-calendar-button {
-  background: url("../images/ocotp/search-calendar-icon_grey.png");
+  background: url("../images/ocotp/search-calendar-icon_white.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 17px;
