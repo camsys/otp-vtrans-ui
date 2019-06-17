@@ -18,6 +18,10 @@
   padding: .75em 1.5em;
 }
 
+#sidebar .inner-row {
+  margin: 0 -15px;
+}
+
 #sidebar #request {
   padding-top: 1.5em;
 }

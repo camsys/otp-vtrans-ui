@@ -15,34 +15,32 @@
         <button class="btn btn-default btn-block reverse-direction reverse-button" title="Reverse direction"></button>
     </div>
 
-    <div class="timing-group col-xs-12" >
-        <div class="col-sm-3 no-left-padding">
-            <div class="form-group arriveByControl">
-                <select id="arriveBy" class="apiParam form-control">
-                    <option value="true" data-i18n="handlebars.arriveBy"></option>
-                    <option value="false" selected="true" data-i18n="handlebars.departBy"></option>
-                </select>
-            </div>
-        </div>
-
-        <div class="col-sm-8 pull-right no-left-padding">
-            <div class="form-group dateTimeControl">
-                <div class="timeControl col-sm-6 no-left-padding">
-                    <div class="input-group date" id="time">
-                        <input type="text" class="form-control apiTextParam" data-format="HH:mm PP">
-                            <span class="input-group-addon datetime-input-group-addon">
-                                <span class="depart-arrive-by-clock-button"></span>
-                            </span>
-                    </div>
+    <div class="timing-group col-xs-12">
+        <div class="inner-row">
+            <div class="col-xs-4 no-left-padding">
+                <div class="arriveByControl">
+                    <select id="arriveBy" class="apiParam form-control">
+                        <option value="true" data-i18n="handlebars.arriveBy"></option>
+                        <option value="false" selected="true" data-i18n="handlebars.departBy"></option>
+                    </select>
                 </div>
+            </div>
 
-                <div class="dateControl col-sm-6 no-left-padding">
-                    <div class="input-group date" id="date">
-                        <input type="text" class="form-control apiTextParam">
-                            <span class="input-group-addon datetime-input-group-addon">
-                                <span class="depart-arrive-by-calendar-button"></span>
-                            </span>
-                    </div>
+            <div class="timeControl col-xs-4 no-left-padding">
+                <div class="input-group date" id="time">
+                    <input type="text" class="form-control apiTextParam has-icon-button" data-format="HH:mm PP">
+                    <span class="input-group-addon datetime-input-group-addon">
+                        <span class="depart-arrive-by-clock-button"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="dateControl col-xs-4 no-left-padding">
+                <div class="input-group date" id="date">
+                    <input type="text" class="form-control apiTextParam has-icon-">
+                    <span class="input-group-addon datetime-input-group-addon">
+                        <span class="depart-arrive-by-calendar-button"></span>
+                    </span>
                 </div>
             </div>
         </div>
