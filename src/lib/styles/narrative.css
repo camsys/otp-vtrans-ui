@@ -362,7 +362,6 @@
   font-style: italic;
   color: #87909C;
   padding: 0;
-  margin: 1em 0 0 0;
 }
 
 .tab-part {
@@ -372,6 +371,16 @@
 .itinerary-summary {
   font-size: 16px;
   font-weight: bold;
+}
+
+@media (max-width: 991px) {
+
+
+  .narrative-message {
+    margin: 1em 0 0 0;
+	}
+
+  
 }
 
 @media print {
