@@ -188,11 +188,12 @@
   content: '';
   display: block;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: #87909C;
   position: absolute;
   top: 50%;
-  z-index: 1
+  z-index: 1;
+  opacity: .5;
 }
 
 .hide-show-settings button,
@@ -204,7 +205,7 @@
   background-color: #E4EBF1;
   position: relative;
   z-index: 2;
-  padding: 0 0 0 1em;
+  padding: 0 0 0 .5em;
   color: #87909C;
 }
 
@@ -214,43 +215,69 @@
   font-style: italic;
 }
 
-.search_icon {
+.show-services > div > label {
+  margin: 0 0 .25em 0;
+}
+
+.show-services-checkboxes .checkbox {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.show-services-checkboxes .checkbox label span {
+  display: inline-block;
+  margin: 0 1em 0 0;
+}
+
+.plan-trip-button {
+  text-align: center;
+}
+
+.plan-trip-button button {
+  display: inline-block;
+  width: auto;
+  border: 2px solid #fff;
+  color: #fff;
+  background: #EEA660;
+  font-size: 1.125em;
+  font-weight: 500;
+  line-height: 1em;
+  height: 2.5em;
+  padding: 0 .625em 0 1em;
+  border-radius: 1.25em;
+  transition: background .25s ease-in-out;
+}
+
+.plan-trip-button button:hover,
+.plan-trip-button button:focus,
+.plan-trip-button button:active {
+  border-color: #fff;
+  background-color: #2767AC
+}
+
+.plan-trip-button span {
+  vertical-align: middle;
+}
+
+.trip-icon {
   background: url('../images/ocotp/plan-trip-icon_white.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 20px;
-  padding: 20px;
-}
-
-.apiTextParam {
-
-}
-
-.datetime-input-group-addon {
-  border-radius: 50%;
-  padding: 6px; 
-}
-
-.search-button, .searching-button{
-  border: 2px solid white;
-  background: #EEA660;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.search-button.btn.btn-primary.btn-block, .searching-button.btn.btn-primary.btn-block {
-  border: 2px solid white;
-  background: #EEA660;
-  border-radius: 12px;
+  background-size: 100%;
+  display: inline-block;
+  height: 1.25em;
+  width: 1.25em;
+  display: inline-block;
+  margin-left: .25em;
+  position: relative;
+  /*to make the circle in the icon look vert centered*/
+  top: -2px
 }
 
 .btn.btn-primary.btn-block.disabled {
-  width: 50%;
-  border: none;
-  background: #EEA660;
-  align-content: center;
-  border-radius: 12px;
+  background-color: #EBB784;
+  border-color: #fff;
 }
 
 .right-aligned-text {
@@ -273,8 +300,8 @@
   }
 
   #hidableSettings,
-  .request-form-buttons,
-  .request-form-search-buttons {
+  .hide-show-settings,
+  .plan-trip-button {
     display: none;
   }
 }
