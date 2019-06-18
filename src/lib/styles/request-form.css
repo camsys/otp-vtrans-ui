@@ -68,6 +68,18 @@
   border: none;
 }
 
+.depart-column:first-of-type {
+  padding: 0 .5em 0 0;
+}
+
+.depart-column:nth-child(3n-1) {
+  padding: 0 .25em;
+}
+
+.depart-column:nth-child(3n) {
+  padding: 0 0 0 .5em;
+}
+
 .form-control {
   border: none;
 }
@@ -104,6 +116,10 @@
   padding: 0;
   border-radius: 50%;
   border: 1px solid #fff;
+}
+
+.icon-button-group .input-group-addon:hover {
+  background-color: #EEA660;
 }
 
 .input-group.date .input-group-addon span {
