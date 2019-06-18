@@ -35,13 +35,24 @@
   }
 }
 
+.address-fields {
+  padding-right: .5em
+}
+
+.reverse-button-wrap {
+  text-align: right;
+}
+
 .reverse-button {
   background: url('../images/ocotp/map_flipper.png');
-  background-size: 30px;
+  background-size: auto 100%;
   background-position: center right;
   background-repeat: no-repeat;
-  padding: 43px 23px;
-  border: none;
+  padding: 0;
+  border: 0px;
+  width: 2em;
+  height: 6em;
+  display: inline-block;
 }
 
 .no-padding {
@@ -167,14 +178,14 @@
   background: url("../images/ocotp/time-watch-icon_white.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 17px;
+  background-size: 1.25em;
 }
 
 .depart-arrive-by-calendar-button {
   background: url("../images/ocotp/search-calendar-icon_white.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 17px;
+  background-size: 1.25em;
 }
 
 .hide-show-settings {
