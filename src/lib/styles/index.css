@@ -98,5 +98,10 @@ label, b, strong, bold {
     padding: .75em 1.5em;
   }
 
+  .trip-planner .tab-pane {
+    margin: 0;
+    padding: 1.5em;
+  }
+
   
 }

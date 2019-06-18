@@ -89,8 +89,8 @@
 
 #request-form-container {
   background: #E4EBF1;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 1.5em;
+  border-radius: .5em;
 }
 
 .setting-as-bar-button {
