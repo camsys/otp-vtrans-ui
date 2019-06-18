@@ -1,3 +1,7 @@
+label, b, strong, bold {
+  font-weight: 500;
+}
+
 .trip-planner {
   display: table;
   width: 100%;
