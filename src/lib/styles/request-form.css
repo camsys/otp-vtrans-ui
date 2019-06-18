@@ -36,7 +36,7 @@
 }
 
 .address-fields {
-  padding-right: .5em
+  padding-right: .5em;
 }
 
 .reverse-button-wrap {
@@ -44,15 +44,35 @@
 }
 
 .reverse-button {
-  background: url('../images/ocotp/map_flipper.png');
+  background-image: url('../images/ocotp/map_flipper.png');
   background-size: auto 100%;
   background-position: center right;
   background-repeat: no-repeat;
+  background-color: transparent;
   padding: 0;
   border: 0px;
-  width: 2em;
+  width: 2.1em;
   height: 6em;
   display: inline-block;
+  opacity: 1;
+  transition: background .25s ease-in-out;
+  box-shadow: none;
+  position: relative;
+  top: 0;
+  transition: top .1s ease-in-out
+}
+
+.reverse-button:hover, 
+.reverse-button:focus, 
+.reverse-button:active {
+  background-color: transparent!important;
+  background-image: url('../images/ocotp/map_flipper_hover.png');
+  box-shadow: none;
+}
+
+.reverse-button:active, 
+.reverse-button:focus {
+  top: 2px;
 }
 
 .no-padding {
@@ -74,7 +94,7 @@
 }
 
 .setting-as-bar-button {
-  alignment: right;
+  text-align: right;
   background: #E4EBF1;
   border: none;
 }
@@ -89,6 +109,10 @@
 
 .depart-column:nth-child(3n) {
   padding: 0 0 0 .5em;
+}
+
+.depart-column > .input-group {
+  width: 100%;
 }
 
 .form-control {
