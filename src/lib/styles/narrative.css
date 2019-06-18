@@ -345,6 +345,34 @@
 	font-size: 11px;
 }
 
+.info-pin-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-image: url('../images/ocotp/info-pin-icon_medium-blue.png');
+  background-size: 100%;
+  vertical-align: middle;
+  position: relative;
+  top: -2px
+}
+
+.narrative-message {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  color: #87909C;
+  padding: 0;
+}
+
+.tab-part {
+  padding: 0px;
+}
+
+.itinerary-summary {
+  font-size: 16px;
+  font-weight: bold;
+}
+
 @media print {
 	.messageWell {
 		display: none;
@@ -362,20 +390,4 @@
 	.PlanResponseNarrativeView.activated {
 		display: block;
 	}
-}
-
-.narrative-message {
-  text-align: center;
-  font-size: 13px;
-  font-style: italic;
-  color: #2767AC;
-}
-
-.tab-part {
-  padding: 0px;
-}
-
-.itinerary-summary {
-  font-size: 16px;
-  font-weight: bold;
 }

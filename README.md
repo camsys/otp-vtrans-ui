@@ -8,7 +8,7 @@ The build management system has been switched to [Webpack](http://webpack.js.org
 
 ## Getting Started
 
-To get started:
+To get started: [ ]
 
 1. Clone the otp.js repo to your local machine using `git clone https://github.com/camsys/otp-vtrans-ui`. Run `git checkout vtrans-dev`.
 

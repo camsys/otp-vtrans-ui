@@ -252,7 +252,7 @@
 .plan-trip-button button:hover,
 .plan-trip-button button:focus,
 .plan-trip-button button:active {
-  border-color: #fff;
+  border-color: #fff!important;
   background-color: #2767AC
 }
 
