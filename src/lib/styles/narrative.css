@@ -395,7 +395,10 @@
 	opacity: 1;
 }
 
-.narrative-results .nav-tabs > li a {
+.narrative-results .nav-tabs > li a, 
+.narrative-results .nav-tabs > li a:hover, 
+.narrative-results .nav-tabs > li a:focus, 
+.narrative-results .nav-tabs > li a:active {
 	background-color: #fff;
 	margin: 0;
 	display: block;
@@ -404,10 +407,12 @@
 	border-top-left-radius: .25em;
 	border-top-right-radius: .25em;
 	padding: 0;
+	border: none;
 }
 
 .narrative-results .nav-tabs .tab-part {
-  padding: .25em;
+  padding: .5em;
+  display: inline-block;
 }
 
 .narrative-results .tab-content {
