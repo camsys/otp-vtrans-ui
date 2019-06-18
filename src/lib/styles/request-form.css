@@ -294,6 +294,17 @@
   border-color: #7f8488;
 }
 
+@media (max-width: 991px) {
+
+
+  .plan-trip-button {
+    padding: 0 15px;
+    text-align: left;
+  }
+
+  
+}
+
 @media print {
   .form-control .select2-choice .select2-arrow {
     border: none;

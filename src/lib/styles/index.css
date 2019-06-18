@@ -7,6 +7,10 @@ label, b, strong, bold {
   width: 100%;
 }
 
+#tabs li:first-of-type {
+  margin-left: 1.5em;
+}
+
 #sidebar, #mymap {
   display: table-cell;
   vertical-align: top;
@@ -74,6 +78,10 @@ label, b, strong, bold {
 
   .trip-planner {
     display: block;
+  }
+
+  #sidebar {
+    width: auto;
   }
 
   #sidebar, #mymap {
