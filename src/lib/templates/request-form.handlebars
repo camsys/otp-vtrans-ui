@@ -46,107 +46,105 @@
         </div>
     </div>
 
-  <div class="form-group request-form-buttons">
-    <div class="pull-right">
+    <div class="request-form-buttons hide-show-settings col-xs-12">
         <button id="hideSettings" class="btn toggleSettings btn-default btn-block setting-as-bar-button"> <span class="glyphicon glyphicon-minus"></span> <span data-i18n="handlebars.hideSettings"></span> </button>
         <button id="showSettings" class="btn toggleSettings btn-default btn-block setting-as-bar-button"> <span class="glyphicon glyphicon-plus"></span> <span data-i18n="handlebars.showSettings"></span> </button>
     </div>
-  </div>
 
-  <div id="hidableSettings">
-    <div class="form-group maxWalkControl">
+    <div id="hidableSettings">
+        <div class="form-group maxWalkControl">
 
-      {{#metric}}
-      <div class="col-sm-12">
-        <select id="maxWalkDistance" class="apiParam form-control">
-          <option value="250">1/4 km</option>
-          <option value="500">1/2 km</option>
-          <option value="1000" selected>1 km</option>
-          <option value="2500">2.5 km</option>
-          <option value="5000">5 km</option>
-        </select>
-      </div>
-      {{/metric}}
+          {{#metric}}
+          <div class="col-sm-12">
+            <select id="maxWalkDistance" class="apiParam form-control">
+              <option value="250">1/4 km</option>
+              <option value="500">1/2 km</option>
+              <option value="1000" selected>1 km</option>
+              <option value="2500">2.5 km</option>
+              <option value="5000">5 km</option>
+            </select>
+          </div>
+          {{/metric}}
 
-      {{^metric}}
-      <div class="col-sm-12">
-        <select id="maxWalkDistance" class="apiParam form-control">
-          <option value="0" data-i18n="handlebars.avoidWalking"></option>
-          <option value="402" data-i18n="handlebars.mile14"></option>
-          <option value="804" selected="true" data-i18n="handlebars.mile12"></option>
-          <option value="1223" data-i18n="handlebars.mile34"></option>
-          <option value="1609" data-i18n="handlebars.mile1"></option>
-          <option value="3218" data-i18n="handlebars.miles2"></option>
-          <option value="4828" data-i18n="handlebars.miles3"></option>
-          <option value="8046" data-i18n="handlebars.miles5"></option>
-        </select>
-      </div>
-      {{/metric}}
-    </div>
-
-    <div class="form-group maxBikeControl">
-      <label class="col-sm-4 control-label" for="maxWalkDist" data-i18n="handlebars.maxBike"></label>
-
-      {{#metric}}
-      <div class="col-sm-8">
-        <select id="maxBikeDistance" class="apiParam form-control">
-          <option value="1000">1 km</option>
-          <option value="2500">2.5 km</option>
-          <option value="5000" selected>5 km</option>
-          <option value="10000">10 km</option>
-          <option value="15000">15 km</option>
-        </select>
-      </div>
-      {{/metric}}
-
-      {{^metric}}
-      <div class="col-sm-8">
-        <select id="maxBikeDistance" class="apiParam form-control">
-          <option value="804">1/2 <span data-i18n="handlebars.mile"></span></option>
-          <option value="1609">1 <span data-i18n="handlebars.mile"></span></option>
-          <option value="4026" selected>2.5 <span data-i18n="handlebars.miles"></span></option>
-          <option value="8047">5 <span data-i18n="handlebars.miles"></span></option>
-          <option value="16093">10 <span data-i18n="handlebars.miles"></span></option>
-        </select>
-      </div>
-      {{/metric}}
-    </div>
-
-    <div class="bikeTriangleControl">
-      <div id="bikeTriangle" style="height: 110px; cursor: pointer;"></div>
-    </div>
-    
-    <div class="form-group">
-        <div class="col-sm-12 no-padding">
-            <label for="serviceRequiringSpecialExceptions" class="service-requiring-special-exceptions-control-label col-sm-12" data-i18n="handlebars.showServiceRequiringSpecialExceptions"></label>
+          {{^metric}}
+          <div class="col-sm-12">
+            <select id="maxWalkDistance" class="apiParam form-control">
+              <option value="0" data-i18n="handlebars.avoidWalking"></option>
+              <option value="402" data-i18n="handlebars.mile14"></option>
+              <option value="804" selected="true" data-i18n="handlebars.mile12"></option>
+              <option value="1223" data-i18n="handlebars.mile34"></option>
+              <option value="1609" data-i18n="handlebars.mile1"></option>
+              <option value="3218" data-i18n="handlebars.miles2"></option>
+              <option value="4828" data-i18n="handlebars.miles3"></option>
+              <option value="8046" data-i18n="handlebars.miles5"></option>
+            </select>
+          </div>
+          {{/metric}}
         </div>
 
-        <div class="col-sm-6">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="flexUseReservationServices" id="flexUseReservationServices"><span data-i18n="handlebars.servReqRes"></span>
-                </label>
+        <div class="form-group maxBikeControl">
+          <label class="col-sm-4 control-label" for="maxWalkDist" data-i18n="handlebars.maxBike"></label>
+
+          {{#metric}}
+          <div class="col-sm-8">
+            <select id="maxBikeDistance" class="apiParam form-control">
+              <option value="1000">1 km</option>
+              <option value="2500">2.5 km</option>
+              <option value="5000" selected>5 km</option>
+              <option value="10000">10 km</option>
+              <option value="15000">15 km</option>
+            </select>
+          </div>
+          {{/metric}}
+
+          {{^metric}}
+          <div class="col-sm-8">
+            <select id="maxBikeDistance" class="apiParam form-control">
+              <option value="804">1/2 <span data-i18n="handlebars.mile"></span></option>
+              <option value="1609">1 <span data-i18n="handlebars.mile"></span></option>
+              <option value="4026" selected>2.5 <span data-i18n="handlebars.miles"></span></option>
+              <option value="8047">5 <span data-i18n="handlebars.miles"></span></option>
+              <option value="16093">10 <span data-i18n="handlebars.miles"></span></option>
+            </select>
+          </div>
+          {{/metric}}
+        </div>
+
+        <div class="bikeTriangleControl">
+          <div id="bikeTriangle" style="height: 110px; cursor: pointer;"></div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-12 no-padding">
+                <label for="serviceRequiringSpecialExceptions" class="service-requiring-special-exceptions-control-label col-sm-12" data-i18n="handlebars.showServiceRequiringSpecialExceptions"></label>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="flexUseReservationServices" id="flexUseReservationServices"><span data-i18n="handlebars.servReqRes"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="flexUseEligibilityServices" id="flexUseEligibilityServices" ><span data-i18n="handlebars.servEliReq"></span>
+                    </label>
+                </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="flexUseEligibilityServices" id="flexUseEligibilityServices" ><span data-i18n="handlebars.servEliReq"></span>
-                </label>
-            </div>
+    </div>
+
+    <div class="form-group request-form-search-buttons ">
+        <div class="col-sm-4 col-sm-offset-4">
+          <button class="search-button btn btn-primary btn-block"> <span data-i18n="handlebars.submit"></span> <span class="search_icon"></span> </button>
+
+          <div class="searching-button">
+            <button class="btn btn-primary btn-block disabled" diabled> <span data-i18n="handlebars.searching"></span> <span class="glyphicon glyphicon-refresh spin"></span></button>
+          </div>
         </div>
     </div>
-  </div>
-
-  <div class="form-group request-form-search-buttons ">
-    <div class="col-sm-4 col-sm-offset-4">
-      <button class="search-button btn btn-primary btn-block"> <span data-i18n="handlebars.submit"></span> <span class="search_icon"></span> </button>
-
-      <div class="searching-button">
-        <button class="btn btn-primary btn-block disabled" diabled> <span data-i18n="handlebars.searching"></span> <span class="glyphicon glyphicon-refresh spin"></span></button>
-      </div>
-    </div>
-  </div>
 
 
 </div>
