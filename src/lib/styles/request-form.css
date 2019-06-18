@@ -38,7 +38,7 @@
 .reverse-button {
   background: url('../images/ocotp/map_flipper.png');
   background-size: 30px;
-  background-position: center;
+  background-position: center right;
   background-repeat: no-repeat;
   padding: 43px 23px;
   border: none;
