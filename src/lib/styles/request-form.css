@@ -37,10 +37,10 @@
 
 .reverse-button {
   background: url('../images/ocotp/map_flipper.png');
-  background-size: 23px;
+  background-size: 30px;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 35px 12px;
+  padding: 43px 23px;
   border: none;
 }
 
@@ -100,12 +100,48 @@
   z-index: 0
 }
 
-.icon-button-group .form-control, .icon-button-group .input-group-addon {
+.icon-button-group .form-control, 
+.icon-button-group .input-group-addon, 
+.select2-container .select2-choice {
   border: none;   
   background: transparent;
   box-shadow: none;
   position: relative;
   z-index: 1;
+  font-size: 1em;
+  line-height: 1.5em;
+  padding: .5em .625em;
+  height: auto;
+}
+
+.select2-container .select2-choice .select2-arrow b, 
+.select2-container .select2-choice abbr, 
+.select2-search input, 
+.select2-search-choice-close {
+  background-position: 0 5px;
+}
+
+.select2-container .select2-choice .select2-arrow {
+  background: none;
+  border: none
+}
+
+.select2-drop-active {
+  border: none;
+}
+
+.select2-results .select2-ajax-error, 
+.select2-results .select2-no-results, 
+.select2-results .select2-searching, 
+.select2-results .select2-selection-limit {
+  background-color: transparent;
+  color: #87909C;
+  font-style: italic;
+}
+
+.select2-search input {
+  border-radius: 4px;
+  border: 2px solid #87909C;
 }
 
 .icon-button-group .input-group-addon {
