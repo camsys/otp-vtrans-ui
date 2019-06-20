@@ -4,16 +4,24 @@
 </div>
 <div class="narrative-results">
   <div class="tab-container">
-    <ul class="nav nav-tabs">
-        <li> <a  href="#1" data-toggle="tab"><div class="nav-tab-inner itineraryTab1"></div></a> </li>
-        <li> <a href="#2" data-toggle="tab"><div class="nav-tab-inner itineraryTab2"></div></a> </li>
-        <li> <a href="#3" data-toggle="tab"><div class="nav-tab-inner itineraryTab3"></div></a> </li>
-    </ul>
+    {{#if (hasResultNumber 1)}}
+        <ul class="nav nav-tabs">
+            {{#if (hasResultNumber 1)}}
+                <li class="nav-item active"> <a class="nav-link active"  href="#1" data-toggle="tab"><div class="nav-tab-inner itineraryTab1"></div></a> </li>
+            {{/if}}
+            {{#if (hasResultNumber 2) }}
+                <li class="nav-item"> <a class="nav-link" href="#2" data-toggle="tab"><div class="nav-tab-inner itineraryTab2"></div></a> </li>
+            {{/if}}
+            {{#if (hasResultNumber 3) }}
+                <li class="nav-item"> <a class="nav-link"href="#3" data-toggle="tab"><div class="nav-tab-inner itineraryTab3"></div></a> </li>
+            {{/if}}
+        </ul>
+    {{/if}}
   </div>
 
   <div class="tab-content">
-      <div class="tab-pane" id="1"> <div class="itinerary1"></div> </div>
-      <div class="tab-pane" id="2"> <div class="itinerary2"></div> </div>
+      <div class="tab-pane active" id="1"> <div class="itinerary1"></div> </div>
+      <dv class="tab-pane" id="2"> <div class="itinerary2"></div> </dv>
       <div class="tab-pane" id="3"> <div class="itinerary3"></div> </div>
   </div>
 </div>

@@ -336,7 +336,6 @@ var RequestView = Backbone.View.extend({
   },
 
   toggleSettings: function () {
-    console.log(this);
     if ($('#hidableSettings').is(':visible')) {
       $('#hidableSettings').slideUp('fast', function () {
         $('#itineraries').height($(window).height() - ($('#request').height() +

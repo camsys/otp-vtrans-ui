@@ -34,8 +34,8 @@ i18next
     en: {
         translation: {
             nav: {
-                input:'Input',
-                plan:'Plan',
+                input:'Plan',
+                plan:'Results',
                 map:'Map',
             },
             handlebars: {
@@ -98,8 +98,8 @@ i18next
             startAddr:'Dirección de inicio',
             endAddr:'Dirección final',
             nav: {
-                input:'Entrada',
-                plan:'Plan',
+                input:'Plan',
+                plan:'Resultados',
                 map:'Mapa',
             },
             handlebars: {

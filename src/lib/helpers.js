@@ -264,6 +264,14 @@ Handlebars.registerHelper('hasflexCallAndRideMinEndTime', function (leg) {
   return ''
 })
 
+Handlebars.registerHelper('hasResultNumber', function (count, itins) {
+  if (itins.data.root.itins !== undefined && itins.data.root.itins.length >= count) {
+    return 'TRUE'
+  }
+  return ''
+})
+
+
 Handlebars.registerHelper('fareString', function (fare) {
   if (fare && fare.regular) {
     var cents = parseInt(fare.regular.cents)

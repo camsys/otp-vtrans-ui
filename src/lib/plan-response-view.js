@@ -18,23 +18,31 @@ module.exports = Backbone.View.extend({
   },
 
   render: function () {
+    var itins = []
+    if(this.model) {
+      itins = this.model.get('itineraries')
+    }
+
     if (this.options.narrative) {
       this.narrativeView = new PlanResponseNarrativeView({
         el: this.options.narrative,
         model: this.model,
         autoResize: this.options.autoResize,
         metric: this.options.metric,
-        showFullDuration: this.options.showFullDuration
+        showFullDuration: this.options.showFullDuration,
+        itins: itins
       })
       this.narrativeView.error = this.error
-      this.narrativeView.render()
+
+      context = {itins: itins}
+
+      this.narrativeView.render(context)
     }
 
 
 
     if (this.model) {
       this.model.getTimeOffset()
-      var itins = this.model.get('itineraries')
 
       if (_.size(itins) > 0) {
         _.each(itins.models, this.processItinerary, this)

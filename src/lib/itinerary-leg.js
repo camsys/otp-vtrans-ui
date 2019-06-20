@@ -243,7 +243,7 @@ var ItineraryLeg = Backbone.Model.extend({
   },
 
   getStopTimes: function (callback) {
-    console.log(this.toJSON())
+
   },
 
   getSurroundingStopTimes: function (callback) {

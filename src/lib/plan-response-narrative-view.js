@@ -10,6 +10,8 @@ var narrativeNewTemplate = require('./templates/narrative-new.handlebars')
 var narrativeAdjustTemplate = require('./templates/narrative-adjust.handlebars')
 var narrativeErrorTemplate = require('./templates/narrative-error.handlebars')
 
+var itineraries
+
 var PlanResponseNarrativeView = Backbone.View.extend({
   initialize: function (options) {
     this.options = options || {}
@@ -25,7 +27,10 @@ var PlanResponseNarrativeView = Backbone.View.extend({
     }
 
     if (this.model) {
-      if (!this.error) this.$el.html(narrativeAdjustTemplate())
+
+      if (!this.error) {
+        this.$el.html(narrativeAdjustTemplate(context))
+      }
       
       var planAlerts = this.model.get('alerts')
       if (planAlerts) {
@@ -33,6 +38,9 @@ var PlanResponseNarrativeView = Backbone.View.extend({
       }
 
       var itins = this.model.get('itineraries')
+
+      itineraries = itins
+
       _.each(itins.models, this.processItinerary, this)
     } else {
       this.$el.html(narrativeNewTemplate())
@@ -69,7 +77,6 @@ var PlanResponseNarrativeView = Backbone.View.extend({
     itinView.render()
     itinTabsView.render()
 
-    console.log("Index is --"+index)
     if(index == 0) {
       this.$el.find('.itinerary1').append(itinView.el)
       this.$el.find('.itineraryTab1').append(itinTabsView.el)
@@ -83,7 +90,9 @@ var PlanResponseNarrativeView = Backbone.View.extend({
       this.$el.find('.itineraryTab3').append(itinTabsView.el)
     }
 
-  }
+  },
+
 })
 
 module.exports = PlanResponseNarrativeView
+

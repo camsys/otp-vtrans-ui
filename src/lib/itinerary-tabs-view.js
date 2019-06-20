@@ -38,8 +38,6 @@ var ItineraryTabsView = Backbone.View.extend({
     context.legs = filteredLegs
     context.duration = duration
     context.timeOffset = timeOffset
-    console.log('fare is in this model')
-    console.log(this.model.get('fare').fare)
     context.fare = this.model.get('fare').fare
 
     this.$el.html(itinNarrativeTabTemplate(context))
@@ -57,7 +55,7 @@ var ItineraryTabsView = Backbone.View.extend({
     })
     legView.render()
     this.legs.push(legView)
-    this.$el.find('.otp-itinBody').append(legView.el)
+    this.$el.find('.otp-itinBody activated').append(legView.el)
   },
 
   isActive: function () {

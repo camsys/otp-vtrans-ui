@@ -72,9 +72,6 @@ var PlanRequest = Backbone.Model.extend({
 
       var m = this
 
-      console.log("attributes: ")
-      console.log(this.attributes)
-
       $.ajax(this.urlRoot, {
         dataType: 'json',
         data: utils.filterParams(this.attributes)

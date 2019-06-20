@@ -10,6 +10,7 @@ var ItineraryNarrativeView = Backbone.View.extend({
 
   events: {
     'click .otp-itinHeader': 'headerClicked',
+    'click .narrative-tab': 'tabClicked',
     // 'mouseenter .otp-itinHeader': 'headerMouseenter',
     // 'mouseleave .otp-itinHeader': 'headerMouseleave',
     'click .print': 'print'
@@ -18,6 +19,10 @@ var ItineraryNarrativeView = Backbone.View.extend({
   initialize: function (options) {
     this.options = options || {}
 
+    var itin1 = $('itineraryTab1')
+    console.log(itin1)
+
+    _.bindAll(this, 'tabClicked')
     _.bindAll(this, 'headerClicked')
 
     this.listenTo(this.model, 'activate', this.expand)
@@ -86,6 +91,21 @@ var ItineraryNarrativeView = Backbone.View.extend({
   },
 
   headerClicked: function (e) {
+    console.log('header clicked')
+
+    if (!this.isActive() || !this.active) {
+      this.active = true
+      this.model.trigger('activate')
+    } else {
+      this.model.trigger('deactivate')
+      this.active = false
+    }
+  },
+
+  tabClicked: function (e) {
+
+    console.log('tab clicked')
+
     if (!this.isActive() || !this.active) {
       this.active = true
       this.model.trigger('activate')
