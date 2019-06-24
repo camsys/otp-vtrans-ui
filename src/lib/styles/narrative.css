@@ -218,7 +218,7 @@
 .otp-legMode-glyphicon {
     font-size: 18px;
     display: inline-block;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 .otp-legMode-icon {
@@ -226,6 +226,13 @@
 	background-size: 10em 1em;
 	display: inline-block;
 	vertical-align: text-top;
+}
+
+.otp-legMode-icon-ko {
+  background: url('../images/mode/modes_hires_white.png') no-repeat;
+  background-size: 10em 1em;
+  display: inline-block;
+  vertical-align: text-top;
 }
 
 .otp-legMode-icon-WALK {
@@ -299,23 +306,6 @@
 }
 
 .agency-descriptor-span{
-	white-space: nowrap;
-	display: inline-block;
-}
-
-.transit-line-container{
-	white-space: nowrap;
-    background-color: #7DA4CD;
-}
-
-.transit-line-well{
-	text-align: center;
-	padding-right: 5px;
-	padding-left: 5px;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	background-color: white;
-	color: black;
 	white-space: nowrap;
 	display: inline-block;
 }
@@ -548,11 +538,12 @@ a.print-icon {
   border-top-left-radius: .5em;
   border-top-right-radius: .5em;
   padding: .75em;
+  color: #87909C;
 }
 
 .otp-legHeader .less-more {
   float: right;
-  font-size: .75em;
+  font-size: .875em;
   text-transform: uppercase;
   color: #8C9499;
 }
@@ -563,6 +554,17 @@ a.print-icon {
 
 .otp-legHeader:not(.open) .less {
   display: none;
+}
+
+.transit-line-container{
+  white-space: nowrap;
+  background-color: #7DA4CD;
+  padding: .25em .375em;
+  border-left: .25em solid;
+  border-radius: .125em; 
+  color: #fff;
+  display: inline-block;
+  margin: .5em .5em 0 0;
 }
 
 

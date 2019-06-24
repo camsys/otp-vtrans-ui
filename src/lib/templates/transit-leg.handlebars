@@ -7,20 +7,15 @@
         <span class="agency-descriptor-span"><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
 
         <div>
-            <span class="transit-line-container">
-                <span class="transit-line-well"
-                    {{#if routeColor }}
-                        {{#if routeTextColor }}
-                      style="background-color: #{{routeColor}}; color: #{{routeTextColor}};"
-                        {{/if}}
-                    {{/if}}
-                >
-
-                </span>
+            <span class="transit-line-container"
+                {{#if routeColor }}
+                  style="border-color: #{{routeColor}};"
+                {{/if}}
+            >
                 {{#if (isAnyCallAndRide) }}
                     <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
                 {{else}}
-                    <div class="otp-legMode-icon otp-legMode-icon-{{ mode }}"></div>
+                    <div class="otp-legMode-icon-ko otp-legMode-icon-{{ mode }}"></div>
                 {{/if}}
 
                 {{#if routeShortName}}
