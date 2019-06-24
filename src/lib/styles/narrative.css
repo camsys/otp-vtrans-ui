@@ -8,44 +8,44 @@
 }
 
 .otp-itinHeader-preview {
-	margin-bottom: .25em;
-	text-align: center;
+	/*margin-bottom: .25em;
+	text-align: center;*/
 	font-family: 'Roboto', sans-serif;
 }
 
-.otp-itinHeader-details {
+/*.otp-itinHeader-details {
 	font-size: .9em;
 }
 
 .otp-itinHeader .pull-right {
 	text-align: right;
-}
+}*/
 
-.otp-leg {
+/*.otp-leg {
 	margin-top: 0.5em;
 	font-size: 0.9em;
-}
+}*/
 
-.otp-leg .alert {
+/*.otp-leg .alert {f
 	padding: 1em;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
-}
+}*/
 
-.otp-legHeader {
+/*.otp-legHeader {
 	padding: 0.5em;
 	background: #ddd;
 	cursor: pointer;
 	line-height: 1.6em;
 	border-top: 3px solid #000;;
-}
+}*/
 
-.otp-legBody {
-	/*float: left;*/
-	/*background: #ccc*/
-}
+/*.otp-legBody {
+	float: left;
+	background: #ccc
+}*/
 
-.otp-legBody-from {
+/*.otp-legBody-from {
 	background: #bbb;
 	float: left;
 	width: 100%;
@@ -61,9 +61,9 @@
     color: gray;
     width: 50px;
     float: left;
-}
+}*/
 
-.otp-transitLeg-endpointDesc {
+/*.otp-transitLeg-endpointDesc {
     font-size: .9em;
     border-left: 1px solid #ccc;
     margin-left: 55px;
@@ -115,7 +115,7 @@
 .otp-legStep-text {
     font-size: .8em;
     margin: 0px 30px;
-}
+}*/
 
 .otp-legStep-icon {
     margin: 3px 8px 3px 4px;
@@ -292,16 +292,6 @@
 	background-position: -8.8em 0px;
 	width: .5em;
 	height: 1em;
-}
-
-.agencyBranding {
-	width: 22px;
-	height: 22px;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: right;
-	display: inline-block;
-	float: right;
 }
 
 .otp-legMode-title {
@@ -514,6 +504,38 @@ a.print-icon {
 
 .otp-itinHeader-title a.print {
   float: right;
+}
+
+.otp-itinBody {
+  padding-top: 2em;
+}
+
+.otp-leg {
+  background-color: #fff;
+  margin-bottom: 3em;
+  border-radius: .5em;
+}
+
+.otp-legHeader {
+  background-color: #E4EBF1;
+  border-top-left-radius: .5em;
+  border-top-right-radius: .5em;
+  padding: .75em;
+}
+
+.otp-legHeader .less-more {
+  float: right;
+  font-size: .75em;
+  text-transform: uppercase;
+  color: #8C9499;
+}
+
+.otp-legHeader.open .more {
+  display: none;
+}
+
+.otp-legHeader:not(.open) .less {
+  display: none;
 }
 
 

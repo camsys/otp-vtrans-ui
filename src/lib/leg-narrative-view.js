@@ -57,8 +57,17 @@ var LegNarrativeView = Backbone.View.extend({
 
   headerClicked: function (e) {
     var body = this.$el.find('.otp-legBody')
-    if (body.is(':visible')) body.slideUp('fast')
-    else body.slideDown('fast')
+    var header = this.$el.find('.otp-legHeader')
+    window.console.log(this)
+    // becky says: i added a class to the header when it's been opened to swap the language more/less - feel free to re-do
+    if (body.is(':visible')) {
+      body.slideUp('fast') 
+      header.removeClass('open') 
+    } 
+    else {
+      body.slideDown('fast') 
+      header.addClass('open')
+    }
   },
 
   headerMouseenter: function (e) {
