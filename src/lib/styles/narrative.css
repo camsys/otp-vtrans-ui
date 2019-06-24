@@ -510,10 +510,32 @@ a.print-icon {
   padding-top: 2em;
 }
 
+.otp-legBody::after, .otp-legBody-to::after, .otp-legBody-from::after {
+  content: '';
+  display: table;
+  width: 100%;
+}
+
+.otp-itinBody > div {
+  margin: 0 0 .5em 0;
+}
+
 .otp-leg {
   background-color: #fff;
-  margin-bottom: 3em;
   border-radius: .5em;
+  overflow: hidden;
+}
+
+.otp-itinBody > div:not(:last-child)::after {
+  content: '';
+  width: 1.5em;
+  height: 1.5em;
+  display: block;
+  margin: .125em auto 0 auto;
+  background-image: url('../images/ocotp/next-leg-icon_light-grey.png');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .otp-legHeader {
