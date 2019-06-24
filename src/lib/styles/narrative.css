@@ -337,7 +337,7 @@
 }
 
 .timing_text{
-    font-style: italic;
+  font-style: italic;
 }
 
 .narrative-tab {
@@ -436,6 +436,7 @@
   border-top-left-radius: .25em;
   border-top-right-radius: .25em;
   overflow: hidden;
+  padding-right: .25em;
 }
 
 .narrative-results .option-tab-part {
@@ -465,12 +466,16 @@
 }
 
 .narrative-results .tab-content {
-	background-color: #3E4D61;
-	padding: 1.5em;
-	border-radius: .5em;
-	border-top-left-radius: 0;
 	position: relative;
 	z-index: 1;
+}
+
+.narrative-results .tab-pane .well {
+  background-color: #3E4D61;
+  padding: 1.5em;
+  border-radius: .5em;
+  border-top-left-radius: 0;
+  border: none;
 }
 
 @media (max-width: 991px) {
