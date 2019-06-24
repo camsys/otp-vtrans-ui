@@ -46,8 +46,8 @@ function assign_bootstrap_mode () {
     $('body').css( 'overflow-y', 'scroll' )
   } else {
     mode = 'mode-md'
-    nar.appendTo('#sidebar')
-    tripHeader.prependTo('#sidebar')
+    nar.appendTo('#sidebar-inner')
+    tripHeader.prependTo('#sidebar-inner')
   }
 
   $('body').removeClass('mode-md').removeClass('mode-sm').removeClass('mode-xs').addClass(mode)
@@ -202,7 +202,7 @@ ready(function () {
   function resize () {
     var height = $(window).height()
     $('#map').height(height)
-    $('#sidebar').height(height)
+    $('#sidebar-inner').height(height)
     map.invalidateSize()
     assign_bootstrap_mode()
   }
