@@ -74,6 +74,10 @@ label, b, strong, bold {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
+#mymap {
+  border-left: 2px solid #EEA660;
+}
+
 @media (max-width: 991px) {
 
   .trip-planner {
@@ -101,6 +105,10 @@ label, b, strong, bold {
   .trip-planner .tab-pane {
     margin: 0;
     padding: 1.5em;
+  }
+
+  #mymap {
+    border: none;
   }
 
   
