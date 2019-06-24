@@ -1,10 +1,6 @@
         <div class="well localize">
             <div class="otp-itinHeader">
                 <div class="otp-itinHeader-title">
-                    <span class="pull-right">
-                        <a href="#" class="print" title="Print Itinerary"><span class="glyphicon glyphicon-print"></span></a>
-                    </span>
-
                     <span class="itinerary-summary">
                         <span>
                             <span data-i18n="handlebars.departs"></span> {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
@@ -20,6 +16,9 @@
                             {{/fare}}
                                 <span></span>
                         </span>
+                    </span>
+                    <span class="itinerary-print">
+                        <a href="#" class="print print-icon" title="Print Itinerary"></a>
                     </span>
                 </div>
 

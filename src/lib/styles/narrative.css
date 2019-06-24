@@ -4,13 +4,7 @@
 }
 .otp-itinHeader {
 	cursor: pointer;
-	line-height: 1.8em;
-	font-family: 'Roboto', sans-serif;
-}
-
-.otp-itinHeader-title {
-	border-bottom: 1px solid #888;
-	margin-bottom: .4em;
+	font-family: 'Roboto', sans-serif; 
 }
 
 .otp-itinHeader-preview {
@@ -496,7 +490,30 @@
 .otp-itinHeader-title {
   border: none;
   margin: 0;
+  display: table;
+  width: 100%;
+}
 
+.otp-itinHeader-title > span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+a.print-icon {
+  background-image: url('../images/ocotp/print-icon_grey.png');
+  width: 2.5em;
+  height: 2.5em;
+  display: inline-block;
+  background-color: white;
+  background-size: 1.25em;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 1.25em;
+  border: 2px solid #8C9499;
+}
+
+.otp-itinHeader-title a.print {
+  float: right;
 }
 
 
