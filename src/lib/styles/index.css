@@ -100,6 +100,10 @@ label, b, strong, bold {
     display: none;
   }
 
+  #sidebar-inner {
+    position: static;
+  }
+
   #sidebar.active, #mymap.active {
     display: block;
   }
