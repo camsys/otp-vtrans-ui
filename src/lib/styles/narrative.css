@@ -365,11 +365,6 @@
   padding: 0;
 }
 
-.itinerary-summary {
-  font-size: 16px;
-  font-weight: bold;
-}
-
 #plan #narrative {
 	margin: 0;
 }
@@ -477,6 +472,33 @@
   border-top-left-radius: 0;
   border: none;
 }
+
+.itinerary-summary {
+  font-size: 1.25em;
+  color: #fff;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.itinerary-summary > span {
+  padding: 0 .25em;
+}
+
+.itinerary-summary > span:first-of-type {
+  padding-left: 0;
+}
+
+.itinerary-summary > span:last-of-type {
+  padding-right: 0;
+}
+
+.otp-itinHeader-title {
+  border: none;
+  margin: 0;
+
+}
+
 
 @media (max-width: 991px) {
 
