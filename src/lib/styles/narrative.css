@@ -447,8 +447,15 @@
   border: none;
 }
 
+.itinerary-label {
+  display: table-row;
+  width: 100%;
+  color: #fff;
+  font-size: .875em;
+}
+
 .itinerary-summary {
-  font-size: 1.25em;
+  font-size: 1.175em;
   color: #fff;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -474,7 +481,8 @@
   width: 100%;
 }
 
-.otp-itinHeader-title > span {
+.otp-itinHeader-title .itinerary-summary, 
+.otp-itinHeader-title .itinerary-print {
   display: table-cell;
   vertical-align: middle;
 }
@@ -585,6 +593,21 @@ a.print-icon {
 .otp-legHeader .mode-container {
   border: none;
   margin-top: 0;
+}
+
+.otp-legBody-row {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.narrative-row {
+  display: table-row;
+}
+
+.narrative-row-group {
+  display: table-cell;
+  width: auto;
 }
 
 
