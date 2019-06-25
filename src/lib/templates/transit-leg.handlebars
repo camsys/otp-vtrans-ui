@@ -38,15 +38,15 @@
     <div class="otp-legBody">
         <div class="otp-legBody-from otp-legBody-row">
             {{#if (hasFromTransitMessage) }}
-                <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
+                <span class="col-xs-5" id="from_leg_narrative_depart">
             {{else}}
-                <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
+                <span class="col-xs-5" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <span class="narrative-depart-arrival-text" data-i18n="handlebars.depart">
+                    <span class="narrative-depart-arrival-text col-xs-5 narrative-inner-col" data-i18n="handlebars.depart">
 
                     </span>
-                    <span class="narrative-depart-arrival-time">
+                    <span class="narrative-depart-arrival-time  col-xs-7 narrative-inner-col">
                         {{#if (hasflexCallAndRideMaxStartTime )}}
                             <span class="timing_text" data-i18n="handlebars.apprx"></span> {{formatTimeWithflexCallAndRideMaxStartTime startTime flexCallAndRideMaxStartTime timeOffset}}
                         {{else}}
@@ -56,13 +56,13 @@
                 </div>
             </span>
             {{#if (hasFromTransitMessage) }}
-                <span class="col-xs-4 col-md-4" id="from_leg_narrative_from">
+                <span class="col-xs-7" id="from_leg_narrative_from">
             {{else}}
-                <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
+                <span class="col-xs-7" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <span class="narrative-from-to-text" data-i18n="handlebars.from"></span>
-                    <span class="narrative-from-to-location">
+                    <span class="narrative-from-to-text col-xs-3 narrative-inner-col" data-i18n="handlebars.from"></span>
+                    <span class="narrative-from-to-location col-xs-9 narrative-inner-col">
                         {{from.name}}
                         {{#if from.stopId.id}}
                             <span data-i18n="handlebars.stopNum"></span> {{from.stopId.id}}
@@ -72,7 +72,7 @@
             </span>
 <!--            TODO manage flag stops once we have examples-->
             {{#if (isFlagStop from.boardAlightType)}}
-                <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
+                <span class="col-xs-6" id="from_leg_narrative_flag_stop">
                     <div>
                         <h5 data-i18n="handlebars.flagStop"></h5>
                         {{#if (hasflexFlagStopPickupMessage)}}
@@ -88,17 +88,16 @@
         <div class="otp-legBody-to otp-legBody-row">
             {{#if (hasToTransitMessage) }}
                 {{#if (hideDropoffDeviatedMessage) }}
-                    <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
+                <span class="col-xs-5" id="from_leg_narrative_depart">
                 {{else}}
-                    <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
+                <span class="col-xs-5" id="from_leg_narrative_depart">
                 {{/if}}
-
             {{else}}
-                <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">
+                <span class="col-xs-5" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <span class="narrative-depart-arrival-text" data-i18n="handlebars.arrive"></span>
-                    <span class="narrative-depart-arrival-time">
+                    <span class="narrative-depart-arrival-text col-xs-5 narrative-inner-col" data-i18n="handlebars.arrive"></span>
+                    <span class="narrative-depart-arrival-time col-xs-7 narrative-inner-col">
                         {{#if (hasflexCallAndRideMinEndTime) }}
                             <span class="timing_text" data-i18n="handlebars.apprx"></span> {{formatTimeWithflexCallAndRideMinEndTime endTime flexCallAndRideMinEndTime timeOffset}}
                         {{else}}
@@ -109,17 +108,17 @@
             </span>
             {{#if (hasToTransitMessage)}}
                 {{#if (hideDropoffDeviatedMessage) }}
-                    <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
+                <span class="col-xs-7" id="from_leg_narrative_depart">
                 {{else}}
-                    <span class="col-xs-4 col-md-4" id="from_leg_narrative_from">
+                <span class="col-xs-7" id="from_leg_narrative_from">
                 {{/if}}
 
             {{else}}
-                <span class="col-xs-8 col-md-8" id="from_leg_narrative_depart">
+                <span class="col-xs-7" id="from_leg_narrative_depart">
             {{/if}}
                 <div>
-                    <span class="narrative-from-to-text" data-i18n="handlebars.toUP"/>
-                    <span class="narrative-from-to-location">
+                    <span class="narrative-from-to-text col-xs-3 narrative-inner-col" data-i18n="handlebars.toUP"/>
+                    <span class="narrative-from-to-location col-xs-9 narrative-inner-col">
                         {{to.name}}
 
                     {{#if to.stopId.id}}
@@ -129,7 +128,7 @@
                 </div>
             </span>
             {{#if (isFlagStop to.boardAlightType)}}
-                <span class="col-xs-6 col-md-6" id="from_leg_narrative_flag_stop">
+                <span class="col-xs-6" id="from_leg_narrative_flag_stop">
                     <div>
                         <h5 data-i18n="handlebars.flagStop"></h5>
                         {{#if (hasflexFlagStopDropOffMessage)}}

@@ -582,8 +582,8 @@ a.print-icon {
 .otp-legHeader .transit-line-container, .otp-legHeader .mode-container {
   white-space: nowrap;
   background-color: #7DA4CD;
-  padding: .25em .375em;
-  border-left: .25em solid;
+  padding: .125em .375em .125em .25em;
+  border-left: .25em solid #7DA4CD;
   border-radius: .125em; 
   color: #fff;
   display: inline-block;
@@ -595,29 +595,45 @@ a.print-icon {
   margin-top: 0;
 }
 
-.otp-legBody-row {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
+.otp-legBody-row .narrative-inner-col {
+  padding: 0;
 }
 
-.narrative-row {
-  display: table-row;
+.otp-legBody-row .narrative-inner-col:first-of-type {
+  padding-right: 15px;
 }
 
-.narrative-row-group {
-  display: table-cell;
-  width: auto;
+.otp-legBody-row .narrative-depart-arrival-time, .otp-legBody-row .narrative-from-to-location {
+  font-weight: 600;
 }
 
+.narrative-depart-arrival-text:after {
+  content: ':';
+  display: inline;
+}
 
+narrative-inner-col
 @media (max-width: 991px) {
 
 
   .narrative-message {
     margin: 1em 0 0 0;
     text-align: left;
-	}
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+
+
+  .otp-legBody-row .narrative-inner-col {
+    width: 100%;
+  }
+
+  .narrative-tab {
+    font-size: 10px;
+  }
 
   
 }
