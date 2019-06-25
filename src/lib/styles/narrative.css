@@ -582,7 +582,8 @@ a.print-icon {
 .otp-legHeader .transit-line-container, .otp-legHeader .mode-container {
   white-space: nowrap;
   background-color: #7DA4CD;
-  padding: .125em .375em .125em .25em;
+  padding: .25em .375em .25em .25em;
+  line-height: 1;
   border-left: .25em solid #7DA4CD;
   border-radius: .125em; 
   color: #fff;
@@ -612,7 +613,32 @@ a.print-icon {
   display: inline;
 }
 
-narrative-inner-col
+.otp-legStep-row {
+  margin: 15px;
+}
+
+.otp-legBody > div:not(:last-child) .otp-legStep-row {
+  border-bottom: 1px dashed #7DA4CD;
+  padding-bottom: 15px;
+}
+
+.otp-legStep-row {
+
+}
+
+.otp-legStep-dist, .otp-legStep-text {
+  display: inline-block;
+}
+
+.otp-legStep-dist {
+  width: 6em;
+  white-space: nowrap;
+}
+
+.otp-legStep-dist > * {
+  display: inline-block;
+}
+
 @media (max-width: 991px) {
 
 

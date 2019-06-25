@@ -1,29 +1,24 @@
 <div class="otp-legStep-row localize">
-    <!--<span class="col-sm-12 col-md-12">-->
+    <div class="otp-legStep-dist">
         <div class="otp-legStep-icon otp-legStep-icon-{{relativeDirection}}"></div>
-        <div class="otp-legStep-dist">
-            <span style="font-weight:bold; font-size: 1.2em;">{{distanceValue}}</span><br>{{distanceUnit}}
-        </div>
-        <div class="otp-legStep-text">
-            {{#if isRoundabout}}
-                <span data-i18n="handlebars.roundabout"></span>{{localizedRelativeDirection}} <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> {{streetName}}
+        <span>{{distanceValue}}</span><br><span>{{distanceUnit}}</span>
+    </div>
+    <div class="otp-legStep-text">
+        {{#if isRoundabout}}
+            <span data-i18n="handlebars.roundabout"></span>{{localizedRelativeDirection}} <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> {{streetName}}
+        {{else}}
+            {{#if isFirst}}
+                <span data-i18n="handlebars.startOn"></span><b>{{streetName}}</b> <span data-i18n="handlebars.heading"></span> {{localizedAbsoluteDirection}}
             {{else}}
-                {{#if isFirst}}
-                    <span data-i18n="handlebars.startOn"></span><b>{{streetName}}</b> <span data-i18n="handlebars.heading"></span> {{localizedAbsoluteDirection}}
+                {{#if stayOn}}
+                    <b>{{localizedRelativeDirection}}</b> <span data-i18n="handlebars.toContinueOn"></span> <b>{{streetName}}</b>
                 {{else}}
-                    {{#if stayOn}}
-                        <b>{{localizedRelativeDirection}}</b> <span data-i18n="handlebars.toContinueOn"></span> <b>{{streetName}}</b>
-                    {{else}}
-                        <b>{{localizedRelativeDirection}}</b><span data-i18n="handlebars.onTo"></span><b>{{streetName}}</b>
-                    {{/if}}
+                    <b>{{localizedRelativeDirection}}</b><span data-i18n="handlebars.onTo"></span><b>{{streetName}}</b>
                 {{/if}}
             {{/if}}
-        </div>
-        <div style="clear:both;"></div>
-    <!--</span>-->
+        {{/if}}
+    </div>
 </div>
-<br style="clear: both;">
-<div></div>
 <script>
   $(".localize").localize();
 </script>
