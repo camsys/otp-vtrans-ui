@@ -1,41 +1,42 @@
 <div class="otp-leg localize">
   <div class="otp-legHeader open">
-        <!--        TODO ADD TRANSLATION and make change to MORE-->
-        <span class="less-more less">&minus; Less</span>
-        <span class="less-more more">&plus; More</span>
+        <div class="header">
+            <span class="agency-descriptor-span"><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
+            <div>
+                <span class="transit-line-container"
+                    {{#if routeColor }}
+                      style="border-color: #{{routeColor}};"
+                    {{/if}}
+                >
+                    {{#if (isAnyCallAndRide) }}
+                        <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
+                    {{else}}
+                        <div class="otp-legMode-icon-ko otp-legMode-icon-{{ mode }}"></div>
+                    {{/if}}
 
-        <span class="agency-descriptor-span"><b><a target="_blank" href="{{agencyUrl}}">{{agencyName}}</a></b></span>
-
-        <div>
-            <span class="transit-line-container"
-                {{#if routeColor }}
-                  style="border-color: #{{routeColor}};"
-                {{/if}}
-            >
-                {{#if (isAnyCallAndRide) }}
-                    <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
-                {{else}}
-                    <div class="otp-legMode-icon-ko otp-legMode-icon-{{ mode }}"></div>
-                {{/if}}
-
-                {{#if routeShortName}}
-                    <b>{{routeShortName}}</b>
-                {{else}}
-                    <b>{{routeLongName}}</b>
-                {{/if}}
-            </span>
-                {{#if headsign}}
-                   <span data-i18n="handlebars.to"></span> {{headsign}}
-                {{/if}}
+                    {{#if routeShortName}}
+                        <b>{{routeShortName}}</b>
+                    {{else}}
+                        <b>{{routeLongName}}</b>
+                    {{/if}}
+                </span>
+                    {{#if headsign}}
+                       <span data-i18n="handlebars.to"></span> {{headsign}}
+                    {{/if}}
+            </div>
         </div>
-
+        <!--        TODO ADD TRANSLATION and make change to MORE-->
+        <div class="less-more">
+            <span class="less">&minus;&nbsp;Less</span>
+            <span class="more">&plus;&nbsp;More</span>
+        </div>
     </div>
         </span>
   {{#each alerts}}
         <div class="alert alert-warning">{{alertDescriptionText}}</div>
   {{/each}}
     <div class="otp-legBody">
-        <div class="otp-legBody-from">
+        <div class="otp-legBody-from otp-legBody-row">
             {{#if (hasFromTransitMessage) }}
                 <span class="col-xs-2 col-md-2" id="from_leg_narrative_depart">
             {{else}}
@@ -84,8 +85,7 @@
             {{/if}}
 
         </div>
-        <br style="clear: both;">
-        <div class="otp-legBody-to">
+        <div class="otp-legBody-to otp-legBody-row">
             {{#if (hasToTransitMessage) }}
                 {{#if (hideDropoffDeviatedMessage) }}
                     <span class="col-xs-4 col-md-4" id="from_leg_narrative_depart">

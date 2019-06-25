@@ -500,10 +500,18 @@ a.print-icon {
   padding-top: 2em;
 }
 
-.otp-legBody::after, .otp-legBody-to::after, .otp-legBody-from::after {
+.otp-legBody::after, .otp-legBody-row::after {
   content: '';
   display: table;
   width: 100%;
+}
+
+.otp-legBody-from {
+  border-bottom: 1px solid;  
+}
+
+.otp-legBody-row {
+  padding: .75em 0;
 }
 
 .otp-itinBody > div {
@@ -539,10 +547,17 @@ a.print-icon {
   border-top-right-radius: .5em;
   padding: .75em;
   color: #87909C;
+  display: table;
+  width: 100%;
+}
+
+.otp-legHeader > * {
+  display: table-cell;
+  vertical-align: top;
 }
 
 .otp-legHeader .less-more {
-  float: right;
+  text-align: right;
   font-size: .875em;
   text-transform: uppercase;
   color: #8C9499;
@@ -556,7 +571,7 @@ a.print-icon {
   display: none;
 }
 
-.transit-line-container{
+.otp-legHeader .transit-line-container, .otp-legHeader .mode-container {
   white-space: nowrap;
   background-color: #7DA4CD;
   padding: .25em .375em;
@@ -565,6 +580,11 @@ a.print-icon {
   color: #fff;
   display: inline-block;
   margin: .5em .5em 0 0;
+}
+
+.otp-legHeader .mode-container {
+  border: none;
+  margin-top: 0;
 }
 
 

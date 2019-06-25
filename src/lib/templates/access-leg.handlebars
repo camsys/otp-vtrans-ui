@@ -1,9 +1,13 @@
 <div class="otp-leg">
     <div class="otp-legHeader">
-<!--        TODO ADD TRANSLATION and make change to LESS-->
-        <span class="less-more less">&minus; Less</span>
-        <span class="less-more more">&plus; More</span>
-        <b><div class="otp-legMode-icon otp-legMode-icon-{{ mode }}"></div><span class="otp-legMode-title">{{mode}}</span></b> to {{to.name}}
+        <div class="header">
+        	<div class="mode-container"><div class="otp-legMode-icon-ko otp-legMode-icon-{{ mode }}"></div><span class="otp-legMode-title">{{mode}}</span></div> to {{to.name}}
+        </div>
+        <!--        TODO ADD TRANSLATION and make change to LESS-->
+		<div class="less-more">
+			<span class="less">&minus;&nbsp;Less</span>
+			<span class="more">&plus;&nbsp;More</span>
+		</div>
     </div>
     <div class="otp-legBody"></div>
 </div>
