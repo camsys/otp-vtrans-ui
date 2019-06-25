@@ -462,15 +462,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.itinerary-summary > span {
+.itinerary-summary .summary > span {
   padding: 0 .25em;
 }
 
-.itinerary-summary > span:first-of-type {
+.itinerary-summary .summary > span:first-of-type {
   padding-left: 0;
 }
 
-.itinerary-summary > span:last-of-type {
+.itinerary-summary .summary > span:last-of-type {
   padding-right: 0;
 }
 

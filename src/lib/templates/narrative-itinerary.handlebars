@@ -1,21 +1,23 @@
         <div class="well localize">
             <div class="otp-itinHeader">
                 <div class="otp-itinHeader-title">
-                    <span data-i18n="handlebars.departs" class="itinerary-label"></span>
                     <span class="itinerary-summary">
-                        <span>
-                             {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
-                        </span>
-                        /
-                        <span>
-                            {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}
-                        </span>
-                        /
-                        <span class="otp-itinFare-preview">
-                            {{#fare}}
-                                <span>{{fareString fare}}</span>
-                            {{/fare}}
-                                <span></span>
+                        <span data-i18n="handlebars.departs" class="itinerary-label"></span>
+                        <span class="summary">
+                            <span>
+                                {{formatItineraryWithflexCallAndRideMaxStartTime timeOffset}}
+                            </span>
+                            /
+                            <span>
+                                {{formatDuration duration}}&nbsp;{{includePlusForVariableDurationTrips timeOffset}}
+                            </span>
+                            /
+                            <span class="otp-itinFare-preview">
+                                {{#fare}}
+                                    <span>{{fareString fare}}</span>
+                                {{/fare}}
+                                    <span></span>
+                            </span>
                         </span>
                     </span>
                     <span class="itinerary-print">
