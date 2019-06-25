@@ -119,6 +119,11 @@ label, b, strong, bold {
     padding: 1.5em;
   }
 
+  .trip-planner .tab-pane .tab-pane {
+    margin: 0;
+    padding: 0;
+  }
+
   #mymap {
     border: none;
   }
