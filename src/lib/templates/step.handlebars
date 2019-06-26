@@ -1,6 +1,11 @@
 <div class="otp-legStep-row localize">
     <div class="otp-legStep-dist">
-        <div class="otp-legStep-icon otp-legStep-icon-{{relativeDirection}}_ko"></div>
+        {{#if isFirst}}
+        <div class="otp-legStep-icon otp-legStep-icon-{{localizedAbsoluteDirection}}_ko">
+        {{else}}
+        <div class="otp-legStep-icon otp-legStep-icon-{{relativeDirection}}_ko">
+        {{/if}}
+        </div>
         <span>{{distanceValue}}</span><br><span>{{distanceUnit}}</span>
     </div>
     <div class="otp-legStep-text">

@@ -284,6 +284,62 @@
   background-image: url('../images/ocotp/directions/circle_counterclockwise_ko.png')
 }
 
+.otp-legStep-icon-Southeast {
+  background-image: url('../images/ocotp/directions/south-east.png')
+}
+
+.otp-legStep-icon-Southeast_ko {
+  background-image: url('../images/ocotp/directions/south-east_ko.png')
+}
+
+.otp-legStep-icon-Northeast {
+  background-image: url('../images/ocotp/directions/north-east.png')
+}
+
+.otp-legStep-icon-Northeast_ko {
+  background-image: url('../images/ocotp/directions/north-east_ko.png')
+}
+
+.otp-legStep-icon-Northwest {
+  background-image: url('../images/ocotp/directions/north-west.png')
+}
+
+.otp-legStep-icon-Northwest_ko {
+  background-image: url('../images/ocotp/directions/north-west_ko.png')
+}
+
+.otp-legStep-icon-North {
+  background-image: url('../images/ocotp/directions/north.png')
+}
+
+.otp-legStep-icon-North_ko {
+  background-image: url('../images/ocotp/directions/north_ko.png')
+}
+
+.otp-legStep-icon-South {
+  background-image: url('../images/ocotp/directions/south.png')
+}
+
+.otp-legStep-icon-South_ko {
+  background-image: url('../images/ocotp/directions/south_ko.png')
+}
+
+.otp-legStep-icon-East {
+  background-image: url('../images/ocotp/directions/east.png')
+}
+
+.otp-legStep-icon-East_ko {
+  background-image: url('../images/ocotp/directions/east_ko.png')
+}
+
+.otp-legStep-icon-West {
+  background-image: url('../images/ocotp/directions/west.png')
+}
+
+.otp-legStep-icon-West_ko {
+  background-image: url('../images/ocotp/directions/west_ko.png')
+}
+
 .otp-legMode-glyphicon {
     font-size: 18px;
     display: inline-block;
