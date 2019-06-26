@@ -741,6 +741,22 @@ a.print-icon:hover {
   text-transform: uppercase;
 }
 
+.call-and-ride-note {
+  background-color: #E4EBF1;
+  border-radius: .25em;
+  padding: 1em;
+  text-align: center;
+  margin: .5em 0;
+}
+
+.call-and-ride-note .button {
+  margin-bottom: 1em;
+}
+
+.call-and-ride-note p:last-child {
+  margin-bottom: 0;
+}
+
 
 
 @media (max-width: 991px) {
