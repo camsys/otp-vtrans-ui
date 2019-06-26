@@ -498,6 +498,13 @@ a.print-icon {
   background-position: center;
   border-radius: 1.25em;
   border: 2px solid #8C9499;
+  transition: background-color .25s ease-in-out, border .25s ease-in-out
+}
+
+a.print-icon:hover {
+  background-image: url('../images/ocotp/print-icon_white.png');
+  background-color: #EEA660;
+  border-color: #fff;
 }
 
 .otp-itinHeader-title a.print {

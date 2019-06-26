@@ -181,12 +181,12 @@
 
 .icon-button-group .input-group-addon {
   background-color: #87909C;
-  width: 34px;
-  /*not sure why the above is working, but it is*/
-  height: 32px;
+  width: 2.5em;
+  height: 2.5em;
   padding: 0;
   border-radius: 50%;
   border: 2px solid #fff;
+  transition: background-color .25s ease-in-out
 }
 
 .icon-button-group .input-group-addon:hover {
