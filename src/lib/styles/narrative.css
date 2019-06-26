@@ -94,12 +94,15 @@
 .ocotp-dial-a-ride {
 	background: #3E4D61;
 	background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
-	background-size: 25px;
-	background-position: center;
-	background-repeat: no-repeat;
-	-moz-border-radius: 100%;
-	-webkit-border-radius: 100%;
-	border-radius: 100%;
+  background-size: 1.5em;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: background-color .25s ease-in-out
 }
 
 .otp-legStep-icon-LEFT {
