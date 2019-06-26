@@ -6,7 +6,9 @@
         <div class="otp-legStep-icon otp-legStep-icon-{{relativeDirection}}_ko">
         {{/if}}
         </div>
-        <span>{{distanceValue}}</span><br><span>{{distanceUnit}}</span>
+        <span class="step-distance">
+            <span class="distance-value">{{distanceValue}}</span><span class="distance-unit">{{distanceUnit}}</span>
+        </span>
     </div>
     <div class="otp-legStep-text">
         {{#if isRoundabout}}

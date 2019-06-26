@@ -13,43 +13,14 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-/*.otp-itinHeader-details {
-	font-size: .9em;
-}
+/*
 
-.otp-itinHeader .pull-right {
-	text-align: right;
-}*/
-
-/*.otp-leg {
-	margin-top: 0.5em;
-	font-size: 0.9em;
-}*/
-
-/*.otp-leg .alert {f
+.otp-leg .alert {
 	padding: 1em;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
-}*/
-
-/*.otp-legHeader {
-	padding: 0.5em;
-	background: #ddd;
-	cursor: pointer;
-	line-height: 1.6em;
-	border-top: 3px solid #000;;
-}*/
-
-/*.otp-legBody {
-	float: left;
-	background: #ccc
-}*/
-
-/*.otp-legBody-from {
-	background: #bbb;
-	float: left;
-	width: 100%;
 }
+
 .otp-legBody-to {
 	background: #cccccc;
 	float: left;
@@ -61,9 +32,9 @@
     color: gray;
     width: 50px;
     float: left;
-}*/
+}
 
-/*.otp-transitLeg-endpointDesc {
+.otp-transitLeg-endpointDesc {
     font-size: .9em;
     border-left: 1px solid #ccc;
     margin-left: 55px;
@@ -95,34 +66,17 @@
     padding-left: 5px;
 }
 
-.otp-legStep-row {
-    background: #e8e8e8;
-    margin-bottom: .3em;
-    padding: .3em;
-    cursor: pointer;
-}
 
-.otp-legStep-dist {
-    margin: 0px 4px 0px 8px;
-    font-size: .8em;
-    width: 25px;
-    float: right;
-    text-align: center;
-    color: gray;
-
-}
-
-.otp-legStep-text {
-    font-size: .8em;
-    margin: 0px 30px;
-}*/
+*/
 
 .otp-legStep-icon {
-    margin: 3px 8px 3px 4px;
-    width: 20px;
-    height: 20px;
+    padding: .5em .75em;
+    width: 2em;
+    height: 2em;
     float: left;
-    background-size: 100%;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .otp-legStepLabel-icon {
@@ -745,38 +699,71 @@ a.print-icon:hover {
   display: inline;
 }
 
-.otp-legStep-row {
-  margin: .75em 15px;
-}
-
 .otp-legBody > div:not(:last-child) .otp-legStep-row {
   border-bottom: 1px dashed #7DA4CD;
-  padding-bottom: .75em;
+}
+
+.otp-legBody {
+  padding: .5em 15px;
 }
 
 .otp-legStep-row {
-
+  display: table;
+  width: 100%;
+  padding: .75em 0;
 }
 
 .otp-legStep-dist, .otp-legStep-text {
-  display: inline-block;
+  display: table-cell;
   vertical-align: middle;
 }
 
 .otp-legStep-dist {
-  width: 6em;
+  width: 5.5em;
   white-space: nowrap;
   background-color: #7DA4CD;
   padding: .25em .375em .25em .25em;
   line-height: 1;
   border-radius: .125em; 
   color: #fff;
-  margin: 0 .5em 0 0;
+}
+
+.otp-legStep-text {
+  padding-left: .5em;
 }
 
 .otp-legStep-dist > * {
   display: inline-block;
 }
+
+.otp-legStep-icon, .step-distance {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  float: none;
+}
+
+.step-distance {
+  padding-left: .5em;
+}
+
+.otp-legStep-dist .distance-value,
+.otp-legStep-dist .distance-unit {
+  display: block;
+}
+
+.otp-legStep-dist .distance-value {
+ font-size: 1.25em; 
+ font-weight: 600;
+}
+
+.otp-legStep-dist .distance-unit {
+  font-size: .825em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+
 
 @media (max-width: 991px) {
 
