@@ -12,15 +12,15 @@
     </div>
     <div class="otp-legStep-text">
         {{#if isRoundabout}}
-            <span data-i18n="handlebars.roundabout"></span>{{localizedRelativeDirection}} <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> {{streetName}}
+            <span data-i18n="handlebars.roundabout"></span> <span class="direction">{{localizedRelativeDirection}}</span> <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> <span class="street-name">{{streetName}}</span>
         {{else}}
             {{#if isFirst}}
                 <span data-i18n="handlebars.startOn"></span> <span class="street-name">{{streetName}}</span> <span data-i18n="handlebars.heading"></span> <span class="direction">{{localizedAbsoluteDirection}}</span>
             {{else}}
                 {{#if stayOn}}
-                    <span class="direction">{{localizedRelativeDirection}}</span> <span data-i18n="handlebars.toContinueOn"></span> <span class="street-name">{{streetName}}</span></b>
+                    <span class="direction">{{localizedRelativeDirection}}</span> <span data-i18n="handlebars.toContinueOn"></span> <span class="street-name">{{streetName}}</span>
                 {{else}}
-                    <span class="direction">{{localizedRelativeDirection}}</span><span data-i18n="handlebars.onTo"></span><span class="street-name">{{streetName}}</span></b>
+                    <span class="direction">{{localizedRelativeDirection}}</span> <span data-i18n="handlebars.onTo"></span> <span class="street-name">{{streetName}}</span>
                 {{/if}}
             {{/if}}
         {{/if}}
