@@ -256,17 +256,26 @@
 }
 
 .otp-legMode-icon {
-	background: url('../images/mode/modes_hires.png') no-repeat;
+	background-image: url('../images/mode/modes_hires.png');
+  background-repeat: no-repeat;
 	background-size: 10em 1em;
 	display: inline-block;
 	vertical-align: text-top;
 }
 
 .otp-legMode-icon-ko {
-  background: url('../images/mode/modes_hires_white.png') no-repeat;
+  background-image: url('../images/mode/modes_hires_white.png');
+  background-repeat: no-repeat;
   background-size: 10em 1em;
   display: inline-block;
   vertical-align: text-top;
+}
+
+.otp-legMode-icon-call-and-ride {
+  background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
+  width: 1em;
+  height: 1em;
+  background-size: 100%;
 }
 
 .otp-legMode-icon-WALK {

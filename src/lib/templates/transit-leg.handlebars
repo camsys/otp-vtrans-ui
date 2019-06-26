@@ -9,11 +9,10 @@
                     {{/if}}
                 >
                     {{#if (isAnyCallAndRide) }}
-                        <div class="otp-legMode-glyphicon"><span class="glyphicon glyphicon-earphone"></span></div>
+                        <div class="otp-legMode-icon-ko otp-legMode-icon-call-and-ride"></div>
                     {{else}}
                         <div class="otp-legMode-icon-ko otp-legMode-icon-{{ mode }}"></div>
                     {{/if}}
-
                     {{#if routeShortName}}
                         <b>{{routeShortName}}</b>
                     {{else}}
@@ -114,7 +113,7 @@
                 {{/if}}
 
             {{else}}
-                <span class="col-xs-7" id="from_leg_narrative_depart">
+                <span class=" " id="from_leg_narrative_depart">
             {{/if}}
                 <div>
                     <span class="narrative-from-to-text col-xs-3 narrative-inner-col" data-i18n="handlebars.toUP"/>
