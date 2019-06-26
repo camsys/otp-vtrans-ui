@@ -8,12 +8,12 @@
             <span data-i18n="handlebars.roundabout"></span>{{localizedRelativeDirection}} <span data-i18n="handlebars.to"></span> {{ordinal exit}} <span data-i18n="handlebars.exitOn"></span> {{streetName}}
         {{else}}
             {{#if isFirst}}
-                <span data-i18n="handlebars.startOn"></span><b>{{streetName}}</b> <span data-i18n="handlebars.heading"></span> {{localizedAbsoluteDirection}}
+                <span data-i18n="handlebars.startOn"></span> <span class="street-name">{{streetName}}</span> <span data-i18n="handlebars.heading"></span> <span class="direction">{{localizedAbsoluteDirection}}</span>
             {{else}}
                 {{#if stayOn}}
-                    <b>{{localizedRelativeDirection}}</b> <span data-i18n="handlebars.toContinueOn"></span> <b>{{streetName}}</b>
+                    <span class="direction">{{localizedRelativeDirection}}</span> <span data-i18n="handlebars.toContinueOn"></span> <span class="street-name">{{streetName}}</span></b>
                 {{else}}
-                    <b>{{localizedRelativeDirection}}</b><span data-i18n="handlebars.onTo"></span><b>{{streetName}}</b>
+                    <span class="direction">{{localizedRelativeDirection}}</span><span data-i18n="handlebars.onTo"></span><span class="street-name">{{streetName}}</span></b>
                 {{/if}}
             {{/if}}
         {{/if}}
