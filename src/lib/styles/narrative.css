@@ -732,6 +732,20 @@ a.print-icon:hover {
   padding-left: 1em;
 }
 
+.otp-legStep-text > span {
+  display: inline-block;
+  width: auto;
+}
+
+.otp-legStep-text .direction {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.otp-legStep-text .street-name {
+  font-weight: 600;
+}
+
 .otp-legStep-dist > * {
   display: inline-block;
 }
