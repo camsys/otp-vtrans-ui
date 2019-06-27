@@ -378,7 +378,7 @@
   text-align: center;
   font-size: 13px;
   font-style: italic;
-  color: #87909C;
+  color: #7D8CA0;
   padding: 0;
 }
 
@@ -413,7 +413,7 @@
 }
 
 .narrative-results .nav-link {
-	color: #87909C;
+	color: #7D8CA0;
 	line-height: 1
 }
 
@@ -604,7 +604,7 @@ a.print-icon:hover {
   border-top-left-radius: .5em;
   border-top-right-radius: .5em;
   padding: .75em;
-  color: #87909C;
+  color: #7D8CA0;
   display: table;
   width: 100%;
 }

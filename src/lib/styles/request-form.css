@@ -170,17 +170,17 @@
 .select2-results .select2-searching, 
 .select2-results .select2-selection-limit {
   background-color: transparent;
-  color: #87909C;
+  color: #7D8CA0;
   font-style: italic;
 }
 
 .select2-search input {
   border-radius: 4px;
-  border: 2px solid #87909C;
+  border: 2px solid #7D8CA0;
 }
 
 .icon-button-group .input-group-addon {
-  background-color: #87909C;
+  background-color: #7D8CA0;
   width: 2.5em;
   height: 2.5em;
   padding: 0;
@@ -224,7 +224,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #87909C;
+  background-color: #7D8CA0;
   position: absolute;
   top: 50%;
   z-index: 1;
@@ -241,7 +241,7 @@
   position: relative;
   z-index: 2;
   padding: 0 0 0 .5em;
-  color: #87909C;
+  color: #7D8CA0;
 }
 
 .hide-show-settings button:hover, 
@@ -289,7 +289,7 @@
   margin-left: .25em;
   position: relative;
   /*to make the circle in the icon look vert centered*/
-  top: -2px
+  top: -2px;
 }
 
 .btn.btn-primary.btn-block.disabled {
@@ -303,7 +303,7 @@
 }
 
 .service-requiring-special-exceptions-control-label {
-  color: #87909C;
+  color: #7D8CA0;
 }
 
 .requirements-line {
