@@ -86,29 +86,62 @@ label, b, strong, bold {
   border-left: 2px solid #EEA660;
 }
 
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .button {
-  display: inline-block;
+  display: table;
   width: auto;
   border: 2px solid #fff;
   color: #fff;
-  background: #EEA660;
+  background-color: #EEA660;
   font-size: 1.125em;
   font-weight: 600;
-  line-height: 1;
   height: 2.5em;
   padding: 0 1em;
   border-radius: 1.25em;
   transition: background .25s ease-in-out;
-  vertical-align: middle;
   text-decoration: none;
+  margin: 1em auto;
+  cursor: pointer;
 }
 
-a.button {
-  line-height: 2.25;
+.button > * {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .button.icon-button {
   padding-right: .625em;
+}
+
+.button.button-secondary {
+  background-color: #7D8CA0;
 }
 
 .button:hover,
@@ -120,21 +153,62 @@ a.button {
   text-decoration: none;
 }
 
-.button-secondary {
-  background-color: #7D8CA0;
+.button.button-secondary:hover,
+.button.button-secondary:focus,
+.button.button-secondary:active {
+  background-color: #EEA660;
 }
 
-/*todo: standardize the way this is handled with the plan trip button*/
-.icon-button.call-and-ride-icon::after {
+
+.button.icon-button::after {
   content: '';
   width: 1.125em;
-  height: 1.125em;
-  display: inline-block;
-  background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
-  background-size: 100%;
+  display: table-cell;
+  background-size: 1.125em auto;
+  background-position: center right;
+  background-repeat: no-repeat;
+  padding-left: .375em;
+  height: 100%;
+  overflow-y: visible;
+}
+
+.button.icon-button .button-label {
+  padding-right: .5em;
+}
+
+.button.icon-only-button {
+  background-size: 1.125em auto;
   background-position: center;
-  vertical-align: text-top;
-  margin-left: .25em;
+  background-repeat: no-repeat;
+  width: 2.5em;
+}
+
+.button.plan-trip-button::after {
+  background-image: url('../images/ocotp/plan-trip-icon_white.png');
+}
+
+.button.call-and-ride-button::after {
+  background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
+}
+
+.button.searching-button::after {
+  background-image: url('../images/ocotp/searching-map-icon_white.png');
+  -webkit-transform-origin: 50% 50%;
+  transform-origin:50% 50%;
+  -ms-transform-origin:50% 50%; /* IE 9 */
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  -o-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+  transform-origin: center center;
+}
+
+.button.time-button {
+  background-image: url('../images/ocotp/time-watch-icon_white.png');
+}
+
+.button.date-button {
+  background-image: url('../images/ocotp/search-calendar-icon_white.png');
 }
 
 @media (max-width: 991px) {

@@ -1,40 +1,3 @@
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.spin{
-  -webkit-transform-origin: 50% 50%;
-  transform-origin:50% 50%;
-  -ms-transform-origin:50% 50%; /* IE 9 */
-  -webkit-animation: spin 1s infinite linear;
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-}
-
 .address-fields {
   padding-right: .5em;
 }
@@ -179,31 +142,36 @@
   border: 2px solid #7D8CA0;
 }
 
+.icon-button-group .input-group-addon .button {
+  margin: 0;
+}
+
 .icon-button-group .input-group-addon {
-  background-color: #7D8CA0;
   width: 2.5em;
   height: 2.5em;
   padding: 0;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  transition: background-color .25s ease-in-out
 }
 
-.icon-button-group .input-group-addon:hover {
+.input-group-addon .button {
+  width: 2.25em;
+  height: 2.25em;
+}
+
+/*.icon-button-group .input-group-addon:hover {
   background-color: #EEA660;
-}
+}*/
 
-.input-group.date .input-group-addon span {
+/*.input-group.date .input-group-addon span {
   width: 100%;
   height: 100%;
-}
+}*/
 
-.depart-arrive-by-clock-button {
+/*.depart-arrive-by-clock-button {
   background: url("../images/ocotp/time-watch-icon_white.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.25em;
-}
+}*/
 
 .depart-arrive-by-calendar-button {
   background: url("../images/ocotp/search-calendar-icon_white.png");
@@ -265,7 +233,7 @@
   margin: 0 1em 0 0;
 }
 
-.plan-trip-button {
+.plan-trip-button-wrap {
   text-align: center;
 }
 
@@ -279,14 +247,6 @@
 
 .trip-icon {
   background: url('../images/ocotp/plan-trip-icon_white.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  display: inline-block;
-  height: 1.125em;
-  width: 1.125em;
-  display: inline-block;
-  margin-left: .25em;
   position: relative;
   /*to make the circle in the icon look vert centered*/
   top: -2px;
