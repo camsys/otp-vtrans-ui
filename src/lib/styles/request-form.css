@@ -275,6 +275,29 @@
   border-color: #7f8488;
 }
 
+.bootstrap-datetimepicker-widget {
+  width: auto;
+}
+
+.bootstrap-datetimepicker-widget .timepicker-picker td, .bootstrap-datetimepicker-widget .timepicker-picker td span {
+  height: auto;
+  line-height: 1;
+  padding: 0;
+  width: auto;
+}
+
+.bootstrap-datetimepicker-widget .timepicker-picker td span {
+  padding: .375em .75em;
+}
+
+.bootstrap-datetimepicker-widget .timepicker-picker a[data-action] {
+  padding: 0;
+}
+
+.bootstrap-datetimepicker-widget .timepicker-picker table, .bootstrap-datetimepicker-widget .timepicker-picker {
+  width: auto;
+}
+
 
 @media (max-width: 500px) {
 
