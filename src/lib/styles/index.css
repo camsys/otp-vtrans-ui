@@ -164,7 +164,7 @@ label, b, strong, bold {
   content: '';
   width: 1.125em;
   display: table-cell;
-  background-size: 1.125em auto;
+  background-size: 100% auto;
   background-position: center right;
   background-repeat: no-repeat;
   padding-left: .375em;
