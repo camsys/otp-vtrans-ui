@@ -3,49 +3,49 @@
   font-style: italic;
 }
 .otp-itinHeader {
-	cursor: pointer;
-	font-family: 'Roboto', sans-serif; 
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif; 
 }
 
 .otp-itinHeader-preview {
-	/*margin-bottom: .25em;
-	text-align: center;*/
-	font-family: 'Roboto', sans-serif;
+  /*margin-bottom: .25em;
+  text-align: center;*/
+  font-family: 'Roboto', sans-serif;
 }
 
 .otp-leg .alert {
-	padding: 1em;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+  padding: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 
 
 .otp-legStep-icon {
-    padding: .5em .75em;
-    width: 2em;
-    height: 2em;
-    float: left;
-    background-size: 90%;
-    background-repeat: no-repeat;
-    background-position: center;
+  padding: .5em .75em;
+  width: 2em;
+  height: 2em;
+  float: left;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .otp-legStepLabel-icon {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    vertical-align:middle;
-		background-size: 100%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align:middle;
+  background-size: 100%;
 }
 
 .otp-flagStop {
-	background-image: url('../images/waving_person.png');
+  background-image: url('../images/waving_person.png');
 }
 
 .ocotp-dial-a-ride {
-	background: #3E4D61;
-	background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
+  background: #3E4D61;
+  background-image: url('../images/ocotp/dial-a-bus-icon_white.png');
   background-size: 1.5em;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,6 +54,8 @@
   padding: 0;
   border-radius: 50%;
   border: 2px solid #fff;
+  -webkit-transition: background-color .25s ease-in-out;
+  -o-transition: background-color .25s ease-in-out;
   transition: background-color .25s ease-in-out
 }
 
@@ -256,11 +258,11 @@
 }
 
 .otp-legMode-icon {
-	background-image: url('../images/mode/modes_hires.png');
+  background-image: url('../images/mode/modes_hires.png');
   background-repeat: no-repeat;
-	background-size: 10em 1em;
-	display: inline-block;
-	vertical-align: text-top;
+  background-size: 10em 1em;
+  display: inline-block;
+  vertical-align: text-top;
 }
 
 .otp-legMode-icon-ko {
@@ -279,78 +281,78 @@
 }
 
 .otp-legMode-icon-WALK {
-	background-position: 0px 0;
-	width: .75em;
-	height: 1em;
+  background-position: 0px 0;
+  width: .75em;
+  height: 1em;
 }
 
 .otp-legMode-icon-BICYCLE {
-	background-position: -.75em 0;
-	width: 1.15em;
-	height: 1em;
+  background-position: -.75em 0;
+  width: 1.15em;
+  height: 1em;
 }
 
 .otp-legMode-icon-BUS {
-	background-position: -1.95em 0;
-	width: .95em;
-	height: 1em;
+  background-position: -1.95em 0;
+  width: .95em;
+  height: 1em;
 }
 
 .otp-legMode-icon-RAIL {
-	background-position: -3em 0;
-	width: .85em;
-	height: 1em;
+  background-position: -3em 0;
+  width: .85em;
+  height: 1em;
 }
 
 .otp-legMode-icon-TRAM {
-	background-position: -3em 0;
-	width: .85em;
-	height: 1em;
+  background-position: -3em 0;
+  width: .85em;
+  height: 1em;
 }
 
 .otp-legMode-icon-SUBWAY {
-	background-position: -3.85em 0;
-	width: .95em;
-	height: 1em;
+  background-position: -3.85em 0;
+  width: .95em;
+  height: 1em;
 }
 
 .otp-legMode-icon-FERRY {
-	background-position: -4.85em 0;
-	width: 1.05em;
-	height: 1em;
+  background-position: -4.85em 0;
+  width: 1.05em;
+  height: 1em;
 }
 
 .otp-legMode-icon-GONDOLA {
-	background-position: -5.95em 0;
-	width: .95em;
-	height: 1em;
+  background-position: -5.95em 0;
+  width: .95em;
+  height: 1em;
 }
 
 .otp-legMode-icon-CAR {
-	background-position: -6.95em 0;
-	width: 19px;
-	height: 1em;
+  background-position: -6.95em 0;
+  width: 19px;
+  height: 1em;
 }
 
 .otp-legMode-icon-arrow-left {
-	background-position: -8.1em 0px;
-	width: .5em;
-	height: .8em;
+  background-position: -8.1em 0px;
+  width: .5em;
+  height: .8em;
 }
 
 .otp-legMode-icon-arrow-right {
-	background-position: -8.8em 0px;
-	width: .5em;
-	height: 1em;
+  background-position: -8.8em 0px;
+  width: .5em;
+  height: 1em;
 }
 
 .otp-legMode-title {
-	display: none;
+  display: none;
 }
 
 .agency-descriptor-span{
-	white-space: nowrap;
-	display: inline-block;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .timing_text{
@@ -358,8 +360,8 @@
 }
 
 .narrative-tab {
-	padding: 0px;
-	font-size: 11px;
+  padding: 0px;
+  font-size: 11px;
 }
 
 
@@ -383,59 +385,61 @@
 }
 
 #plan #narrative {
-	margin: 0;
+  margin: 0;
 }
 
 .narrative-results {
-	margin-top: 1.5em;
+  margin-top: 1.5em;
 }
 
 .narrative-results .nav-tabs {
-	border: none;
-	position: relative;
-	z-index: 0;
+  border: none;
+  position: relative;
+  z-index: 0;
 }
 
 .narrative-results .nav-tabs > li {
-	background-color: #3E4D61;
-	border: none;
-	border-top-left-radius: .5em;
-	border-top-right-radius: .5em;
-	margin-right: 2px;
-	padding: .325em .325em 0 .325em;
-	transition: opacity .25s ease-in-out;
-	opacity: .625;
-	height: 2em;
+  background-color: #3E4D61;
+  border: none;
+  border-top-left-radius: .5em;
+  border-top-right-radius: .5em;
+  margin-right: 2px;
+  padding: .325em .325em 0 .325em;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  opacity: .625;
+  height: 2em;
 }
 
 .narrative-results .nav-tabs > li.active {
-	opacity: 1;
+  opacity: 1;
 }
 
 .narrative-results .nav-link {
-	color: #7D8CA0;
-	line-height: 1
+  color: #7D8CA0;
+  line-height: 1
 }
 
 .narrative-results .nav-tabs > li:not(.active):hover {
-	opacity: .875;
+  opacity: .875;
 }
 
 .narrative-results .nav-link.active {
-	color: #2767AC;
+  color: #2767AC;
 }
 
 .narrative-results .nav-tabs > li a, 
 .narrative-results .nav-tabs > li a:hover, 
 .narrative-results .nav-tabs > li a:focus, 
 .narrative-results .nav-tabs > li a:active {
-	background-color: #fff;
-	margin: 0;
-	display: block;
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	border: none;
+  background-color: #fff;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
 }
 
 .narrative-results .tab-part {
@@ -452,7 +456,9 @@
 }
 
 .narrative-results .option-tab-part {
-  transform: skewX(-18deg);
+  -webkit-transform: skewX(-18deg);
+      -ms-transform: skewX(-18deg);
+          transform: skewX(-18deg);
   background-color: #E9EFF4;
   padding-left: 1em;
   position: relative;
@@ -461,7 +467,9 @@
 }
 
 .narrative-results .option-tab-part span {
-  transform: skewX(18deg);
+  -webkit-transform: skewX(18deg);
+      -ms-transform: skewX(18deg);
+          transform: skewX(18deg);
   display: inline-block;
 }
 
@@ -478,8 +486,8 @@
 }
 
 .narrative-results .tab-content {
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .narrative-results .tab-pane .well {
@@ -541,6 +549,8 @@ a.print-icon {
   background-position: center;
   border-radius: 1.25em;
   border: 2px solid #8C9499;
+  -webkit-transition: background-color .25s ease-in-out, border .25s ease-in-out;
+  -o-transition: background-color .25s ease-in-out, border .25s ease-in-out;
   transition: background-color .25s ease-in-out, border .25s ease-in-out
 }
 
@@ -785,20 +795,20 @@ a.print-icon:hover {
 }
 
 @media print {
-	.messageWell {
-		display: none;
-	}
+  .messageWell {
+    display: none;
+  }
 
-	.otp-legMode-title {
-		display: inline;
-	}
+  .otp-legMode-title {
+    display: inline;
+  }
 
-	.PlanResponseNarrativeView,
-	.otp-itinHeader .print {
-		display: none;
-	}
+  .PlanResponseNarrativeView,
+  .otp-itinHeader .print {
+    display: none;
+  }
 
-	.PlanResponseNarrativeView.activated {
-		display: block;
-	}
+  .PlanResponseNarrativeView.activated {
+    display: block;
+  }
 }

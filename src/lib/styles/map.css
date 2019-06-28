@@ -1,158 +1,158 @@
 .otp-startFlagIcon {
-	background: url('../images/marker-flag-start-shadowed.png');
-	width: 48px;
-	height: 49px;
-	margin-left: -44px;
-	margin-top: -41px;
+  background: url('../images/marker-flag-start-shadowed.png');
+  width: 48px;
+  height: 49px;
+  margin-left: -44px;
+  margin-top: -41px;
 }
 
 .otp-endFlagIcon {
-	background: url('../images/marker-flag-end-shadowed.png');
-	width: 48px;
-	height: 49px;
-	margin-left: -44px;
-	margin-top: -41px;
+  background: url('../images/marker-flag-end-shadowed.png');
+  width: 48px;
+  height: 49px;
+  margin-left: -44px;
+  margin-top: -41px;
 }
 
 .otp-crosshairIcon {
-    background: url('../images/marker-crosshair.png');
-    width: 11px;
-    height: 11px;
-    margin-left: -6px;
-    margin-top: -6px;
-    font-family: 'Roboto', sans-serif;
+  background: url('../images/marker-crosshair.png');
+  width: 11px;
+  height: 11px;
+  margin-left: -6px;
+  margin-top: -6px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .otp-legBubble-iconModeSymbol {
-    width: 16px;
-    height: 16px;
-    margin-left: 7px;
-    background: black;
-    font-family: 'Roboto', sans-serif;
+  width: 16px;
+  height: 16px;
+  margin-left: 7px;
+  background: black;
+  font-family: 'Roboto', sans-serif;
 }
 
 .otp-legBubble-icon {
-    width: 20px;
-    height: 30px;
-    text-align: center;
-    font-size: 9px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+  width: 20px;
+  height: 30px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 }
 
 .otp-legBubble-icon-nw {
-    background: url('../images/legbubble/nw.png');
+  background: url('../images/legbubble/nw.png');
 }
 
 .otp-legBubble-icon-ne {
-    background: url('../images/legbubble/ne.png');
+  background: url('../images/legbubble/ne.png');
 }
 
 .otp-legBubble-icon-sw {
-    background: url('../images/legbubble/sw.png');
+  background: url('../images/legbubble/sw.png');
 }
 
 .otp-legBubble-icon-se {
-    background: url('../images/legbubble/se.png');
+  background: url('../images/legbubble/se.png');
 }
 
 .otp-legBubble-icon-nw-highlight {
-    background: url('../images/legbubble/nw_highlight.png');
+  background: url('../images/legbubble/nw_highlight.png');
 }
 
 .otp-legBubble-icon-ne-highlight {
-    background: url('../images/legbubble/ne_highlight.png');
+  background: url('../images/legbubble/ne_highlight.png');
 }
 
 .otp-legBubble-icon-sw-highlight {
-    background: url('../images/legbubble/sw_highlight.png');
+  background: url('../images/legbubble/sw_highlight.png');
 }
 
 .otp-legBubble-icon-se-highlight {
-    background: url('../images/legbubble/se_highlight.png');
+  background: url('../images/legbubble/se_highlight.png');
 }
 
 
 .otp-legBubble-icon-topRow-n {
-    height: 16px;
-    margin-top: 3px;
+  height: 16px;
+  margin-top: 3px;
 }
 
 .otp-legBubble-icon-topRow-s {
-    height: 16px;
-    margin-top: 16px;
+  height: 16px;
+  margin-top: 16px;
 }
 
 .otp-routeShortName {
-    margin-top: -1px;
+  margin-top: -1px;
 }
 
 .otp-mapContextMenu {
-    z-index: 1000;
-    position: absolute;
-    background-color: #ccc;
-    border: 1px solid black;
+  z-index: 1000;
+  position: absolute;
+  background-color: #ccc;
+  border: 1px solid black;
 }
 
 .otp-mapContextMenuItem {
-    font-size: 12px;
-    padding: 4px 8px;
-    cursor: pointer;
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
 }
 
 .otp-mapContextMenuItem:hover {
-    background: #ddd;
+  background: #ddd;
 }
 
 .shadow_polyline {
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
-}
-
-@media print {
-	body {
-		overflow: visible !important;
-	}
-
-	#sidebar {
-		overflow: visible !important;
-	}
-
-	#map {
-		display: none !important;
-	}
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .uppercase {
-    text-transform:uppercase;
-    color: #8ab8e0;
+  text-transform:uppercase;
+  color: #8ab8e0;
 }
 
 .flex-service-details-left-panel {
-    border-right: 1px solid #E4EBF1;
+  border-right: 1px solid #E4EBF1;
 }
 
 .flex-service-popup-icon {
-    width: 34px;
-    height: 34px;
-    display: inline-block;
+  width: 34px;
+  height: 34px;
+  display: inline-block;
 }
 
 .flex-service-popup-title {
-    display: inline-block;
+  display: inline-block;
 }
 
 .close-flex-service-popup {
-    color: white;
-    background: #8ab8e0;
-    border-radius: 15px;
-    padding: 5px 15px;
-    border: 2px solid white;
+  color: white;
+  background: #8ab8e0;
+  border-radius: 15px;
+  padding: 5px 15px;
+  border: 2px solid white;
 }
 
 .flex-service-popup .modal-header {
-    background: #E4EBF1;
+  background: #E4EBF1;
+}
+
+@media print {
+  body {
+    overflow: visible !important;
+  }
+
+  #sidebar {
+    overflow: visible !important;
+  }
+
+  #map {
+    display: none !important;
+  }
 }

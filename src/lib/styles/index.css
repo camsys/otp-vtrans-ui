@@ -61,7 +61,9 @@ label, b, strong, bold {
   top: 50%;
   width: 10em;
   height: 2.5em;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   background-image: url('../images/ocotp/blue-orange-header.png');
   background-color: white;
   background-position: right center;
@@ -75,24 +77,16 @@ label, b, strong, bold {
   width: 100%;
   height: .375em;
   left: 0;
-  bottom: -.375em;
-  background: -moz-linear-gradient(top, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  bottom: -.375em; /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.15)),to(rgba(0,0,0,0)));
+  background: -o-linear-gradient(top, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%);
   background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
 #mymap {
   border-left: 2px solid #EEA660;
-}
-
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
 }
 
 @-webkit-keyframes spin {
@@ -106,10 +100,12 @@ label, b, strong, bold {
 
 @keyframes spin {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -124,6 +120,8 @@ label, b, strong, bold {
   height: 2.5em;
   padding: 0 1em;
   border-radius: 1.25em;
+  -webkit-transition: background .25s ease-in-out;
+  -o-transition: background .25s ease-in-out;
   transition: background .25s ease-in-out;
   text-decoration: none;
   margin: 1em auto;
@@ -197,10 +195,7 @@ label, b, strong, bold {
   transform-origin:50% 50%;
   -ms-transform-origin:50% 50%; /* IE 9 */
   -webkit-animation: spin 1s infinite linear;
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
   animation: spin 1s infinite linear;
-  transform-origin: center center;
 }
 
 .button.time-button {
