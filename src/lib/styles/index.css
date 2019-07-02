@@ -16,6 +16,10 @@ label, b, strong, bold {
   vertical-align: top;
 }
 
+#plan {
+  display: none;
+}
+
 #sidebar {
   padding: 0 0 20px 0;
   width: 34em;
@@ -27,6 +31,7 @@ label, b, strong, bold {
   top: 0;
   left: 0;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #sidebar .row {
@@ -74,7 +79,7 @@ label, b, strong, bold {
 #trip-plan-header::after {
   content: '';
   position: absolute;
-  width: 100%;
+  width: 150%;
   height: .375em;
   left: 0;
   bottom: -.375em; /* FF3.6-15 */
@@ -218,6 +223,10 @@ label, b, strong, bold {
 
   #sidebar, #mymap {
     display: none;
+  }
+
+  #plan {
+    display: block;
   }
 
   #sidebar-inner {
