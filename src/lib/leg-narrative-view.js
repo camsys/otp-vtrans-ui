@@ -6,6 +6,7 @@ var _ = require("underscore")
 var accessLegTemplate = require('./templates/access-leg.handlebars')
 var transitLegTemplate = require('./templates/transit-leg.handlebars')
 var genericLegTemplate = require('./templates/generic-leg.handlebars')
+var flexServicePopupView = require('./flex-service-popup-view');
 
 var LegNarrativeView = Backbone.View.extend({
   events: {
@@ -14,7 +15,8 @@ var LegNarrativeView = Backbone.View.extend({
     // 'mouseleave .otp-legHeader': 'headerMouseleave',
     'click .otp-from': 'fromClicked',
     'click .otp-to': 'toClicked',
-    'click .showTimes': 'showTimes'
+    'click .showTimes': 'showTimes',
+    'click .call-and-ride-button': 'showServiceDetailsClicked'
   },
 
   initialize: function (options) {
@@ -92,6 +94,21 @@ var LegNarrativeView = Backbone.View.extend({
       console.log(err, times)
       this.$('.OTPLeg-times').html('7:00pm<br>8:00pm<br>11:55pm')
     })
+  },
+
+
+  // onPhoneMarkerClick: function(leg) {
+  //   leg.getFlexService(this.showFlexServicePopup);
+  // },
+
+  showServiceDetailsClicked: function() {
+    this.model.getFlexService(this.showFlexServicePopup);
+  },
+
+  showFlexServicePopup: function(serviceData, marker) {
+    new flexServicePopupView({
+      model: serviceData
+    });
   }
 })
 
