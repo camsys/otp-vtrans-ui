@@ -13,6 +13,12 @@ var narrativeErrorTemplate = require('./templates/narrative-error.handlebars')
 var itineraries
 
 var PlanResponseNarrativeView = Backbone.View.extend({
+  events: {
+    'click .itineraryTab1': 'itineraryTab1Clicked',
+    'click .itineraryTab2': 'itineraryTab2Clicked',
+    'click .itineraryTab3': 'itineraryTab3Clicked',
+  },
+
   initialize: function (options) {
     this.options = options || {}
   },
@@ -90,6 +96,19 @@ var PlanResponseNarrativeView = Backbone.View.extend({
       this.$el.find('.itineraryTab3').append(itinTabsView.el)
     }
 
+  },
+
+  itineraryTab1Clicked: function() {
+    var tab1 = this.$el.find('.itinerary1').find('.otp-itinHeader');
+    tab1.click();
+  },
+  itineraryTab2Clicked: function() {
+    var tab2 = this.$el.find('.itinerary2').find('.otp-itinHeader');
+    tab2.click();
+  },
+  itineraryTab3Clicked: function() {
+    var tab3 = this.$el.find('.itinerary3').find('.otp-itinHeader');
+    tab3.click();
   },
 
 })

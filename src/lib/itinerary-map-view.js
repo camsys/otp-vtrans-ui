@@ -63,6 +63,11 @@ var ItineraryMapView = Backbone.View.extend({
     this.model.get('legs').each(function (leg) {
       self.initializeLeg(leg)
     })
+
+    if(this.options.index == 0){
+      this.model.trigger('activate')
+    }
+
   },
 
   initializeLeg: function (leg) {
@@ -124,6 +129,8 @@ var ItineraryMapView = Backbone.View.extend({
   },
 
   render: function () {
+    console.log('RENDER CALLED')
+
     if (!this.attachedToMap) this.attachToMap()
     this.clearLayers()
 

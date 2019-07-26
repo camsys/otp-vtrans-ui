@@ -56,7 +56,8 @@ module.exports = Backbone.View.extend({
         map: this.options.map,
         model: itin,
         planView: this,
-        metric: this.options.metric
+        metric: this.options.metric,
+        index: index
       }
       if (this.options.legColor) {
         mapViewOptions.legColor = this.options.legColor

@@ -10,23 +10,14 @@ var ItineraryNarrativeView = Backbone.View.extend({
 
   events: {
     'click .otp-itinHeader': 'headerClicked',
-    'click .narrative-tab': 'tabClicked',
-    // 'mouseenter .otp-itinHeader': 'headerMouseenter',
-    // 'mouseleave .otp-itinHeader': 'headerMouseleave',
     'click .print': 'print'
   },
 
   initialize: function (options) {
     this.options = options || {}
 
-    var itin1 = $('itineraryTab1')
-    console.log(itin1)
-
-    _.bindAll(this, 'tabClicked')
     _.bindAll(this, 'headerClicked')
 
-    this.listenTo(this.model, 'activate', this.expand)
-    this.listenTo(this.model, 'deactivate', this.collapse)
   },
 
   print: function (e) {
@@ -66,8 +57,6 @@ var ItineraryNarrativeView = Backbone.View.extend({
 
     this.legs = []
     _.each(legs.models, this.processLeg, this)
-
-    this.$el.find('.otp-itinBody').hide()
   },
 
   processLeg: function (leg) {
@@ -80,39 +69,9 @@ var ItineraryNarrativeView = Backbone.View.extend({
     this.$el.find('.otp-itinBody').append(legView.el)
   },
 
-  collapse: function () {
-    this.$el.find('.otp-itinBody').slideUp('fast')
-    this.$el.removeClass('activated')
-  },
-
-  expand: function () {
-    this.$el.find('.otp-itinBody').slideDown('fast')
-    this.$el.addClass('activated')
-  },
-
   headerClicked: function (e) {
-    console.log('header clicked')
-
-    if (!this.isActive() || !this.active) {
-      this.active = true
-      this.model.trigger('activate')
-    } else {
-      this.model.trigger('deactivate')
-      this.active = false
-    }
-  },
-
-  tabClicked: function (e) {
-
-    console.log('tab clicked')
-
-    if (!this.isActive() || !this.active) {
-      this.active = true
-      this.model.trigger('activate')
-    } else {
-      this.model.trigger('deactivate')
-      this.active = false
-    }
+    this.active = true
+    this.model.trigger('activate')
   },
 
   isActive: function () {
