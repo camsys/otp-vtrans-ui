@@ -492,9 +492,9 @@ var GoogleGeocoder = {
     var autocomplete = GoogleGeocoder._getAutocomplete();  
     var request = {
       input: query,
-      types: ["geocode"],
+      types: [],
       location: array2latlng(window.OTP_config.initLatLng),
-      radius: 100000
+      radius: 10000
     }
     autocomplete.getPlacePredictions(request, function(results, status) {
       if (status == 'OK') {

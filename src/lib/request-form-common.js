@@ -80,7 +80,7 @@ module.exports.initializeSelectFor = function (term, element, parent) {
   return select
 }
 
-// Felper function to construct the Esri geocoder location options (lonlat, distance)
+// Helper function to construct the Esri geocoder location options (lonlat, distance)
 
 var getLocationOptions = function (map) {
   var options = {}
