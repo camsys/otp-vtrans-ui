@@ -21,9 +21,23 @@ var ItineraryNarrativeView = Backbone.View.extend({
   },
 
   print: function (e) {
+    console.log('In itinerary-narrative-view print')
     e.preventDefault()
-    if (!this.isActive) this.model.trigger('activate')
-    if (this.legs) this.legs.forEach(function (leg) { leg.print() })
+    if (!this.isActive) {
+      console.log('!this.isActive')
+      this.model.trigger('activate')
+      console.log(this);
+    } else {
+      //TODO REMOVE THIS else block
+      console.log('this.isActive')
+      console.log(this);
+    }
+
+    if (this.legs)
+      this.legs.forEach(function (leg) {
+      console.log(leg)
+      leg.print()
+    })
 
     setTimeout(function () {
       window.print()
