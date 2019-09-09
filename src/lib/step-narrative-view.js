@@ -17,7 +17,7 @@ var StepNarrativeView = Backbone.View.extend({
   },
 
   print: function () {
-    this.render()
+    // this.rowClicked()
   },
 
   render: function () {

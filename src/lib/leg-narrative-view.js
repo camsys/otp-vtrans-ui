@@ -42,7 +42,6 @@ var LegNarrativeView = Backbone.View.extend({
   },
 
   print: function () {
-    console.log('In leg-narrative-view print')
     this.$el.find('.otp-legBody').slideDown()
     if (this.steps) this.steps.forEach(function (step) { step.print() })
   },

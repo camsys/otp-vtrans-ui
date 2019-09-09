@@ -496,13 +496,6 @@ var GoogleGeocoder = {
       location: array2latlng(window.OTP_config.initLatLng),
       radius: 10000
     }
-
-    console.log('=====Google Suggest Query====')
-    console.log(query)
-
-    console.log('=====Google Suggest REQUEST====')
-    console.log(request)
-
     autocomplete.getPlacePredictions(request, function(results, status) {
       if (status == 'OK') {
         var data = []
