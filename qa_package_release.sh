@@ -1,0 +1,1 @@
+tar -cvzf oc_otp_ui.tgz /dist
