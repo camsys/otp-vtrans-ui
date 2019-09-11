@@ -1,1 +1,1 @@
-tar -cvzf oc_otp_ui.tgz /dist
+tar -cvzf oc_otp_ui.tgz dist
