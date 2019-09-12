@@ -45,7 +45,7 @@ i18next
                 setStartLocation:'Set Start Location',
                 setEndLocation: 'Set End Location',
                 dragOrForm:'Drag pins on the map or use the form above to adjust trip settings.',
-                contactUsPreamble:'Questions about this Trip Planner or about transit in Orange County?.',
+                contactUsPreamble:'Questions about this Trip Planner or about transit in Orange County?',
                 contactUsEmail:'Email: ',
                 contactUsPhone:'Phone: ',
                 option:'Option',

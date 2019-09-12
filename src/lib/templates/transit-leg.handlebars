@@ -142,14 +142,14 @@
         {{#if (isCallAndRide from.boardAlightType) }}
                 <div>
                     <div class="call-and-ride-note">
-                        <a href="#" class="button button-secondary icon-button call-and-ride-button"><span class="button-label">Service Details</span></a>
+                        <a href="#" class="button button-secondary icon-button call-and-ride-button"><span class="button-label"><span data-i18n="handlebars.serviceDetails"></span></span></a>
                     </div>
                 </div>
         {{else}}
             {{#if (isCallAndRide to.boardAlightType) }}
                 <div>
                     <div class="call-and-ride-note">
-                        <a href="#" class="button button-secondary icon-button call-and-ride-button">Service Details</a>
+                        <a href="#" class="button button-secondary icon-button call-and-ride-button"><span data-i18n="handlebars.serviceDetails"></a>
                     </div>
                 </div>
             {{/if}}
