@@ -126,7 +126,7 @@ var RequestView = Backbone.View.extend({
       }
 
       var reservationService = data.attributes.flexUseReservationServices+''
-      var eligibilityService = data.attributes.wheelchair+''
+      var eligibilityService = data.attributes.flexUseEligibilityServices+''
 
       if (reservationService == 'true' || reservationService == '' ) {
         view.$('#flexUseReservationServices').prop('checked', true)
@@ -135,9 +135,9 @@ var RequestView = Backbone.View.extend({
       }
 
       if ( eligibilityService == 'true' || eligibilityService == '' ) {
-        view.$('#wheelchair').prop('checked', true)
+        view.$('#flexUseEligibilityServices').prop('checked', true)
       } else {
-        view.$('#wheelchair').prop('checked', false)
+        view.$('#flexUseEligibilityServices').prop('checked', false)
       }
 
       view.updateModeControls()
@@ -281,7 +281,7 @@ var RequestView = Backbone.View.extend({
       optimize: this.$('#optimize').val(),
       wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked'),
       flexUseReservationServices: this.$('#flexUseReservationServices').prop('checked'),
-      wheelchair: this.$('#wheelchair').prop('checked')
+      flexUseEligibilityServices: this.$('#flexUseEligibilityServices').prop('checked')
     }
 
     // skip if either to/from fields are unset
