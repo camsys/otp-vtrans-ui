@@ -159,7 +159,7 @@ var PlanRequest = Backbone.Model.extend({
   },
 
   toQueryString: function () {
-    return '?' + qs.stringify(utils.filterParams(this.attributes))
+    return '?' + qs.stringify(utils.filterParams(this.attributes))+'&locale='+userLang
   },
 
   fromQueryString: function (queryString) {
