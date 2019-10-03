@@ -340,17 +340,6 @@
   
 }
 
-@media print {
-  .form-control .select2-choice .select2-arrow {
-    border: none;
-  }
-
-  #hidableSettings,
-  .hide-show-settings,
-  .plan-trip-button {
-    display: none;
-  }
-}
 
 #showSettings {
   margin-top: 0;

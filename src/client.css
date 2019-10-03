@@ -66,42 +66,101 @@ body {
 	overflow-x: hidden;
 }
 
+
 @media print {
+  body, html {
+    font-size: 16px;
+    text-size-adjust: none;
+    /*width: 100%;*/
+    margin: 0;
+    height: 0;
+    overflow-y: visible;
+  }
+
+
+  #sidebar {
+    overflow: visible !important;
+  }
+
   #tabs, 
   .narrative-message, 
   .select2-search input,
-  .select2-no-results {
+  .select2-no-results, 
+  #map, 
+  .messageWell, 
+  .PlanResponseNarrativeView,
+  .otp-itinHeader .print, 
+  #hidableSettings,
+  .hide-show-settings,
+  .plan-trip-button, 
+  .less-more, 
+  #narrative .nav-tabs li:not(.active), 
+  #mymap {
     display: none!important;
+  }
+
+  .otp-legMode-title {
+    display: inline;
+  }
+
+  .PlanResponseNarrativeView.activated, 
+  #sidebar, 
+  #plan {
+    display: block!important;
+  }
+
+  .form-control .select2-choice .select2-arrow, 
+  #mymap {
+    border: none;
+  }
+
+  #trip-plan-header {
+  	position: static;
+  }
+
+  #trip-plan-header::before {
+  	content: ;
+  	display: none;
+  }
+
+  #sidebar, #plan {
+  	float: left;
+  	width: 100%;
+  	position: static;
+  }
+
+  #sidebar::after, #plan::after {
+  	content: '';
+  	display: table;
+  	width: 100%;
   }
   
   #sidebar {
     width: 100%;
   }
-  
-  #mymap {
-    border: none;
+
+  #sidebar-inner {
+  	height: auto!important;
+  	position: static;
   }
   
   .select2-chosen {
     margin-right: 0!important;
-    max-width: 100%;
+    max-width: 100%!important;
     overflow: visible;
   }
+ 
   
-  #narrative .nav-tabs li:not(.active) {
-    display: none;
-  }
-  
-  .PlanResponseNarrativeView {
+  .PlanResponseNarrativeView, 
+  .otp-legBody, 
+  #request-form-container {
     display: block!important;
+    max-width: 100vw
   }
-  
-  .otp-legBody {
-    display: block!important;
+
+  .call-and-ride-note .button {
+  	display: none;
   }
-  
-  .less-more {
-    display: none;
-  }
+ 
   
 }

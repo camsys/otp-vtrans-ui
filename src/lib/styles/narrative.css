@@ -793,22 +793,3 @@ a.print-icon:hover {
 
   
 }
-
-@media print {
-  .messageWell {
-    display: none;
-  }
-
-  .otp-legMode-title {
-    display: inline;
-  }
-
-  .PlanResponseNarrativeView,
-  .otp-itinHeader .print {
-    display: none;
-  }
-
-  .PlanResponseNarrativeView.activated {
-    display: block;
-  }
-}
