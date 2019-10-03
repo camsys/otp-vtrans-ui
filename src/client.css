@@ -69,14 +69,23 @@ body {
 
 @media print {
   body, html {
-    font-size: 16px;
-    text-size-adjust: none;
-    /*width: 100%;*/
     margin: 0;
     height: 0;
     overflow-y: visible;
+    font-size: 12px;
   }
 
+  body * {
+    font-size: 1rem;
+  }
+
+  .print-header {
+    display: block!important;
+    font-size: 1.75rem;
+    padding: 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid;
+    margin: 0;
+  }
 
   #sidebar {
     overflow: visible !important;
@@ -95,7 +104,8 @@ body {
   .plan-trip-button, 
   .less-more, 
   #narrative .nav-tabs li:not(.active), 
-  #mymap {
+  #mymap, 
+  #trip-plan-header {
     display: none!important;
   }
 
@@ -112,15 +122,6 @@ body {
   .form-control .select2-choice .select2-arrow, 
   #mymap {
     border: none;
-  }
-
-  #trip-plan-header {
-  	position: static;
-  }
-
-  #trip-plan-header::before {
-  	content: ;
-  	display: none;
   }
 
   #sidebar, #plan {
@@ -144,10 +145,16 @@ body {
   	position: static;
   }
   
+  .select2-choice {
+    padding-left: 0px!important;
+  }
+
   .select2-chosen {
     margin-right: 0!important;
     max-width: 100%!important;
     overflow: visible;
+    font-weight: bold;
+    font-size: 1.25em;
   }
  
   
@@ -160,6 +167,19 @@ body {
 
   .call-and-ride-note .button {
   	display: none;
+  }
+
+  .narrative-results {
+    padding-top: 1rem;
+    border-top: 1px solid;
+  }
+
+  .narrative-tab {
+    font-size: 1.25rem;
+  }
+
+  .timing-group .col-xs-4 {
+    width: auto;
   }
  
   
