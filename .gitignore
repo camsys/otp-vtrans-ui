@@ -1,3 +1,13 @@
 src/config.js
 node_modules
 dist
+vtrans_ui_config_local.js
+vtrans_ui_config_demo.js
+vtrans_ui_config_dev.js
+vtrans_ui_config_prod.js
+vtrans_ui_config_qa.js
+package_release_demo.sh
+package_release_dev.sh
+package_release_local.sh
+package_release_prod.sh
+oc_otp_ui.tgz

@@ -384,6 +384,14 @@
   padding: 0;
 }
 
+.narrative-failure {
+  text-align: center;
+  font-size: 22px;
+  font-style: italic;
+  color: #7D8CA0;
+  padding: 0;
+}
+
 #plan #narrative {
   margin: 0;
 }
