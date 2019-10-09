@@ -202,20 +202,15 @@ var ItineraryMapView = Backbone.View.extend({
         popupContent = '<div class="otp-legMode-icon otp-legMode-icon-' + leg.get('mode') + '"></div> '
       }
 
-
-      if (leg.get('routeShortName')) {
+      if(leg.get('headsign') && leg.get('routeLongName')) {
+        popupContent += leg.get('routeLongName')+" ("+leg.get('headsign')+") "
+      } else if (leg.get('routeShortName')) {
         popupContent += leg.get('routeShortName')
+      } else if (leg.get('route')) {
+        popupContent += leg.get('route')
       }
 
-      if (leg.get('routeLongName')) {
-        if (popupContent !== '') {
-          popupContent += ' '
-        }
-
-        popupContent += leg.get('routeLongName')
-      }
-
-      popupContent += ' <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
+      popupContent += '&nbsp; <div class="otp-legMode-icon otp-legMode-icon-arrow-right"></div> ' + leg.get('to').name
 
       minutes = leg.get('duration') / 60
       popupContent += ' (' + Math.round(minutes) + ' mins)'
