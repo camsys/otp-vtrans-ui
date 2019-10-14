@@ -91,7 +91,7 @@ i18next
                 serviceDetails: 'Service Details',
                 toScheduleARide: 'To Schedule a Ride',
                 toApply: 'To Apply',
-                callCenterHoursOfOperation: "Call Center Hours of Operation",
+                callCenterHoursOfOperation: "Hours of Service",
                 close: 'Close',
                 call: 'Call'
             }
@@ -161,7 +161,7 @@ i18next
                 serviceDetails: 'Detalles del servicio',
                 toScheduleARide: 'Programar un viaje',
                 toApply: 'Aplicar',
-                callCenterHoursOfOperation: "Centro de llamadas Horas de Operación",
+                callCenterHoursOfOperation: "Horas de Servicio",
                 close: 'Cerrar',
                 call: 'Llamada'
             }
