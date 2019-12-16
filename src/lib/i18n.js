@@ -39,7 +39,7 @@ i18next
                 map:'Map',
             },
             handlebars: {
-                title:'VTRANS OTP UI',
+                title:'Ride Transit Orange Trip Planner',
                 to:'to',
                 toUP:'To:',
                 setStartLocation:'Set Start Location',
@@ -107,7 +107,7 @@ i18next
                 map:'Mapa',
             },
             handlebars: {
-                title:'VTRANS OTP UI',
+                title:'Ride Transit Orange Trip Planner',
                 to:'a',
                 toUP:'A:',
                 setStartLocation:'Establecer ubicación de inicio',
