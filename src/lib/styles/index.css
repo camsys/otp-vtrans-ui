@@ -90,6 +90,26 @@ label, b, strong, bold {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
+#trip-plan-header #to-link {
+  display: inline-block;
+  position: absolute;
+  right: 1.5em;
+  top: 50%;
+  width: 10em;
+  height: 2.5em;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: rgba(255,255,255,0);
+  -webkit-transition: background .25s ease-in-out;
+  -o-transition: background .25s ease-in-out;
+  transition: background .25s ease-in-out;
+}
+
+#trip-plan-header #to-link:hover {
+  background-color: rgba(255,255,255,.375)
+}
+
 #mymap {
   border-left: 2px solid #EEA660;
 }
