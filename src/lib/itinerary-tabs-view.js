@@ -19,15 +19,34 @@ var ItineraryTabsView = Backbone.View.extend({
     var duration = this.options.planView.options.showFullDuration
       ? this.model.getFullDuration(this.options.planView.model.get('request'), timeOffset)
       : this.model.get('duration')
+    var hasWalkingLegs = false;
+    var hasBusLegs = false;
+
 
     // filter out internal walk legs
     var filteredLegs = []
     legs.models.forEach(function(model, i) {
       if(i === 0 || i === legs.models.length - 1) {
+
+        if(model.isWalk()){
+          hasWalkingLegs = true
+        }
+        if(model.isTransit()){
+          hasBusLegs = true
+        }
+
         filteredLegs.push(model)
         return;
       }
-      if(model.get('mode') !== 'WALK') filteredLegs.push(model)
+
+      if(model.get('mode') !== 'WALK'){
+        filteredLegs.push(model)
+      }
+
+      if(model.isTransit()){
+        hasBusLegs = true
+      }
+
     })
 
     var starting_ascii_value_A = "A".charCodeAt(0)
@@ -39,6 +58,8 @@ var ItineraryTabsView = Backbone.View.extend({
     context.duration = duration
     context.timeOffset = timeOffset
     context.fare = this.model.get('fare').fare
+    context.hasWalkingLegs = hasWalkingLegs
+    context.hasBusLegs = hasBusLegs
 
     this.$el.html(itinNarrativeTabTemplate(context))
 
