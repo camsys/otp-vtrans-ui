@@ -58,6 +58,7 @@ var PlanRequest = Backbone.Model.extend({
     flexFlagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault,
     flexUseReservationServices: true,
     flexUseEligibilityServices: true,
+    parkAndRide: true,
     locale: 'en',
   },
 
@@ -69,6 +70,11 @@ var PlanRequest = Backbone.Model.extend({
     } else {
       log('requesting plan %s', this.urlRoot + this.toQueryString())
       this.trigger('requesting', this)
+
+      if (this.parkAndRide) {
+        this.mode = 'TRANSIT,WALK,CAR_PARK'
+      }
+
 
       var m = this
 

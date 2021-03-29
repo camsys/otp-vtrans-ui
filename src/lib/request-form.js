@@ -127,21 +127,29 @@ var RequestView = Backbone.View.extend({
 
       var reservationService = data.attributes.flexUseReservationServices+''
       var eligibilityService = data.attributes.flexUseEligibilityServices+''
+      var parkAndRide = data.attributes.parkAndRide+''
 
-      if (reservationService == 'true' || reservationService == '' ) {
+      if (reservationService == 'true') {
         view.$('#flexUseReservationServices').prop('checked', true)
-      } else {
+      } else if(reservationService == 'false') {
         view.$('#flexUseReservationServices').prop('checked', false)
       }
 
-      if ( eligibilityService == 'true' || eligibilityService == '' ) {
+      if ( eligibilityService == 'true') {
         view.$('#flexUseEligibilityServices').prop('checked', true)
-      } else {
+      } else if ( eligibilityService == 'false') {
         view.$('#flexUseEligibilityServices').prop('checked', false)
+      }
+
+      if ( parkAndRide == 'true' || parkAndRide == '' ) {
+        view.$('#parkAndRide').prop('checked', true)
+      } else {
+        view.$('#parkAndRide').prop('checked', false)
       }
 
       view.updateModeControls()
     })
+
 
     this.listenTo(this.model, 'requesting', function () {
       view.deactivateSearchButton()
@@ -281,7 +289,8 @@ var RequestView = Backbone.View.extend({
       optimize: this.$('#optimize').val(),
       wheelchairAccessible: this.$('#wheelchairAccessible').prop('checked'),
       flexUseReservationServices: this.$('#flexUseReservationServices').prop('checked'),
-      flexUseEligibilityServices: this.$('#flexUseEligibilityServices').prop('checked')
+      flexUseEligibilityServices: this.$('#flexUseEligibilityServices').prop('checked'),
+      parkAndRide: this.$('#parkAndRide').prop('checked')
     }
 
     // skip if either to/from fields are unset
@@ -290,6 +299,10 @@ var RequestView = Backbone.View.extend({
 
     var toData = this.$('#toPlace').select2('data')
     data.toPlace = _.has(toData, 'place') ? toData.place : false
+
+    // data.attributes.flexUseReservationServices = this.$('#flexUseReservationServices').prop('checked')
+    // data.attributes.flexUseEligibilityServices = this.$('#flexUseEligibilityServices').prop('checked')
+    // data.attributes.parkAndRide = this.$('#parkAndRide').prop('checked')
 
     this.model.set(data)
     this.updatingForm = false
