@@ -71,8 +71,8 @@ var PlanRequest = Backbone.Model.extend({
       log('requesting plan %s', this.urlRoot + this.toQueryString())
       this.trigger('requesting', this)
 
-      if (this.parkAndRide) {
-        this.mode = 'TRANSIT,WALK,CAR_PARK'
+      if (this.attributes.parkAndRide) {
+        this.attributes.mode = 'TRANSIT,WALK,CAR_PARK'
       }
 
 
