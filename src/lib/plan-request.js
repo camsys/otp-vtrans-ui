@@ -74,6 +74,9 @@ var PlanRequest = Backbone.Model.extend({
       if (this.attributes.parkAndRide) {
         this.attributes.mode = 'TRANSIT,WALK,CAR_PARK'
       }
+      else {
+        this.attributes.mode = 'TRANSIT,WALK'
+      }
 
 
       var m = this
