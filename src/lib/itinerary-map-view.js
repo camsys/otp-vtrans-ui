@@ -129,8 +129,6 @@ var ItineraryMapView = Backbone.View.extend({
   },
 
   render: function () {
-    console.log('RENDER CALLED')
-
     if (!this.attachedToMap) this.attachToMap()
     this.clearLayers()
 
