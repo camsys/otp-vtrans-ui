@@ -58,7 +58,7 @@ var PlanRequest = Backbone.Model.extend({
     flexFlagStopBufferSize: window.OTP_config.flagStopBufferSizeDefault,
     flexUseReservationServices: true,
     flexUseEligibilityServices: true,
-    parkAndRide: true,
+    parkAndRide: false,
     locale: 'en',
   },
 
