@@ -34,8 +34,8 @@
   transition: top .1s ease-in-out
 }
 
-.reverse-button:hover, 
-.reverse-button:focus, 
+.reverse-button:hover,
+.reverse-button:focus,
 .reverse-button:active {
   background-color: transparent!important;
   background-image: url('../images/ocotp/map_flipper_hover.png');
@@ -43,7 +43,7 @@
           box-shadow: none;
 }
 
-.reverse-button:active, 
+.reverse-button:active,
 .reverse-button:focus {
   top: 2px;
 }
@@ -108,10 +108,10 @@
   z-index: 0
 }
 
-.icon-button-group .form-control, 
-.icon-button-group .input-group-addon, 
+.icon-button-group .form-control,
+.icon-button-group .input-group-addon,
 .select2-container .select2-choice {
-  border: none;   
+  border: none;
   background: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -123,9 +123,9 @@
   height: auto;
 }
 
-.select2-container .select2-choice .select2-arrow b, 
-.select2-container .select2-choice abbr, 
-.select2-search input, 
+.select2-container .select2-choice .select2-arrow b,
+.select2-container .select2-choice abbr,
+.select2-search input,
 .select2-search-choice-close {
 
 }
@@ -139,9 +139,9 @@
   border: none;
 }
 
-.select2-results .select2-ajax-error, 
-.select2-results .select2-no-results, 
-.select2-results .select2-searching, 
+.select2-results .select2-ajax-error,
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
 .select2-results .select2-selection-limit {
   background-color: transparent;
   color: #7D8CA0;
@@ -169,7 +169,7 @@
 }
 
 /*.icon-button-group .input-group-addon:hover {
-  background-color: #EEA660;
+  background-color: #ED6E39;
 }*/
 
 /*.input-group.date .input-group-addon span {
@@ -211,8 +211,8 @@
 }
 
 .hide-show-settings button,
-.hide-show-settings button:hover, 
-.hide-show-settings button:active, 
+.hide-show-settings button:hover,
+.hide-show-settings button:active,
 .hide-show-settings button:focus {
   display: inline-block;
   width: auto;
@@ -223,8 +223,8 @@
   color: #7D8CA0;
 }
 
-.hide-show-settings button:hover, 
-.hide-show-settings button:active, 
+.hide-show-settings button:hover,
+.hide-show-settings button:active,
 .hide-show-settings button:focus {
   font-style: italic;
 }
@@ -326,7 +326,7 @@
     margin-bottom: 15px;
   }
 
-  
+
 }
 
 @media (max-width: 991px) {
@@ -337,7 +337,7 @@
     text-align: left;
   }
 
-  
+
 }
 
 

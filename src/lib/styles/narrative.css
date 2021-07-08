@@ -4,13 +4,13 @@
 }
 .otp-itinHeader {
   cursor: pointer;
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'AvenirNextLTPro-Medium', sans-serif;
 }
 
 .otp-itinHeader-preview {
   /*margin-bottom: .25em;
   text-align: center;*/
-  font-family: 'Roboto', sans-serif;
+  font-family: 'AvenirNextLTPro-Medium', sans-serif;
 }
 
 .otp-leg .alert {
@@ -434,12 +434,12 @@
 }
 
 .narrative-results .nav-link.active {
-  color: #2767AC;
+  color: #184199;
 }
 
-.narrative-results .nav-tabs > li a, 
-.narrative-results .nav-tabs > li a:hover, 
-.narrative-results .nav-tabs > li a:focus, 
+.narrative-results .nav-tabs > li a,
+.narrative-results .nav-tabs > li a:hover,
+.narrative-results .nav-tabs > li a:focus,
 .narrative-results .nav-tabs > li a:active {
   background-color: #fff;
   margin: 0;
@@ -540,7 +540,7 @@
   width: 100%;
 }
 
-.otp-itinHeader-title .itinerary-summary, 
+.otp-itinHeader-title .itinerary-summary,
 .otp-itinHeader-title .itinerary-print {
   display: table-cell;
   vertical-align: middle;
@@ -564,7 +564,7 @@ a.print-icon {
 
 a.print-icon:hover {
   background-image: url('../images/ocotp/print-icon_white.png');
-  background-color: #EEA660;
+  background-color: #ED6E39;
   border-color: #fff;
 }
 
@@ -583,7 +583,7 @@ a.print-icon:hover {
 }
 
 .otp-legBody-from {
-  border-bottom: 1px solid;  
+  border-bottom: 1px solid;
 }
 
 .otp-legBody-row {
@@ -653,7 +653,7 @@ a.print-icon:hover {
   padding: .25em .375em .25em .25em;
   line-height: 1;
   border-left: .25em solid #7DA4CD;
-  border-radius: .125em; 
+  border-radius: .125em;
   color: #fff;
   display: inline-block;
   margin: .5em .5em 0 0;
@@ -706,7 +706,7 @@ a.print-icon:hover {
   background-color: #7DA4CD;
   padding: .25em .375em .25em .25em;
   line-height: 1;
-  border-radius: .125em; 
+  border-radius: .125em;
   color: #fff;
 }
 
@@ -749,7 +749,7 @@ a.print-icon:hover {
 }
 
 .otp-legStep-dist .distance-value {
- font-size: 1.25em; 
+ font-size: 1.25em;
  font-weight: 600;
 }
 
@@ -785,7 +785,7 @@ a.print-icon:hover {
     text-align: left;
   }
 
-  
+
 }
 
 @media (max-width: 480px) {
@@ -799,5 +799,5 @@ a.print-icon:hover {
     font-size: 10px;
   }
 
-  
+
 }

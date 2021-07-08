@@ -13,15 +13,15 @@ module.exports =
     },
     module: {
      rules: [
-       { 
-         test: /\.handlebars$/, 
+       {
+         test: /\.handlebars$/,
          loader: "handlebars-loader",
          query: {
            knownHelpersOnly: false
          },
         },
-        { 
-          test: /\.css$/, 
+        {
+          test: /\.css$/,
           loader: "style-loader!css-loader"
         },
         {
@@ -35,6 +35,10 @@ module.exports =
         {
           test: /\.(json|geojson)$/,
           loader: 'json-loader'
+        },
+	      {
+    	    test: /\.(woff|woff2|eot|ttf|otf)$/,
+       	  loader: "file-loader"
         }
      ]
    },

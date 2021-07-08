@@ -51,11 +51,11 @@ label, b, strong, bold {
   text-align: left;
   width: 100%;
   position: relative;
-  height: 4.5em;
+  height: 6.5em;
 }
 
 #trip-plan-header .header-brand {
-  color: #2767AC;
+  color: #184199;
   font-size: xx-large;
 }
 
@@ -65,7 +65,7 @@ label, b, strong, bold {
   right: 1.5em;
   top: 50%;
   width: 10em;
-  height: 2.5em;
+  height: 5em;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -96,7 +96,7 @@ label, b, strong, bold {
   right: 1.5em;
   top: 50%;
   width: 10em;
-  height: 2.5em;
+  height: 5em;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -111,7 +111,7 @@ label, b, strong, bold {
 }
 
 #mymap {
-  border-left: 2px solid #EEA660;
+  border-left: 2px solid #ED6E39;
 }
 
 @-webkit-keyframes spin {
@@ -139,7 +139,7 @@ label, b, strong, bold {
   width: auto;
   border: 2px solid #fff;
   color: #fff;
-  background-color: #EEA660;
+  background-color: #ED6E39;
   font-size: 1.125em;
   font-weight: 600;
   height: 2.5em;
@@ -171,7 +171,7 @@ label, b, strong, bold {
 .button:focus,
 .button:active {
   border-color: #fff!important;
-  background-color: #2767AC;
+  background-color: #184199;
   color: #fff;
   text-decoration: none;
 }
@@ -179,7 +179,7 @@ label, b, strong, bold {
 .button.button-secondary:hover,
 .button.button-secondary:focus,
 .button.button-secondary:active {
-  background-color: #EEA660;
+  background-color: #ED6E39;
 }
 
 
@@ -277,5 +277,5 @@ label, b, strong, bold {
     border: none;
   }
 
-  
+
 }

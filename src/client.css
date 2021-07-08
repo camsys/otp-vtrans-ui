@@ -1,7 +1,12 @@
+@font-face {
+    font-family: AvenirNextLTPro-Medium;
+    src: url("lib/styles/AvenirNextLTPro-Medium.otf") format("opentype");
+}
+
 body {
   overflow: hidden;
   max-height: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'AvenirNextLTPro-Medium', sans-serif;
 }
 
 .container {
@@ -20,7 +25,7 @@ body {
 	width: 100%;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'AvenirNextLTPro-Medium', sans-serif;
 }
 
 #itineraries {
@@ -91,20 +96,20 @@ body {
     overflow: visible !important;
   }
 
-  #tabs, 
-  .narrative-message, 
+  #tabs,
+  .narrative-message,
   .select2-search input,
-  .select2-no-results, 
-  #map, 
-  .messageWell, 
+  .select2-no-results,
+  #map,
+  .messageWell,
   .PlanResponseNarrativeView,
-  .otp-itinHeader .print, 
+  .otp-itinHeader .print,
   #hidableSettings,
   .hide-show-settings,
-  .plan-trip-button, 
-  .less-more, 
-  #narrative .nav-tabs li:not(.active), 
-  #mymap, 
+  .plan-trip-button,
+  .less-more,
+  #narrative .nav-tabs li:not(.active),
+  #mymap,
   #trip-plan-header {
     display: none!important;
   }
@@ -113,13 +118,13 @@ body {
     display: inline;
   }
 
-  .PlanResponseNarrativeView.activated, 
-  #sidebar, 
+  .PlanResponseNarrativeView.activated,
+  #sidebar,
   #plan {
     display: block!important;
   }
 
-  .form-control .select2-choice .select2-arrow, 
+  .form-control .select2-choice .select2-arrow,
   #mymap {
     border: none;
   }
@@ -135,7 +140,7 @@ body {
   	display: table;
   	width: 100%;
   }
-  
+
   #sidebar {
     width: 100%;
   }
@@ -144,7 +149,7 @@ body {
   	height: auto!important;
   	position: static;
   }
-  
+
   .select2-choice {
     padding-left: 0px!important;
   }
@@ -156,10 +161,10 @@ body {
     font-weight: bold;
     font-size: 1.25em;
   }
- 
-  
-  .PlanResponseNarrativeView, 
-  .otp-legBody, 
+
+
+  .PlanResponseNarrativeView,
+  .otp-legBody,
   #request-form-container {
     display: block!important;
     max-width: 100vw
@@ -181,6 +186,6 @@ body {
   .timing-group .col-xs-4 {
     width: auto;
   }
- 
-  
+
+
 }
